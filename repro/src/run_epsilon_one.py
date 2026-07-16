@@ -47,8 +47,12 @@ def main():
     pattern = args.pattern
     d_max, test_input_nodes, edges, h, m = preprocessing.graph_data_load(
         args.dataset, pattern, args.n, logger, args.d)
-    Q_num = math.ceil(args.n ** 1.5 * args.qmult)
-    Q = preprocessing.generate_queries(Q_num, m, args.d)
+    if args.d == 1:  # upstream convention: Q_num = n^1.5, skewed queries
+        Q_num = math.ceil(args.n ** 1.5 * args.qmult)
+        Q = preprocessing.generate_queries(Q_num, m, args.d)
+    else:            # d == 2: Q_num = n^2, random queries (per upstream test.py)
+        Q_num = math.ceil(args.n ** 2 * args.qmult)
+        Q = preprocessing.generate_random_queries(Q_num, m, args.d)
     print(f"{args.dataset} {pattern} n={args.n} Q={Q_num} repeats={args.repeats} m={m}", flush=True)
 
     rows = []
