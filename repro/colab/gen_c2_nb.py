@@ -110,13 +110,15 @@ code(
 
 code(
     "# Save CSVs + zip everything for download (so the logbook can embed the numbers/figure).\n"
-    "import shutil\n"
+    "import glob, zipfile\n"
     "from google.colab import files\n"
     "for (pat, d), (df, m) in results.items():\n"
     "    df.assign(m=m).to_csv(f'c2_{pat}_d{d}.csv', index=False)\n"
-    "shutil.make_archive('/content/dprsc_c2_results', 'zip', '.', 'c2_')\n"
+    "with zipfile.ZipFile('/content/dprsc_c2_results.zip', 'w') as zf:\n"
+    "    for f in glob.glob('c2_*'):\n"
+    "        zf.write(f)\n"
     "files.download('/content/dprsc_c2_results.zip')\n"
-    "print('zipped c2_*.{csv,png} -> /content/dprsc_c2_results.zip')")
+    "print('zipped', glob.glob('c2_*'))")
 
 nb = {
     "cells": cells,
