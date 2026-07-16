@@ -1,29 +1,35 @@
 #!/usr/bin/env python3
-"""Generate the Colab notebook for the DPRSC C2 dimension-scaling experiment."""
+"""Generate the Colab notebook for the DPRSC C2 dimension-scaling experiment.
+
+Fast version: edge pattern only (sufficient for the dimension claim), d=1 at full
+query count and d=2 at 0.1x (n^2 queries is the slow part). ~2-4 min on free Colab.
+"""
 import json
 import os
 
 OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "dprsc_c2_dimension_scaling.ipynb")
-
 cells = []
+
 
 def md(src):
     cells.append({"cell_type": "markdown", "metadata": {}, "source": src})
 
+
 def code(src):
     cells.append({"cell_type": "code", "execution_count": None, "metadata": {}, "outputs": [], "source": src})
+
 
 md(
     "# DPRSC — C2 dimension-scaling (error vs dimension)\n\n"
     "Empirically illustrates **Claim 2** of *Differentially Private Range Subgraph Counting* "
     "(ICML 2026, `QYpByrxSTg`): **any DP algorithm must incur additive error exponential in the dimension.**\n\n"
-    "We run the released DPRSC algorithms **and** the baselines at **d=1** and **d=2** on a bundled dataset "
-    "and show the error grows ~exponentially with dimension. The theory is direct from the code: the Laplace "
-    "noise magnitude is parameterized as `(ceil(log2(m))+1)^(2*d)`, so going d=1 → d=2 should multiply the "
-    "error by ~`(ceil(log2(m))+1)^2` for every method (ours and baselines alike) — exactly the "
-    "'exponential in dimension' behaviour C2 claims must hold for *any* DP algorithm.\n\n"
-    "**CPU-only** (pure Python: numpy/pandas/matplotlib). Colab gives enough cores/RAM/time for the d=2 "
-    "(4-D range-tree) run that times out on a 4-vCPU/15 GB box.")
+    "We run the released DPRSC algorithms **and** the baselines at **d=1** and **d=2** and show the error grows "
+    "~exponentially with dimension. The theory is direct from the code: the Laplace noise magnitude is parameterized "
+    "as `(ceil(log2(m))+1)^(2*d)`, so d=1 → d=2 should multiply error by ~`(ceil(log2(m))+1)^2` for every method "
+    "(ours and baselines) — the 'exponential in dimension' behaviour C2 claims must hold for *any* DP algorithm.\n\n"
+    "**CPU-only** (numpy/pandas/matplotlib). **Fast config:** `edge` pattern only (enough for the dimension claim), "
+    "d=1 at full query count, d=2 at 0.1x query count (n^2 is the slow part). ~2–4 min on free Colab. "
+    "To also do `triangle`, add it to the pattern list (slower).")
 
 code(
     "# Clone the official repo (code + bundled datasets) and install deps\n"
@@ -63,21 +69,20 @@ code(
     "print('helper ready')")
 
 code(
-    "# Run d=1 and d=2 for edge + triangle on ca-netscience (n=379; one of the paper's datasets).\n"
+    "# FAST RUN: edge pattern, d=1 (full Q) vs d=2 (0.1x Q). ~2-4 min on free Colab.\n"
     "eps_list = [0.5, 1.0, 2.0, 4.0]\n"
     "results = {}\n"
-    "for pat in ['edge', 'triangle']:\n"
-    "    for d in [1, 2]:\n"
-    "        print(f'>> {pat} d={d} ...', flush=True)\n"
-    "        df, m = eps_run('ca-netscience', 379, pat, d, eps_list, workers=2, qmult=1.0)\n"
-    "        results[(pat, d)] = (df, m)\n"
-    "        print(df.round(3).to_string(index=False), flush=True)\n"
+    "for d, qm in [(1, 1.0), (2, 0.1)]:            # d=2 uses 10x fewer queries (n^2 is the slow part)\n"
+    "    print(f'>> edge d={d} (qmult={qm}) ...', flush=True)\n"
+    "    df, m = eps_run('ca-netscience', 379, 'edge', d, eps_list, workers=2, qmult=qm)\n"
+    "    results[('edge', d)] = (df, m)\n"
+    "    print(df.round(3).to_string(index=False), flush=True)\n"
     "print('done')")
 
 code(
     "# d=2 / d=1 error ratio vs the theoretical noise factor (ceil(log2 m)+1)^2.\n"
     "print('C2 — exponential-in-dimension check (d=2 error should be ~(log2 m+1)^2 x d=1 error):\\n')\n"
-    "for pat in ['edge', 'triangle']:\n"
+    "for pat in ['edge']:\n"
     "    d1, _ = results[(pat, 1)]; d2, m = results[(pat, 2)]\n"
     "    theo = (math.ceil(math.log2(m)) + 1) ** 2\n"
     "    print(f'[{pat}] m={m}  ->  theoretical d2/d1 noise ratio = (log2(m)+1)^2 = {theo}')\n"
@@ -89,17 +94,17 @@ code(
     "    print()")
 
 code(
-    "# Plot: mean error at d=1 vs d=2 for every method (log scale). Bars should jump ~exponentially with d.\n"
+    "# Plot: mean error at d=1 vs d=2 for every method (log scale). Bars jump ~exponentially with d.\n"
     "import matplotlib.pyplot as plt\n"
-    "fig, axes = plt.subplots(1, 2, figsize=(13, 4.5))\n"
+    "pat = 'edge'\n"
+    "d1, _ = results[(pat, 1)]; d2, m = results[(pat, 2)]\n"
     "methods = ['pure', 'approx', 'base_comp', 'base_comp_ADP']\n"
-    "for ax, pat in zip(axes, ['edge', 'triangle']):\n"
-    "    d1, _ = results[(pat, 1)]; d2, m = results[(pat, 2)]\n"
-    "    m1 = [d1[k].mean() for k in methods]; m2 = [d2[k].mean() for k in methods]\n"
-    "    x = np.arange(len(methods)); w = 0.38\n"
-    "    ax.bar(x - w/2, m1, w, label='d=1'); ax.bar(x + w/2, m2, w, label='d=2')\n"
-    "    ax.set_yscale('log'); ax.set_xticks(x); ax.set_xticklabels(methods, rotation=15)\n"
-    "    ax.set_title(f'{pat} (m={m}): mean error d=1 vs d=2'); ax.set_ylabel('mean relative error (log)'); ax.legend()\n"
+    "m1 = [d1[k].mean() for k in methods]; m2 = [d2[k].mean() for k in methods]\n"
+    "fig, ax = plt.subplots(figsize=(7, 4.5))\n"
+    "x = np.arange(len(methods)); w = 0.38\n"
+    "ax.bar(x - w/2, m1, w, label='d=1'); ax.bar(x + w/2, m2, w, label='d=2')\n"
+    "ax.set_yscale('log'); ax.set_xticks(x); ax.set_xticklabels(methods, rotation=15)\n"
+    "ax.set_title(f'{pat} (m={m}): mean error d=1 vs d=2'); ax.set_ylabel('mean relative error (log)'); ax.legend()\n"
     "plt.tight_layout(); plt.savefig('c2_dimension_scaling.png', dpi=110, bbox_inches='tight'); plt.show()\n"
     "print('saved c2_dimension_scaling.png')")
 
