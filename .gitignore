@@ -1,0 +1,10 @@
+.venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.env
+hf-cache/
+# vendored upstream clone (Airleave/DPRSC @ aae89538) — re-clone per README, not committed
+upstream/
+# logbook source is published to the HF Space (DineshAI/QYpByrxSTg)
+.trackio/
