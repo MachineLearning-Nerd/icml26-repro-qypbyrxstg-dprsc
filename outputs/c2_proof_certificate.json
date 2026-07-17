@@ -1,0 +1,153 @@
+{
+  "status": "PASS",
+  "claim": "any DP DPRSC algorithm has dimension-exponential additive error",
+  "paper_source": {
+    "arxiv": "2606.08179v1",
+    "main_tex_sha256": "ba23019fd6e80c8efa82a062cb1ebfe2235df4d26c2b57cd59236f97a58bba0c",
+    "theorem_labels": [
+      "thm:main_lower",
+      "thm:lower bounds dp range subgraph counting"
+    ],
+    "audited_lemmas": [
+      "lem:lower bounds for disc of private orthogonal range counting",
+      "lem:discCalphaH",
+      "lem:general-attacker",
+      "lem:decoder"
+    ]
+  },
+  "dependency_chain": [
+    "orthogonal-box incidence discrepancy D_d(n)",
+    "one private bit maps to exactly one private graph edge",
+    "pattern-count discrepancy is Omega(GS_fH * D_d(n))",
+    "error below half that discrepancy enables Hamming reconstruction",
+    "post-processing preserves DP",
+    "DP reconstruction lower bound yields contradiction"
+  ],
+  "asymptotic_regimes": {
+    "constant_d": "Omega(log(n)^(d-1) * sensitivity)",
+    "d_O_log_n": "2^Omega(d) * sensitivity",
+    "d_Omega_log_n": "n^Omega(1) * sensitivity"
+  },
+  "finite_exhaustive_certificate": {
+    "dimension": 2,
+    "points": [
+      [
+        -1,
+        -1
+      ],
+      [
+        -1,
+        1
+      ],
+      [
+        1,
+        -1
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "boxes_have_common_origin": true,
+    "incidence_matrix": [
+      [
+        1,
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        1
+      ],
+      [
+        1,
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        1
+      ],
+      [
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        1,
+        1,
+        1
+      ]
+    ],
+    "private_databases": 16,
+    "neighbor_graph_checks": 64,
+    "count_identity_checks": 4608,
+    "reconstruction_separation_checks": 528,
+    "alpha": 0.5,
+    "point_discrepancy": 1,
+    "discrepancy_candidates": 72,
+    "pattern_global_sensitivity_on_n_vertices": {
+      "edge": 1,
+      "triangle": 2,
+      "2star": 4
+    },
+    "pattern_discrepancy": {
+      "edge": 1,
+      "triangle": 2,
+      "2star": 4
+    },
+    "exact_multiplier_verified": {
+      "edge": true,
+      "triangle": true,
+      "2star": true
+    }
+  },
+  "decoder_contradiction_examples": [
+    {
+      "epsilon": 0.1,
+      "delta": 0.0,
+      "decoder_lower_error_fraction": 0.45241870901797976,
+      "chosen_alpha": 0.11310467725449494,
+      "minimum_success_beta": 0.6174136642043707,
+      "chosen_success_beta": 0.8087068321021853,
+      "hypothetical_attack_upper_fraction": 0.2827616931362374
+    },
+    {
+      "epsilon": 1.0,
+      "delta": 0.0,
+      "decoder_lower_error_fraction": 0.18393972058572117,
+      "chosen_alpha": 0.04598493014643029,
+      "minimum_success_beta": 0.8553955856688246,
+      "chosen_success_beta": 0.9276977928344123,
+      "hypothetical_attack_upper_fraction": 0.11496232536607567
+    },
+    {
+      "epsilon": 1.0,
+      "delta": 0.1,
+      "decoder_lower_error_fraction": 0.14715177646857694,
+      "chosen_alpha": 0.036787944117144235,
+      "minimum_success_beta": 0.8854210433960195,
+      "chosen_success_beta": 0.9427105216980097,
+      "hypothetical_attack_upper_fraction": 0.09196986029286054
+    },
+    {
+      "epsilon": 2.0,
+      "delta": 0.25,
+      "decoder_lower_error_fraction": 0.033833820809153176,
+      "chosen_alpha": 0.008458455202288294,
+      "minimum_success_beta": 0.9744081670203321,
+      "chosen_success_beta": 0.9872040835101661,
+      "hypothetical_attack_upper_fraction": 0.021146138005720724
+    }
+  ],
+  "universal_quantifier_justification": "The contradiction assumes an arbitrary (epsilon,delta)-DP DPRSC mechanism; no property of the released algorithms is used.",
+  "certificate_payload_sha256": "6c4764de1ac6bfe4a35a5b63725c5e8ca27b453dedd482334831c2582153b601"
+}

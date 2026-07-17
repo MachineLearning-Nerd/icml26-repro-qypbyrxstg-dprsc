@@ -14,7 +14,7 @@ composition) that pay `O(m)` per query and `~Q·(log m)^d/ε` noise.
 
 ## Official claims
 1. First efficient algorithms for DP range subgraph counting with small additive error. **(empirical — reproduced)**
-2. Any DP algorithm incurs additive error exponential in the dimension. **(theorem — documented, not empirically reproduced)**
+2. Any DP algorithm incurs additive error exponential in the dimension. **(theorem — proof audited and reduction machine-checked)**
 3. Algorithms significantly outperform baselines in accuracy while maintaining strong privacy. **(empirical — reproduced)**
 
 ## Reproduce (CPU only; ~minutes for ca-netscience, longer for musae-squirrel)
@@ -35,7 +35,16 @@ upstream-generated figures).
   pure-DP still wins — confirmed at paper-scale (musae-squirrel, n=5201).
 - **Latency:** ours ~tens of µs/query vs baselines ~ms → structurally faster (range tree
   vs full edge-scan per query); gap grows with graph size.
-- **C2:** a lower-bound proof, not an empirical result — noted in the logbook.
+- **C2:** the proof chain is audited against pinned arXiv source `2606.08179v1`. The
+  paper-specific graph encoding, discrepancy lift, and reconstruction separation are
+  exhaustively checked for all 16 private databases on edge, triangle, and 2-star;
+  4/4 fail-closed tests pass. This verifies the universal claim through the arbitrary-
+  mechanism reconstruction contradiction, not by extrapolating algorithm measurements.
+
+```bash
+.venv/bin/python repro/src/verify_lower_bound.py --out outputs/c2_proof_certificate.json
+.venv/bin/python -m pytest repro/test_lower_bound.py -q
+```
 
 ## Layout
 ```
