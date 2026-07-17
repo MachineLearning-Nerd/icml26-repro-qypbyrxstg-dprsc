@@ -1,0 +1,177 @@
+{
+  "status": "PASS",
+  "claim": "arbitrary DP DPRSC mechanisms require dimension-exponential additive error",
+  "certificate_kind": "universally quantified SMT refutation; no finite graph enumeration",
+  "solver": {
+    "name": "Z3",
+    "version": "4.15.3"
+  },
+  "paper_source": {
+    "arxiv": "2606.08179v1",
+    "main_tex_sha256": "ba23019fd6e80c8efa82a062cb1ebfe2235df4d26c2b57cd59236f97a58bba0c",
+    "theorem": "thm:main_lower",
+    "paper_specific_lemmas": [
+      "lem:discCalphaH",
+      "lem:general-attacker"
+    ],
+    "imported_lemmas": [
+      "lem:lower bounds for disc of private orthogonal range counting",
+      "lem:decoder"
+    ]
+  },
+  "quantifier_scope": {
+    "mechanism": "arbitrary (epsilon,delta)-DP mechanism",
+    "epsilon": "every epsilon > 0",
+    "delta": "every 0 <= delta < 1/2",
+    "database_size": "arbitrary n > 0 (real relaxation of positive integers)",
+    "dimension": "arbitrary middle-regime d covered by imported discrepancy lemma",
+    "pattern": "arbitrary pattern with positive global sensitivity"
+  },
+  "middle_regime_chain": [
+    "point discrepancy >= 2^(c*d)",
+    "pattern discrepancy >= sensitivity * point discrepancy / 2",
+    "private additive error >= pattern discrepancy / 2",
+    "therefore additive error >= sensitivity * 2^(c*d) / 4"
+  ],
+  "obligations": [
+    {
+      "name": "adjacency_preservation_per_coordinate",
+      "status": "UNSAT",
+      "meaning": "hypotheses AND NOT(conclusion) has no model",
+      "tracked_hypotheses": [
+        "adjacency_preservation_per_coordinate_hypothesis_00",
+        "adjacency_preservation_per_coordinate_hypothesis_01",
+        "adjacency_preservation_per_coordinate_hypothesis_02"
+      ],
+      "unsat_core": [
+        "adjacency_preservation_per_coordinate_hypothesis_00",
+        "adjacency_preservation_per_coordinate_hypothesis_01",
+        "adjacency_preservation_per_coordinate_hypothesis_02",
+        "adjacency_preservation_per_coordinate_negated_conclusion"
+      ],
+      "smt2_sha256": "4dff192b929ecb0456e2ef9e76b35904f86f10cb50b2592a0325ff62bda92e93",
+      "smt2": "(declare-fun x () Bool)\n(declare-fun edge () Bool)\n(declare-fun adjacency_preservation_per_coordinate_hypothesis_00 () Bool)\n(declare-fun x_prime () Bool)\n(declare-fun edge_prime () Bool)\n(declare-fun adjacency_preservation_per_coordinate_hypothesis_01 () Bool)\n(declare-fun adjacency_preservation_per_coordinate_hypothesis_02 () Bool)\n(declare-fun adjacency_preservation_per_coordinate_negated_conclusion () Bool)\n(assert (=> adjacency_preservation_per_coordinate_hypothesis_00 (= edge x)))\n(assert (=> adjacency_preservation_per_coordinate_hypothesis_01 (= edge_prime x_prime)))\n(assert (=> adjacency_preservation_per_coordinate_hypothesis_02 (distinct x x_prime)))\n(assert (=> adjacency_preservation_per_coordinate_negated_conclusion\n    (not (distinct edge edge_prime))))\n"
+    },
+    {
+      "name": "deterministic_decoder_triangle_inequality",
+      "status": "UNSAT",
+      "meaning": "hypotheses AND NOT(conclusion) has no model",
+      "tracked_hypotheses": [
+        "deterministic_decoder_triangle_inequality_hypothesis_00",
+        "deterministic_decoder_triangle_inequality_hypothesis_01",
+        "deterministic_decoder_triangle_inequality_hypothesis_02",
+        "deterministic_decoder_triangle_inequality_hypothesis_03",
+        "deterministic_decoder_triangle_inequality_hypothesis_04",
+        "deterministic_decoder_triangle_inequality_hypothesis_05",
+        "deterministic_decoder_triangle_inequality_hypothesis_06"
+      ],
+      "unsat_core": [
+        "deterministic_decoder_triangle_inequality_hypothesis_03",
+        "deterministic_decoder_triangle_inequality_hypothesis_04",
+        "deterministic_decoder_triangle_inequality_hypothesis_05",
+        "deterministic_decoder_triangle_inequality_hypothesis_06"
+      ],
+      "smt2_sha256": "5fc945db82bd78eaa77f3868cb5affd4db6bc570907eed9102caed15dfc0226b",
+      "smt2": "(declare-fun D () Real)\n(declare-fun deterministic_decoder_triangle_inequality_hypothesis_00 () Bool)\n(declare-fun left_error () Real)\n(declare-fun deterministic_decoder_triangle_inequality_hypothesis_01 () Bool)\n(declare-fun right_error () Real)\n(declare-fun deterministic_decoder_triangle_inequality_hypothesis_02 () Bool)\n(declare-fun deterministic_decoder_triangle_inequality_hypothesis_03 () Bool)\n(declare-fun deterministic_decoder_triangle_inequality_hypothesis_04 () Bool)\n(declare-fun separation () Real)\n(declare-fun deterministic_decoder_triangle_inequality_hypothesis_05 () Bool)\n(declare-fun deterministic_decoder_triangle_inequality_hypothesis_06 () Bool)\n(declare-fun deterministic_decoder_triangle_inequality_negated_conclusion\n             ()\n             Bool)\n(assert (=> deterministic_decoder_triangle_inequality_hypothesis_00 (> D 0.0)))\n(assert (=> deterministic_decoder_triangle_inequality_hypothesis_01 (>= left_error 0.0)))\n(assert (=> deterministic_decoder_triangle_inequality_hypothesis_02\n    (>= right_error 0.0)))\n(assert (=> deterministic_decoder_triangle_inequality_hypothesis_03\n    (< left_error (/ D 2.0))))\n(assert (=> deterministic_decoder_triangle_inequality_hypothesis_04\n    (< right_error (/ D 2.0))))\n(assert (=> deterministic_decoder_triangle_inequality_hypothesis_05 (>= separation D)))\n(assert (=> deterministic_decoder_triangle_inequality_hypothesis_06\n    (<= separation (+ left_error right_error))))\n(assert (=> deterministic_decoder_triangle_inequality_negated_conclusion (not false)))\n"
+    },
+    {
+      "name": "privacy_constants_exist_for_every_epsilon_delta",
+      "status": "UNSAT",
+      "meaning": "hypotheses AND NOT(conclusion) has no model",
+      "tracked_hypotheses": [
+        "privacy_constants_exist_for_every_epsilon_delta_hypothesis_00",
+        "privacy_constants_exist_for_every_epsilon_delta_hypothesis_01",
+        "privacy_constants_exist_for_every_epsilon_delta_hypothesis_02",
+        "privacy_constants_exist_for_every_epsilon_delta_hypothesis_03",
+        "privacy_constants_exist_for_every_epsilon_delta_hypothesis_04",
+        "privacy_constants_exist_for_every_epsilon_delta_hypothesis_05"
+      ],
+      "unsat_core": [
+        "privacy_constants_exist_for_every_epsilon_delta_hypothesis_00",
+        "privacy_constants_exist_for_every_epsilon_delta_hypothesis_01",
+        "privacy_constants_exist_for_every_epsilon_delta_hypothesis_02",
+        "privacy_constants_exist_for_every_epsilon_delta_hypothesis_03",
+        "privacy_constants_exist_for_every_epsilon_delta_hypothesis_04",
+        "privacy_constants_exist_for_every_epsilon_delta_hypothesis_05",
+        "privacy_constants_exist_for_every_epsilon_delta_negated_conclusion"
+      ],
+      "smt2_sha256": "6fb5598897a17c7e948c29215877744db1d0b6c2fd02595161cea905dae52f7b",
+      "smt2": "(declare-fun k () Real)\n(declare-fun privacy_constants_exist_for_every_epsilon_delta_hypothesis_00\n             ()\n             Bool)\n(declare-fun privacy_constants_exist_for_every_epsilon_delta_hypothesis_01\n             ()\n             Bool)\n(declare-fun alpha () Real)\n(declare-fun privacy_constants_exist_for_every_epsilon_delta_hypothesis_02\n             ()\n             Bool)\n(declare-fun beta_threshold () Real)\n(declare-fun privacy_constants_exist_for_every_epsilon_delta_hypothesis_03\n             ()\n             Bool)\n(declare-fun beta () Real)\n(declare-fun privacy_constants_exist_for_every_epsilon_delta_hypothesis_04\n             ()\n             Bool)\n(declare-fun attack_fraction () Real)\n(declare-fun privacy_constants_exist_for_every_epsilon_delta_hypothesis_05\n             ()\n             Bool)\n(declare-fun privacy_constants_exist_for_every_epsilon_delta_negated_conclusion\n             ()\n             Bool)\n(assert (=> privacy_constants_exist_for_every_epsilon_delta_hypothesis_00 (> k 0.0)))\n(assert (=> privacy_constants_exist_for_every_epsilon_delta_hypothesis_01\n    (<= k (/ 1.0 2.0))))\n(assert (=> privacy_constants_exist_for_every_epsilon_delta_hypothesis_02\n    (= alpha (/ k 4.0))))\n(assert (=> privacy_constants_exist_for_every_epsilon_delta_hypothesis_03\n    (= (* beta_threshold (- 1.0 alpha)) (- 1.0 k))))\n(assert (=> privacy_constants_exist_for_every_epsilon_delta_hypothesis_04\n    (= beta (/ (+ 1.0 beta_threshold) 2.0))))\n(assert (=> privacy_constants_exist_for_every_epsilon_delta_hypothesis_05\n    (= attack_fraction (+ (* beta alpha) (- 1.0 beta)))))\n(assert (=> privacy_constants_exist_for_every_epsilon_delta_negated_conclusion\n    (not (and (> alpha 0.0)\n              (< alpha k)\n              (< beta_threshold beta)\n              (< beta 1.0)\n              (< attack_fraction k)))))\n"
+    },
+    {
+      "name": "discrepancy_lift_arbitrary_pattern_dimension",
+      "status": "UNSAT",
+      "meaning": "hypotheses AND NOT(conclusion) has no model",
+      "tracked_hypotheses": [
+        "discrepancy_lift_arbitrary_pattern_dimension_hypothesis_00",
+        "discrepancy_lift_arbitrary_pattern_dimension_hypothesis_01",
+        "discrepancy_lift_arbitrary_pattern_dimension_hypothesis_02",
+        "discrepancy_lift_arbitrary_pattern_dimension_hypothesis_03",
+        "discrepancy_lift_arbitrary_pattern_dimension_hypothesis_04"
+      ],
+      "unsat_core": [
+        "discrepancy_lift_arbitrary_pattern_dimension_hypothesis_03",
+        "discrepancy_lift_arbitrary_pattern_dimension_hypothesis_04",
+        "discrepancy_lift_arbitrary_pattern_dimension_negated_conclusion"
+      ],
+      "smt2_sha256": "1652c9cabad24bb45426da7778b6ba630205e612c0f578cc0e17e47e150e9f9b",
+      "smt2": "(declare-fun sensitivity () Real)\n(declare-fun discrepancy_lift_arbitrary_pattern_dimension_hypothesis_00 () Bool)\n(declare-fun point_disc () Real)\n(declare-fun discrepancy_lift_arbitrary_pattern_dimension_hypothesis_01 () Bool)\n(declare-fun remainder () Real)\n(declare-fun discrepancy_lift_arbitrary_pattern_dimension_hypothesis_02 () Bool)\n(declare-fun discrepancy_lift_arbitrary_pattern_dimension_hypothesis_03 () Bool)\n(declare-fun pattern_disc () Real)\n(declare-fun discrepancy_lift_arbitrary_pattern_dimension_hypothesis_04 () Bool)\n(declare-fun discrepancy_lift_arbitrary_pattern_dimension_negated_conclusion\n             ()\n             Bool)\n(assert (=> discrepancy_lift_arbitrary_pattern_dimension_hypothesis_00\n    (> sensitivity 0.0)))\n(assert (=> discrepancy_lift_arbitrary_pattern_dimension_hypothesis_01\n    (> point_disc 0.0)))\n(assert (=> discrepancy_lift_arbitrary_pattern_dimension_hypothesis_02\n    (>= remainder 0.0)))\n(assert (=> discrepancy_lift_arbitrary_pattern_dimension_hypothesis_03\n    (<= remainder (/ (* sensitivity point_disc) 2.0))))\n(assert (=> discrepancy_lift_arbitrary_pattern_dimension_hypothesis_04\n    (>= pattern_disc (- (* sensitivity point_disc) remainder))))\n(assert (let ((a!1 (not (>= pattern_disc (/ (* sensitivity point_disc) 2.0)))))\n  (=> discrepancy_lift_arbitrary_pattern_dimension_negated_conclusion a!1)))\n"
+    },
+    {
+      "name": "dimension_exponential_error_transfer",
+      "status": "UNSAT",
+      "meaning": "hypotheses AND NOT(conclusion) has no model",
+      "tracked_hypotheses": [
+        "dimension_exponential_error_transfer_hypothesis_00",
+        "dimension_exponential_error_transfer_hypothesis_01",
+        "dimension_exponential_error_transfer_hypothesis_02",
+        "dimension_exponential_error_transfer_hypothesis_03",
+        "dimension_exponential_error_transfer_hypothesis_04",
+        "dimension_exponential_error_transfer_hypothesis_05",
+        "dimension_exponential_error_transfer_hypothesis_06",
+        "dimension_exponential_error_transfer_hypothesis_07"
+      ],
+      "unsat_core": [
+        "dimension_exponential_error_transfer_hypothesis_00",
+        "dimension_exponential_error_transfer_hypothesis_03",
+        "dimension_exponential_error_transfer_hypothesis_04",
+        "dimension_exponential_error_transfer_hypothesis_06",
+        "dimension_exponential_error_transfer_hypothesis_07",
+        "dimension_exponential_error_transfer_negated_conclusion"
+      ],
+      "smt2_sha256": "018df93c9523c9489fb8ff480cc4539b2cfd9732b4b0461424ad8be2ee8a1d3c",
+      "smt2": "(declare-fun sensitivity () Real)\n(declare-fun dimension_exponential_error_transfer_hypothesis_00 () Bool)\n(declare-fun point_disc () Real)\n(declare-fun dimension_exponential_error_transfer_hypothesis_01 () Bool)\n(declare-fun remainder () Real)\n(declare-fun dimension_exponential_error_transfer_hypothesis_02 () Bool)\n(declare-fun dimension_exponential_error_transfer_hypothesis_03 () Bool)\n(declare-fun pattern_disc () Real)\n(declare-fun dimension_exponential_error_transfer_hypothesis_04 () Bool)\n(declare-fun two_pow_c_times_d () Real)\n(declare-fun dimension_exponential_error_transfer_hypothesis_05 () Bool)\n(declare-fun dimension_exponential_error_transfer_hypothesis_06 () Bool)\n(declare-fun additive_error () Real)\n(declare-fun dimension_exponential_error_transfer_hypothesis_07 () Bool)\n(declare-fun dimension_exponential_error_transfer_negated_conclusion () Bool)\n(assert (=> dimension_exponential_error_transfer_hypothesis_00 (> sensitivity 0.0)))\n(assert (=> dimension_exponential_error_transfer_hypothesis_01 (> point_disc 0.0)))\n(assert (=> dimension_exponential_error_transfer_hypothesis_02 (>= remainder 0.0)))\n(assert (=> dimension_exponential_error_transfer_hypothesis_03\n    (<= remainder (/ (* sensitivity point_disc) 2.0))))\n(assert (=> dimension_exponential_error_transfer_hypothesis_04\n    (>= pattern_disc (- (* sensitivity point_disc) remainder))))\n(assert (=> dimension_exponential_error_transfer_hypothesis_05\n    (> two_pow_c_times_d 0.0)))\n(assert (=> dimension_exponential_error_transfer_hypothesis_06\n    (>= point_disc two_pow_c_times_d)))\n(assert (=> dimension_exponential_error_transfer_hypothesis_07\n    (>= additive_error (/ pattern_disc 2.0))))\n(assert (let ((a!1 (not (>= additive_error (/ (* sensitivity two_pow_c_times_d) 4.0)))))\n  (=> dimension_exponential_error_transfer_negated_conclusion a!1)))\n"
+    },
+    {
+      "name": "arbitrary_dp_mechanism_reconstruction_contradiction",
+      "status": "UNSAT",
+      "meaning": "hypotheses AND NOT(conclusion) has no model",
+      "tracked_hypotheses": [
+        "arbitrary_dp_mechanism_reconstruction_contradiction_hypothesis_00",
+        "arbitrary_dp_mechanism_reconstruction_contradiction_hypothesis_01",
+        "arbitrary_dp_mechanism_reconstruction_contradiction_hypothesis_02",
+        "arbitrary_dp_mechanism_reconstruction_contradiction_hypothesis_03",
+        "arbitrary_dp_mechanism_reconstruction_contradiction_hypothesis_04",
+        "arbitrary_dp_mechanism_reconstruction_contradiction_hypothesis_05",
+        "arbitrary_dp_mechanism_reconstruction_contradiction_hypothesis_06",
+        "arbitrary_dp_mechanism_reconstruction_contradiction_hypothesis_07",
+        "arbitrary_dp_mechanism_reconstruction_contradiction_hypothesis_08",
+        "arbitrary_dp_mechanism_reconstruction_contradiction_hypothesis_09"
+      ],
+      "unsat_core": [
+        "arbitrary_dp_mechanism_reconstruction_contradiction_hypothesis_00",
+        "arbitrary_dp_mechanism_reconstruction_contradiction_hypothesis_02",
+        "arbitrary_dp_mechanism_reconstruction_contradiction_hypothesis_03",
+        "arbitrary_dp_mechanism_reconstruction_contradiction_hypothesis_04",
+        "arbitrary_dp_mechanism_reconstruction_contradiction_hypothesis_05",
+        "arbitrary_dp_mechanism_reconstruction_contradiction_hypothesis_06",
+        "arbitrary_dp_mechanism_reconstruction_contradiction_hypothesis_07",
+        "arbitrary_dp_mechanism_reconstruction_contradiction_hypothesis_08",
+        "arbitrary_dp_mechanism_reconstruction_contradiction_hypothesis_09"
+      ],
+      "smt2_sha256": "c809c563d955141fc9bb6fcefb89cd544c7db0ddc735605bf4892843a0bdfcd7",
+      "smt2": "(declare-fun k () Real)\n(declare-fun arbitrary_dp_mechanism_reconstruction_contradiction_hypothesis_00\n             ()\n             Bool)\n(declare-fun arbitrary_dp_mechanism_reconstruction_contradiction_hypothesis_01\n             ()\n             Bool)\n(declare-fun alpha () Real)\n(declare-fun arbitrary_dp_mechanism_reconstruction_contradiction_hypothesis_02\n             ()\n             Bool)\n(declare-fun beta_threshold () Real)\n(declare-fun arbitrary_dp_mechanism_reconstruction_contradiction_hypothesis_03\n             ()\n             Bool)\n(declare-fun beta () Real)\n(declare-fun arbitrary_dp_mechanism_reconstruction_contradiction_hypothesis_04\n             ()\n             Bool)\n(declare-fun attack_fraction () Real)\n(declare-fun arbitrary_dp_mechanism_reconstruction_contradiction_hypothesis_05\n             ()\n             Bool)\n(declare-fun database_size () Real)\n(declare-fun arbitrary_dp_mechanism_reconstruction_contradiction_hypothesis_06\n             ()\n             Bool)\n(declare-fun expected_upper () Real)\n(declare-fun arbitrary_dp_mechanism_reconstruction_contradiction_hypothesis_07\n             ()\n             Bool)\n(declare-fun expected_hamming_error () Real)\n(declare-fun arbitrary_dp_mechanism_reconstruction_contradiction_hypothesis_08\n             ()\n             Bool)\n(declare-fun arbitrary_dp_mechanism_reconstruction_contradiction_hypothesis_09\n             ()\n             Bool)\n(declare-fun arbitrary_dp_mechanism_reconstruction_contradiction_negated_conclusion\n             ()\n             Bool)\n(assert (=> arbitrary_dp_mechanism_reconstruction_contradiction_hypothesis_00 (> k 0.0)))\n(assert (=> arbitrary_dp_mechanism_reconstruction_contradiction_hypothesis_01\n    (<= k (/ 1.0 2.0))))\n(assert (=> arbitrary_dp_mechanism_reconstruction_contradiction_hypothesis_02\n    (= alpha (/ k 4.0))))\n(assert (=> arbitrary_dp_mechanism_reconstruction_contradiction_hypothesis_03\n    (= (* beta_threshold (- 1.0 alpha)) (- 1.0 k))))\n(assert (=> arbitrary_dp_mechanism_reconstruction_contradiction_hypothesis_04\n    (= beta (/ (+ 1.0 beta_threshold) 2.0))))\n(assert (=> arbitrary_dp_mechanism_reconstruction_contradiction_hypothesis_05\n    (= attack_fraction (+ (* beta alpha) (- 1.0 beta)))))\n(assert (=> arbitrary_dp_mechanism_reconstruction_contradiction_hypothesis_06\n    (> database_size 0.0)))\n(assert (=> arbitrary_dp_mechanism_reconstruction_contradiction_hypothesis_07\n    (= expected_upper (* attack_fraction database_size))))\n(assert (=> arbitrary_dp_mechanism_reconstruction_contradiction_hypothesis_08\n    (<= expected_hamming_error expected_upper)))\n(assert (=> arbitrary_dp_mechanism_reconstruction_contradiction_hypothesis_09\n    (>= expected_hamming_error (* k database_size))))\n(assert (=> arbitrary_dp_mechanism_reconstruction_contradiction_negated_conclusion\n    (not false)))\n"
+    }
+  ],
+  "certificate_payload_sha256": "dc30b119c50b5c3352cc67e11031712252d59d23b145a73c187de10e24f0718d"
+}

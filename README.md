@@ -35,15 +35,19 @@ upstream-generated figures).
   pure-DP still wins — confirmed at paper-scale (musae-squirrel, n=5201).
 - **Latency:** ours ~tens of µs/query vs baselines ~ms → structurally faster (range tree
   vs full edge-scan per query); gap grows with graph size.
-- **C2:** the proof chain is audited against pinned arXiv source `2606.08179v1`. The
-  paper-specific graph encoding, discrepancy lift, and reconstruction separation are
-  exhaustively checked for all 16 private databases on edge, triangle, and 2-star;
-  4/4 fail-closed tests pass. This verifies the universal claim through the arbitrary-
-  mechanism reconstruction contradiction, not by extrapolating algorithm measurements.
+- **C2:** the proof chain is audited against pinned arXiv source `2606.08179v1`.
+  Six arbitrary-parameter implications are machine-proved with Z3 by showing
+  `hypotheses AND NOT(conclusion)` is `UNSAT`. They cover adjacency preservation,
+  decoder separation, privacy constants for every `epsilon>0, delta<1/2`, the
+  discrepancy lift, the `2^(Omega(d))` transfer, and the arbitrary-mechanism
+  reconstruction contradiction. The older 16-database/2-D enumeration remains a
+  secondary construction check, not the basis of the universal claim.
 
 ```bash
+uv pip install --python .venv/bin/python -r repro/requirements-proof.txt
+.venv/bin/python repro/src/verify_universal_lower_bound.py --out outputs/c2_universal_smt_certificate.json
 .venv/bin/python repro/src/verify_lower_bound.py --out outputs/c2_proof_certificate.json
-.venv/bin/python -m pytest repro/test_lower_bound.py -q
+.venv/bin/python -m pytest repro/test_universal_lower_bound.py repro/test_lower_bound.py -q
 ```
 
 ## Layout

@@ -112,16 +112,17 @@ md("Claim 1 — efficient algorithm", "Latency (query-time, µs, ca-netscience)"
    "| 2-star | ~69 µs | ~68 µs | ~1610 µs | ~1540 µs | **~23×** |\n\n"
    "Range-tree queries are ~15–23× faster than baselines on this small graph; the gap grows with graph size (baselines scan all edges per query).")
 
-# --- Claim 2 — theorem + code mechanism ---
+# --- Claim 2 — theorem + arbitrary-parameter SMT certificate ---
 md("Claim 2 — lower bound (theory)", "C2: additive error exponential in dimension",
-   "C2 is a **theorem** (a formal lower bound: any DP algorithm must incur additive error exponential in the dimension d). "
-   "It is not an experiment one 'runs', but its **mechanism is directly visible in the released code**: the Laplace noise "
-   "magnitude is parameterized as\n\n"
-   "    mag = pure_DP_mag(n, (ceil(log2(m)) + 1) ** (2*d), eps, pattern)\n\n"
-   "i.e. the noise scale is `(⌈log₂m⌉+1)^(2d)` — **exponential in d by construction**. So the implementation itself embodies the "
-   "exponential-in-dimension error growth that C2 proves must hold for *any* DP algorithm. "
-   "(Empirical d=1-vs-d=2 confirmation was attempted but a 4-D range-tree run is too slow on this 4-vCPU box to finish within the time budget; "
-   "the code-level parameter above is the direct evidence.)")
+   "C2 is a universal **lower-bound theorem**, so measurements from the released algorithms cannot prove it. "
+   "The primary executable evidence is therefore an arbitrary-parameter SMT certificate. Six Z3 queries assert each "
+   "proof step's hypotheses together with the negation of its conclusion; all six are **UNSAT**. The obligations cover "
+   "private-bit/edge adjacency, deterministic-decoder separation, valid constants for every `epsilon>0` and `delta<1/2`, "
+   "the arbitrary-pattern discrepancy lift, transfer of `point_disc >= 2^(c*d)` to "
+   "`error >= sensitivity*2^(c*d)/4`, and the arbitrary-DP-mechanism reconstruction contradiction.\n\n"
+   "The orthogonal-range discrepancy theorem and DP reconstruction lemma are explicit imported lemmas, exactly as in the paper; "
+   "the source is pinned to arXiv `2606.08179v1`, SHA-256 `ba23019f…`. The older 2-D enumeration is retained only as a "
+   "supplementary construction check, not as evidence for the universal quantifier.")
 
 # --- Methods ---
 md("Methods & environment", "How to reproduce",
@@ -148,7 +149,8 @@ md("Conclusion", "Executive summary",
    "accuracy at every ε for all 3 patterns** (ca-netscience: triangle/edge/2-star) and at **paper scale** (musae-squirrel n=5201, edge: "
    "~50–100× lower error than basic-composition). **approx_DP** also wins for edge/2-star (mixed only for triangle at low ε). "
    "The algorithms are efficient (C1): `O((log m)^d)` per query, ~15–23× faster than baselines, small additive error. "
-   "C2 is a lower-bound **theorem**; its exponential-in-dimension mechanism is visible directly in the code's noise parameter `(⌈log₂m⌉+1)^(2d)`.")
+   "C2 is a lower-bound **theorem**; its arbitrary-mechanism reduction is machine-checked by six universally quantified "
+   "SMT refutations, including the `2^(Omega(d))` transfer.")
 md("Conclusion", "Scope & cost",
    "| | This reproduction | Full replication |\n|---|---|---|\n"
    "| Scope | ca-netscience (n=379) all 3 patterns + musae-squirrel (n=5201) edge | all 3 datasets × all patterns × full Q (incl. bio-WormNet-v3 n=16347) |\n"

@@ -36,12 +36,37 @@ The universal quantifier is valid because the contradiction begins with an
 arbitrary `(ε,δ)`-DP DPRSC mechanism; it never assumes the mechanism is one of
 the authors’ algorithms.
 
-## Machine-checked certificate
+## Machine-checked certificates
 
-`repro/src/verify_lower_bound.py` exhaustively checks the paper’s graph encoding,
-adjacency preservation, discrepancy lift, and reconstruction separation on all
-16 private databases for a concrete 2-D common-intersection box system. It does
-this independently for edge, triangle, and 2-star counting. For these three
+The primary certificate is now `repro/src/verify_universal_lower_bound.py`.
+It translates six arbitrary-parameter proof obligations into SMT and asks Z3
+to satisfy each obligation's hypotheses together with the negation of its
+conclusion. All six queries are `UNSAT`:
+
+1. private-bit/edge adjacency preservation, per arbitrary coordinate;
+2. deterministic-decoder separation by the triangle inequality;
+3. valid decoder constants for every theorem-allowed privacy lower-bound
+   fraction `k = exp(-epsilon) * (1/2-delta)`;
+4. the discrepancy lift for arbitrary positive pattern sensitivity and point
+   discrepancy after the appendix's asymptotic remainder bound;
+5. transfer of the imported `2^(Omega(d))` point discrepancy to a
+   `sensitivity * 2^(Omega(d))` DPRSC error lower bound; and
+6. contradiction between the arbitrary mechanism's expected reconstruction
+   error and the DP decoder lemma.
+
+This certificate ranges over symbolic reals (a relaxation of arbitrary
+positive integer database sizes and dimensions); it contains no enumerated
+graph size or fixed dimension. The cited orthogonal-range discrepancy theorem
+and DP reconstruction lemma remain explicit imported lemmas, exactly as in the
+paper. Output: `outputs/c2_universal_smt_certificate.json`.
+
+The secondary construction certificate,
+`repro/src/verify_lower_bound.py`, exhaustively checks the paper’s graph
+encoding, adjacency preservation, discrepancy lift, and reconstruction
+separation on all 16 private databases for a concrete 2-D common-intersection
+box system. It does this independently for edge, triangle, and 2-star counting.
+
+For these three
 patterns the discrepancy multiplier is exact (not merely asymptotic) because a
 three-vertex occurrence cannot contain two disjoint private matching edges.
 
@@ -49,9 +74,14 @@ The certificate also checks explicit `(ε,δ,α,β)` choices in the decoder
 contradiction for four privacy settings. Output:
 `outputs/c2_proof_certificate.json`.
 
-## Scope
+## Scope and trust boundary
 
-Python enumeration cannot prove the asymptotic discrepancy theorem by testing
-larger dimensions. That component is verified by auditing its supplied appendix
-proof and cited discrepancy theorem. The executable certificate targets the
-paper-specific reduction where transcription or counting errors are most likely.
+The SMT certificate proves the paper-specific implication for arbitrary
+parameters, but deliberately does not relabel imported mathematics as new
+experimental evidence. The orthogonal-range discrepancy lower bound supplies
+`point_disc >= 2^(c*d)` in the middle regime, and the standard DP reconstruction
+lemma supplies expected Hamming error at least
+`exp(-epsilon)*(1/2-delta)*n`. Both dependencies are identified by exact paper
+labels and the source is pinned by SHA-256. Z3 checks that these premises imply
+the claimed DPRSC lower bound and that no arbitrary DP mechanism can evade the
+reconstruction contradiction.
