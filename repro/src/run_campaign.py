@@ -201,6 +201,27 @@ def main() -> None:
         "--negative-control",
         "promote-squared-error",
     )
+    claim5_accuracy = (
+        ROOT / ".openresearch" / "artifacts" / "claim_5"
+        / "full_accuracy_run.json"
+    )
+    run(
+        sys.executable,
+        "repro/src/run_claim5_accuracy.py",
+        "--out",
+        str(claim5_accuracy),
+    )
+    run(
+        sys.executable,
+        "repro/src/verify_claim5_accuracy.py",
+        str(claim5_accuracy),
+    )
+    run_expected_failure(
+        sys.executable,
+        "repro/src/verify_claim5_accuracy.py",
+        str(claim5_accuracy),
+        "--negative-control",
+    )
     summary = {
         "schema": "dprsc-baseline-summary-v1",
         "verdict_scope": "historical 5/10 candidate regression only",
@@ -242,6 +263,13 @@ def main() -> None:
             "independent_checker": "PASS",
             "negative_controls": 2,
             "record": json.loads(claim2_dependency_audit.read_text()),
+        },
+        "claim_5_full_accuracy": {
+            "verdict": "PENDING_RUNTIME_PROTOCOL",
+            "primary_run": "PASS",
+            "independent_checker": "PASS",
+            "negative_control": "EXPECTED_FAILURE_CONFIRMED",
+            "record": json.loads(claim5_accuracy.read_text()),
         },
         "runtime_seconds": round(time.monotonic() - started, 3),
     }
