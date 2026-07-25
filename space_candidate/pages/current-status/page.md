@@ -17,9 +17,12 @@ Paper source: [archived ar5iv HTML](evidence/claim-5/source/2606.08179.html), SH
 | Claim | Canonical page | Code visible | Data inline | Raw link | Checker | Control | Exact claim tested | Reviewer verdict |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 1 | [Claim 1](#/current-claim-1) | Yes | Source facts | Yes | Source scope only | Quantifier omission fails | Contract yes; proof pending | BLOCKED |
-| 2 | [Claim 2](#/current-claim-2) | Yes | Source facts | Yes | Source scope + historical partial SMT | GS substitution fails | Contract yes; imported lemmas pending | BLOCKED |
+| 2 | [Claim 2](#/current-claim-2) | Yes | Primary-source hashes and exact recursion ratios | Yes | Reconstruction SMT + exact-rational recursion + independent checker | Omitted rounds, squared-error promotion, and GS substitution fail | Exact contract; written same-exponent partial-discrepancy step is unproved | BLOCKED |
 | 3 | [Claim 3](#/current-claim-3) | Yes | Proof obligations and exact counts inline | Yes | General analytic + exhaustive + independent Decimal | Average/max, tied boundary, and under-noised controls fail | Exact Algorithm 1–3 chain and Theorem 3.3 | VERIFIED |
 | 4 | [Claim 4](#/current-claim-4) | Yes | Counterexample and formal run inline | Yes | Analytic + implementation + independent Decimal | Clipped repair rejects counterexample | Exact named Algorithm 4/5 chain | FALSIFIED |
 | 5 | [Claim 5](#/current-claim-5) | Yes | Source result inline | Yes | Two source checkers pass | Exit 2 confirmed | Source contract yes; experiments pending | BLOCKED |
 
-This matrix is intentionally incomplete as scientific evidence. Publication remains blocked until every row contains a final VERIFIED, FALSIFIED, or rigorously routed BLOCKED result and evaluator-visible run evidence.
+Claim 2 has completed three distinct verification routes plus the mandatory
+fourth falsification route; no valid counterexample was found. It is a
+rigorously routed BLOCKED result. Publication remains blocked by Claims 1 and
+5 and by the remaining release gates.

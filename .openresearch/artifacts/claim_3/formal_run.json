@@ -1,0 +1,37 @@
+{
+  "schema": "dprsc-formal-run-v1",
+  "claim_id": 3,
+  "verdict": "VERIFIED",
+  "experiment_id": "7946775f-7bed-40df-8fcb-0d8bb87600b4",
+  "run_id": "c1c30801-31fb-40da-acd0-123f80a12f90",
+  "git_sha": "9384a24b16673f6e70cac05477d530d8a2cc1929",
+  "fixed_command": "uv run --frozen python repro/src/run_campaign.py",
+  "backend": "local",
+  "estimated_cores": 1,
+  "selected_cpu_upgrade_flavor": null,
+  "actual_logical_cpus_exposed": 8,
+  "workload_threads": 1,
+  "driver_runtime_seconds": 4.106,
+  "orchestrator_duration_seconds": 10,
+  "cost_usd": 0,
+  "primary_checker": "PASS",
+  "independent_checker": "PASS",
+  "projection_identity_checks": 9216,
+  "neighbor_sensitivity_checks": 9216,
+  "independent_tied_attribute_checks": 1296,
+  "independent_decimal_inequality_checks": 3393,
+  "negative_controls": [
+    {
+      "name": "average-for-maximum source substitution",
+      "exit_code": 2
+    },
+    {
+      "name": "naive tied boundary",
+      "exit_code": 2
+    },
+    {
+      "name": "under-noised range tree",
+      "exit_code": 2
+    }
+  ]
+}

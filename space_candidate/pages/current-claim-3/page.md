@@ -50,6 +50,16 @@ errors to an arbitrary hidden Big-O constant:
   boundary, and under-noised range tree all exit nonzero.
 
 The finite exhaust is corroboration, not the universal proof. The analytic
-certificate is what discharges the quantified theorem. Formal cumulative run
-output will add the experiment Git SHA, CPU allocation, runtime, and exact
-control exit records.
+certificate is what discharges the quantified theorem.
+
+## Formal cumulative run
+
+- [Raw formal run record](evidence/claim-3/formal_run.json)
+- Experiment Git SHA: `9384a24b16673f6e70cac05477d530d8a2cc1929`
+- Fixed command: `uv run --frozen python repro/src/run_campaign.py`
+- Run: `c1c30801-31fb-40da-acd0-123f80a12f90`
+- Compute: local, estimated 1 core; 8 logical CPUs exposed; workload
+  single-threaded
+- Driver runtime: `4.106 s`; orchestrator duration: `10 s`; cost: `$0`
+- Primary and independent checkers: `PASS`
+- Negative-control exits: `2`, `2`, `2`

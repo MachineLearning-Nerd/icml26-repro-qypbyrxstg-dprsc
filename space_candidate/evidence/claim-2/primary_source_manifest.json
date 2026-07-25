@@ -1,0 +1,52 @@
+{
+  "schema": "dprsc-claim2-primary-sources-v1",
+  "retrieved_at_utc": "2026-07-25T07:37:00Z",
+  "user_agent": "OpenResearch-Reproduction/1.0 (claim audit; contact via repository)",
+  "sources": [
+    {
+      "authors": "Bernard Chazelle and Alexey Lvov",
+      "title": "The Discrepancy of Boxes in Higher Dimension",
+      "url": "https://www.cs.princeton.edu/~chazelle/pubs/NoteDiscBox.pdf",
+      "file": "primary_sources/chazelle_lvov_2001.pdf",
+      "sha256": "8e017f6370f3876878c1f792d912d7d094ea7eb2ef8edfac219a628eb43c493a",
+      "anchor": "Theorem 2.1 and Corollary 2.2",
+      "normalized_statement": "For d=O(log n), standard box discrepancy can be 2^Omega(d); for d=Omega(log n), it can be n^Omega(1)."
+    },
+    {
+      "authors": "Anindya De",
+      "title": "Lower Bounds in Differential Privacy",
+      "url": "https://arxiv.org/pdf/1107.2183",
+      "file": "primary_sources/de_2012.pdf",
+      "sha256": "89454a3f8d40323783461c122f32773fb9505315d1d85276e0317115eea0f413",
+      "anchor": "reconstruction lower-bound background",
+      "normalized_statement": "Accurate reconstruction of a large fraction of a private binary database conflicts with differential privacy."
+    },
+    {
+      "authors": "Talya Eden, Quanquan C. Liu, Sofya Raskhodnikova, and Adam Smith",
+      "title": "Triangle Counting with Local Edge Differential Privacy",
+      "url": "https://arxiv.org/pdf/2305.02263",
+      "file": "primary_sources/eden_et_al_2023.pdf",
+      "sha256": "4682175819dac82210bf5f9eb7d18d3d61b3848323ea88c81b4cad3f93cca41f",
+      "anchor": "Lemma 3.9",
+      "normalized_statement": "Expected Hamming reconstruction error is at least exp(-epsilon)*(1/2-delta)*N for a uniform binary input."
+    },
+    {
+      "authors": "Jiri Matousek and Aleksandar Nikolov",
+      "title": "Combinatorial Discrepancy for Boxes via the gamma_2 Norm",
+      "url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol034-socg2015/LIPIcs.SOCG.2015.1/LIPIcs.SOCG.2015.1.pdf",
+      "file": "primary_sources/matousek_nikolov_2015.pdf",
+      "sha256": "5c8b42958d30b30ed7ed2b2ab6621c4f7821e9d705094e4ad968fc182a8b634f",
+      "anchor": "Theorem 1 and Section 5",
+      "normalized_statement": "For every fixed d>=2 and infinitely many n, an n-point set has axis-parallel-box discrepancy Omega(log^(d-1) n)."
+    },
+    {
+      "authors": "S. Muthukrishnan and Aleksandar Nikolov",
+      "title": "Optimal Private Halfspace Counting via Discrepancy",
+      "url": "https://arxiv.org/pdf/1203.5453",
+      "file": "primary_sources/muthukrishnan_nikolov_2012.pdf",
+      "sha256": "ac606ebeaf0f90d675173766bffac9c5682c449cac97c421ff78c136193adeae",
+      "anchor": "Lemma 5 and Theorem 3",
+      "normalized_statement": "Lemma 5 sums partial discrepancies over geometric residual sizes; Theorem 3 lower-bounds average squared error for private orthogonal range counting."
+    }
+  ]
+}

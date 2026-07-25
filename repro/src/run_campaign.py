@@ -174,6 +174,33 @@ def main() -> None:
         "--negative-control",
         "under-noised",
     )
+    claim2_dependency_audit = (
+        ROOT / ".openresearch" / "artifacts" / "claim_2"
+        / "dependency_audit_run.json"
+    )
+    run(
+        sys.executable,
+        "repro/src/verify_claim2_dependency_audit.py",
+        "--out",
+        str(claim2_dependency_audit),
+    )
+    run(
+        sys.executable,
+        "repro/src/verify_claim2_dependency_independent.py",
+        str(claim2_dependency_audit),
+    )
+    run_expected_failure(
+        sys.executable,
+        "repro/src/verify_claim2_dependency_audit.py",
+        "--negative-control",
+        "omit-recursion-rounds",
+    )
+    run_expected_failure(
+        sys.executable,
+        "repro/src/verify_claim2_dependency_audit.py",
+        "--negative-control",
+        "promote-squared-error",
+    )
     summary = {
         "schema": "dprsc-baseline-summary-v1",
         "verdict_scope": "historical 5/10 candidate regression only",
@@ -208,6 +235,13 @@ def main() -> None:
             "tied_boundary_control": "EXPECTED_FAILURE_CONFIRMED",
             "under_noised_control": "EXPECTED_FAILURE_CONFIRMED",
             "certificate": json.loads(claim3_certificate.read_text()),
+        },
+        "claim_2_dependency_audit": {
+            "verdict": "BLOCKED",
+            "primary_checker": "PASS",
+            "independent_checker": "PASS",
+            "negative_controls": 2,
+            "record": json.loads(claim2_dependency_audit.read_text()),
         },
         "runtime_seconds": round(time.monotonic() - started, 3),
     }

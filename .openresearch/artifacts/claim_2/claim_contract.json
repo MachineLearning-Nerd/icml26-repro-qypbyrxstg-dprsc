@@ -19,5 +19,5 @@
   },
   "acceptance": "A machine-checkable proof chain discharging the imported discrepancy and DP-reconstruction lemmas, or a valid assumption-satisfying counterexample. Algorithm runs and finite scaling plots are corroboration only.",
   "current_verdict": "BLOCKED",
-  "reason": "Existing SMT obligations assume the discrepancy and reconstruction lemmas instead of proving them."
+  "reason": "The DP reconstruction lemma is independently proved, but Appendix D's partial-coloring recursion has Theta(log n) scales and does not preserve the claimed discrepancy exponent. The primary sources establish standard/hereditary discrepancy, not the required same-exponent partial discrepancy. Four routes found no valid theorem counterexample, so this is BLOCKED rather than FALSIFIED."
 }
