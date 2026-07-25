@@ -14,6 +14,6 @@
     "critical_dependency": "noise calibration uses the private higher-order local-sensitivity estimate rather than global sensitivity"
   },
   "acceptance": "Independent EstimateHS tests, proof-level privacy/utility verification for the combined chain, and fail-closed controls that reject bypassing EstimateHS.",
-  "current_verdict": "BLOCKED",
-  "reason": "EstimateHS has not yet been independently verified and the combined proof is not certified."
+  "current_verdict": "FALSIFIED",
+  "reason": "For an empty 3-vertex graph and 2-star pattern, EstimateHS is negative with exact positive probability delta_prime/2. Algorithm 5 then uses it as a Laplace scale, which is undefined under Definition 2.5; released code raises ValueError."
 }

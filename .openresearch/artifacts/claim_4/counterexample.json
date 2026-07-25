@@ -1,0 +1,22 @@
+{
+  "schema": "dprsc-claim4-counterexample-spec-v1",
+  "input": {
+    "graph": "empty simple graph on vertices {0,1,2}",
+    "pattern": "2-star",
+    "dimension": 1,
+    "query_set": ["full attribute range"],
+    "epsilon": 2.0,
+    "delta": 0.00001
+  },
+  "facts": {
+    "pattern_edges": 2,
+    "f_H^(2)(G)": 1,
+    "f_H^(1)(G)": 0,
+    "epsilon_prime": "epsilon / 3",
+    "delta_prime": "delta / max(2 exp(2 epsilon_prime) + 2 exp(epsilon_prime) + 1, 2 exp(2 epsilon_prime) + exp(epsilon_prime) + 2)",
+    "estimate_hs": "log(1/delta_prime)/epsilon_prime + Laplace(1/epsilon_prime)",
+    "probability_estimate_hs_negative": "delta_prime / 2 > 0"
+  },
+  "contradiction": "Algorithm 5 uses EstimateHS as a Laplace scale. Definition 2.5 requires positive scale; the algorithm is undefined on this positive-probability event.",
+  "verdict": "FALSIFIED"
+}

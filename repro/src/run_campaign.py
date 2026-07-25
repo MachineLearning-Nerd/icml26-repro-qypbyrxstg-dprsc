@@ -141,6 +141,13 @@ def main() -> None:
             "--negative-control",
             control,
         )
+    run(sys.executable, "repro/src/verify_claim4_counterexample.py")
+    run(sys.executable, "repro/src/verify_claim4_counterexample_independent.py")
+    run_expected_failure(
+        sys.executable,
+        "repro/src/verify_claim4_counterexample.py",
+        "--clipped-control",
+    )
     summary = {
         "schema": "dprsc-baseline-summary-v1",
         "verdict_scope": "historical 5/10 candidate regression only",
@@ -159,6 +166,13 @@ def main() -> None:
             "status": "PASS",
             "negative_controls": 4,
             "scientific_claim_status": "BLOCKED_PENDING_PROOF_OR_EMPIRICAL_EVIDENCE",
+        },
+        "claim_4_counterexample": {
+            "verdict": "FALSIFIED",
+            "analytic_checker": "PASS",
+            "released_implementation_checker": "PASS",
+            "independent_decimal_checker": "PASS",
+            "clipped_control": "EXPECTED_FAILURE_CONFIRMED",
         },
         "runtime_seconds": round(time.monotonic() - started, 3),
     }
