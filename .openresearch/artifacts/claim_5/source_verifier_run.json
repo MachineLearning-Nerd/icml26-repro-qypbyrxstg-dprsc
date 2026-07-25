@@ -1,0 +1,22 @@
+{
+  "schema": "dprsc-claim5-source-run-v1",
+  "experiment_id": "b41fa164-6f19-4fab-84fc-76c6a1f22fae",
+  "run_id": "a206295c-9236-4059-aae3-70aa42d70b3d",
+  "git_sha": "08ab3d805eb48a316ba78b890794cd36ba7cc352",
+  "fixed_command": "uv run --frozen python repro/src/run_campaign.py",
+  "backend": "local",
+  "estimated_cores": 1,
+  "selected_cpu_upgrade_flavor": null,
+  "actual_logical_cpu_allocation": 8,
+  "workload_threads": 1,
+  "runtime_seconds": 2.6,
+  "primary_checker": "PASS",
+  "independent_checker": "PASS",
+  "negative_control": {
+    "expected_exit_code": 2,
+    "observed_exit_code": 2,
+    "status": "EXPECTED_FAILURE_CONFIRMED"
+  },
+  "historical_regression_tests": "8/8 PASS",
+  "scientific_verdict": "BLOCKED"
+}

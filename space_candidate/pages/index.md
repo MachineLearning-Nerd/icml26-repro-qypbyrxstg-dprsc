@@ -4,6 +4,11 @@
 
 | Page |
 | --- |
+| [Current verification status](#/current-status) |
+| [Current verification — Claim 1](#/current-claim-1) |
+| [Current verification — Claim 2](#/current-claim-2) |
+| [Current verification — Claim 3](#/current-claim-3) |
+| [Current verification — Claim 4](#/current-claim-4) |
 | [Current verification — Claim 5 source contract](#/current-claim-5) |
 | [Historical rejected baseline — Overview](#/overview) |
 | [Historical rejected baseline — Claim 3 accuracy](#/claim-3-accuracy) |

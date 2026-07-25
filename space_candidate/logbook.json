@@ -18,6 +18,36 @@
     "file": "pages/index.md",
     "children": [
       {
+        "slug": "current-status",
+        "title": "Current verification status",
+        "file": "pages/current-status/page.md",
+        "children": []
+      },
+      {
+        "slug": "current-claim-1",
+        "title": "Current verification — Claim 1",
+        "file": "pages/current-claim-1/page.md",
+        "children": []
+      },
+      {
+        "slug": "current-claim-2",
+        "title": "Current verification — Claim 2",
+        "file": "pages/current-claim-2/page.md",
+        "children": []
+      },
+      {
+        "slug": "current-claim-3",
+        "title": "Current verification — Claim 3",
+        "file": "pages/current-claim-3/page.md",
+        "children": []
+      },
+      {
+        "slug": "current-claim-4",
+        "title": "Current verification — Claim 4",
+        "file": "pages/current-claim-4/page.md",
+        "children": []
+      },
+      {
         "slug": "current-claim-5",
         "title": "Current verification — Claim 5 source contract",
         "file": "pages/current-claim-5/page.md",

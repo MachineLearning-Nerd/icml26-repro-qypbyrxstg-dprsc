@@ -1,0 +1,22 @@
+{
+  "schema": "dprsc-claim-contract-v1",
+  "claim_id": 3,
+  "source": {
+    "url": "https://ar5iv.labs.arxiv.org/html/2606.08179#S3.Thmtheorem3",
+    "retrieved_at_utc": "2026-07-25T06:41:27Z",
+    "sha256": "9387c720239542f024ef31654e84ced6e2687818f8f17703945aa114aab02a5b",
+    "anchors": ["alg1", "alg2", "alg3", "S3.Thmtheorem3", "A5.SS1", "A5.SS3"]
+  },
+  "exact_claim": {
+    "algorithm_chain": ["Algorithm 1 Proj", "Algorithm 2 TreeConst", "Algorithm 3 PDP_RSC"],
+    "quantifier": "every epsilon > 0",
+    "privacy": "epsilon-DP",
+    "metric": "maximum absolute error over Q",
+    "bound": "O(GS_fH * sqrt(log(n|Q|)) * log^(3d)(n) / epsilon)",
+    "success_probability": "at least 1 - 1/n",
+    "hidden_constants": "c^O(d) for a universal c > 1"
+  },
+  "acceptance": "Proof-level privacy and utility verification for the named algorithm chain, exact projection/range-tree functional tests, and non-vacuous empirical corroboration.",
+  "current_verdict": "BLOCKED",
+  "reason": "The exact source contract is checked; no independent proof certificate currently discharges the whole algorithm chain."
+}

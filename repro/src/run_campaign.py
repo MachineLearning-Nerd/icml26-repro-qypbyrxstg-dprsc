@@ -128,6 +128,19 @@ def main() -> None:
         "repro/src/verify_claim5_source.py",
         "--negative-control",
     )
+    run(sys.executable, "repro/src/verify_claim_sources.py")
+    for control in (
+        "claim1-quantifiers",
+        "claim2-gs",
+        "claim3-average",
+        "claim4-skip-hs",
+    ):
+        run_expected_failure(
+            sys.executable,
+            "repro/src/verify_claim_sources.py",
+            "--negative-control",
+            control,
+        )
     summary = {
         "schema": "dprsc-baseline-summary-v1",
         "verdict_scope": "historical 5/10 candidate regression only",
@@ -141,6 +154,11 @@ def main() -> None:
             "independent_checker": "PASS",
             "negative_control": "EXPECTED_FAILURE_CONFIRMED",
             "scientific_claim_status": "BLOCKED_PENDING_EMPIRICAL_REPRODUCTION",
+        },
+        "claims_1_to_4_source_contracts": {
+            "status": "PASS",
+            "negative_controls": 4,
+            "scientific_claim_status": "BLOCKED_PENDING_PROOF_OR_EMPIRICAL_EVIDENCE",
         },
         "runtime_seconds": round(time.monotonic() - started, 3),
     }

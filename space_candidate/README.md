@@ -15,7 +15,7 @@ tags:
 
 # Repro - DPRSC (DP Range Subgraph Counting)
 
-The current verification begins at [Claim 5 source contract](#/current-claim-5). Its scientific verdict is **BLOCKED** pending faithful three-dataset experiments.
+The current verification begins at the [five-claim status and visibility matrix](#/current-status). Every scientific verdict is currently **BLOCKED** while proof-level and paper-faithful empirical work proceeds.
 
 All pages from judged revision `6d5d785bb7f0386ef5d46b609fb529dbd1058fcb` are preserved. They are labeled exactly **Historical rejected baseline** in navigation and are not the current verifier.
 

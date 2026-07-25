@@ -27,7 +27,9 @@ Fixed campaign command:
 uv run --frozen python repro/src/run_campaign.py
 ```
 
-Environment: Python 3.12, one repository `.venv`, dependencies pinned by `pyproject.toml` and `uv.lock`. The source-check stage estimates one CPU core and less than two minutes, so it uses the authorized local backend. Actual allocation, runtime, Git SHA, and checker output will be added from the formal OpenResearch run.
+Environment: Python 3.12.11, one repository `.venv`, dependencies pinned by `pyproject.toml` and `uv.lock`. The source-check stage estimated one CPU core and less than two minutes, so it used the authorized local backend.
+
+Formal run: `a206295c-9236-4059-aae3-70aa42d70b3d` at Git SHA `08ab3d805eb48a316ba78b890794cd36ba7cc352`. The host exposed 8 logical CPUs; the verifier was single-threaded. Runtime was 2.600 seconds. `cpu-upgrade` was not selected because this check met the local policy.
 
 The primary checker verifies the exact byte hash, anchors, protocols, and scope ordering. The independent checker uses `HTMLParser` semantic text extraction. The negative control asserts the unsupported imported mapping and must exit nonzero.
 
@@ -39,6 +41,7 @@ The primary checker verifies the exact byte hash, anchors, protocols, and scope 
 - [Method](evidence/claim-5/method.md)
 - [Limitations](evidence/claim-5/limitations.md)
 - [Evaluator checklist](evidence/claim-5/EVAL.md)
+- [Formal verifier output and compute record](evidence/claim-5/source_verifier_run.json)
 
 Raw facts inline:
 
@@ -58,7 +61,7 @@ Raw facts inline:
 
 | Claim | Canonical page | Code visible | Data inline | Raw link | Checker | Control | Exact claim tested | Reviewer verdict |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 5 | This page | Yes | Source facts | Yes | Two source checkers; formal output pending | Fail-closed control implemented; formal output pending | Yes, source contract; empirical contract pending | BLOCKED |
+| 5 | This page | Yes | Source facts and formal result | Yes | Primary and independent PASS | Exit 2 confirmed | Yes, source contract; empirical contract pending | BLOCKED |
 
 ## Limitation
 

@@ -1,0 +1,23 @@
+{
+  "schema": "dprsc-claim-contract-v1",
+  "claim_id": 1,
+  "source": {
+    "url": "https://ar5iv.labs.arxiv.org/html/2606.08179#S1.Thmtheorem3",
+    "retrieved_at_utc": "2026-07-25T06:41:27Z",
+    "sha256": "9387c720239542f024ef31654e84ced6e2687818f8f17703945aa114aab02a5b",
+    "anchors": ["S1.SS1.p2", "S1.Thmtheorem3", "A5.SS2", "A5.SS3"]
+  },
+  "exact_claim": {
+    "priority": "the first efficient algorithm for differentially private range subgraph counting",
+    "quantifiers": ["for every epsilon > 0", "for every delta in (0,1)", "fixed pattern H", "arbitrary query set Q"],
+    "existence": "there exists an (epsilon,delta)-DP algorithm",
+    "metric": "maximum absolute error over q in Q",
+    "bound": "O(HS_tilde_fH(G) * sqrt((epsilon + log(1/delta))*log(n|Q|)) * log^(2d)(n) / epsilon)",
+    "success_probability": "at least 1 - 1/n",
+    "hidden_constants": "c^O(d) for a universal c > 1",
+    "efficiency_scope": "polynomial time for d = O(log n / log log n)"
+  },
+  "acceptance": "A proof-level privacy, utility, and complexity certificate for the named algorithm plus a defensible priority audit; finite error observations alone cannot establish the asymptotic theorem.",
+  "current_verdict": "BLOCKED",
+  "reason": "The exact source contract is machine-checked, but privacy/utility proof dependencies and the priority claim have not been independently discharged."
+}

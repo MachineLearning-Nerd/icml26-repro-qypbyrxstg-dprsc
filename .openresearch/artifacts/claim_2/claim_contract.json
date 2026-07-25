@@ -1,0 +1,23 @@
+{
+  "schema": "dprsc-claim-contract-v1",
+  "claim_id": 2,
+  "source": {
+    "url": "https://ar5iv.labs.arxiv.org/html/2606.08179#S1.Thmtheorem4",
+    "retrieved_at_utc": "2026-07-25T06:41:27Z",
+    "sha256": "9387c720239542f024ef31654e84ced6e2687818f8f17703945aa114aab02a5b",
+    "anchors": ["S1.Thmtheorem4", "S4.Thmtheorem1", "A4", "A6.SS1", "A6.SS2"]
+  },
+  "exact_claim": {
+    "quantifiers": ["every pattern graph H", "every (epsilon,delta)-DP algorithm", "constant epsilon > 0", "delta in [0,1/2)", "sufficiently large constant success probability", "|Q| >= n^c for sufficiently small constant c > 0", "infinitely many n"],
+    "metric": "maximum absolute error over Q",
+    "regimes": {
+      "d=O(1)": "Omega(log^(d-1)(n) * HS_tilde_fH(G))",
+      "d=O(log n)": "2^Omega(d) * HS_tilde_fH(G)",
+      "d=Omega(log n)": "n^Omega(1) * HS_tilde_fH(G)"
+    },
+    "important_correction": "The theorem is stated in terms of HS_tilde, not GS; GS is only said to be close on the constructed hard instances with high constant probability."
+  },
+  "acceptance": "A machine-checkable proof chain discharging the imported discrepancy and DP-reconstruction lemmas, or a valid assumption-satisfying counterexample. Algorithm runs and finite scaling plots are corroboration only.",
+  "current_verdict": "BLOCKED",
+  "reason": "Existing SMT obligations assume the discrepancy and reconstruction lemmas instead of proving them."
+}

@@ -1,0 +1,1 @@
+{"claim":2,"theorem":"1.4","mechanism":"arbitrary (epsilon,delta)-DP","epsilon":"constant > 0","delta":"[0,1/2)","query_lower_bound":"n^c","graph_sizes":"infinitely many n","scale":"HS_tilde_fH(G)","current_verdict":"BLOCKED"}

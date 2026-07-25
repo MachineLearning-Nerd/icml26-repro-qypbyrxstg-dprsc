@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "title": "Repro - DPRSC (DP Range Subgraph Counting)",
+  "emoji": "🔒",
+  "space_id": "DineshAI/QYpByrxSTg",
+  "paper": {
+    "arxiv_id": "2606.08179",
+    "openreview_id": "QYpByrxSTg"
+  },
+  "tags": [
+    "icml2026-repro",
+    "paper-QYpByrxSTg"
+  ],
+  "updated_at": "2026-07-17T11:17:04+00:00",
+  "root": {
+    "slug": "index",
+    "title": "Repro - DPRSC (DP Range Subgraph Counting)",
+    "file": "pages/index.md",
+    "children": [
+      {
+        "slug": "overview",
+        "title": "Overview",
+        "file": "pages/overview/page.md",
+        "children": []
+      },
+      {
+        "slug": "claim-3-accuracy",
+        "title": "Claim 3 — accuracy",
+        "file": "pages/claim-3-accuracy/page.md",
+        "children": []
+      },
+      {
+        "slug": "claim-1-efficient-algorithm",
+        "title": "Claim 1 — efficient algorithm",
+        "file": "pages/claim-1-efficient-algorithm/page.md",
+        "children": []
+      },
+      {
+        "slug": "claim-2-lower-bound-theory",
+        "title": "Claim 2 — lower bound (theory)",
+        "file": "pages/claim-2-lower-bound-theory/page.md",
+        "children": []
+      },
+      {
+        "slug": "methods-environment",
+        "title": "Methods & environment",
+        "file": "pages/methods-environment/page.md",
+        "children": []
+      },
+      {
+        "slug": "independent-verification",
+        "title": "Independent verification",
+        "file": "pages/independent-verification/page.md",
+        "children": []
+      },
+      {
+        "slug": "conclusion",
+        "title": "Conclusion",
+        "file": "pages/conclusion/page.md",
+        "children": []
+      }
+    ]
+  },
+  "agent_view_tokens": 5860,
+  "revision": "1784287024783189110"
+}
