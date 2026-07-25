@@ -148,6 +148,32 @@ def main() -> None:
         "repro/src/verify_claim4_counterexample.py",
         "--clipped-control",
     )
+    claim3_certificate = (
+        ROOT / ".openresearch" / "artifacts" / "claim_3" / "pure_dp_certificate_run.json"
+    )
+    run(
+        sys.executable,
+        "repro/src/verify_claim3_pure_dp.py",
+        "--out",
+        str(claim3_certificate),
+    )
+    run(
+        sys.executable,
+        "repro/src/verify_claim3_pure_dp_independent.py",
+        str(claim3_certificate),
+    )
+    run_expected_failure(
+        sys.executable,
+        "repro/src/verify_claim3_pure_dp.py",
+        "--negative-control",
+        "tied-boundary",
+    )
+    run_expected_failure(
+        sys.executable,
+        "repro/src/verify_claim3_pure_dp.py",
+        "--negative-control",
+        "under-noised",
+    )
     summary = {
         "schema": "dprsc-baseline-summary-v1",
         "verdict_scope": "historical 5/10 candidate regression only",
@@ -173,6 +199,15 @@ def main() -> None:
             "released_implementation_checker": "PASS",
             "independent_decimal_checker": "PASS",
             "clipped_control": "EXPECTED_FAILURE_CONFIRMED",
+        },
+        "claim_3_pure_dp": {
+            "verdict": "VERIFIED",
+            "general_proof_certificate": "PASS",
+            "finite_functional_certificate": "PASS",
+            "independent_checker": "PASS",
+            "tied_boundary_control": "EXPECTED_FAILURE_CONFIRMED",
+            "under_noised_control": "EXPECTED_FAILURE_CONFIRMED",
+            "certificate": json.loads(claim3_certificate.read_text()),
         },
         "runtime_seconds": round(time.monotonic() - started, 3),
     }

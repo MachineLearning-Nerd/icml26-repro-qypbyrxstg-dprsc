@@ -17,6 +17,6 @@
     "hidden_constants": "c^O(d) for a universal c > 1"
   },
   "acceptance": "Proof-level privacy and utility verification for the named algorithm chain, exact projection/range-tree functional tests, and non-vacuous empirical corroboration.",
-  "current_verdict": "BLOCKED",
-  "reason": "The exact source contract is checked; no independent proof certificate currently discharges the whole algorithm chain."
+  "current_verdict": "VERIFIED",
+  "reason": "An independent analytic certificate discharges projection correctness, range-tree sensitivity, pure-DP density-ratio accounting, concentration, and the union bound; exhaustive and independent functional checkers plus negative controls audit implementation obligations."
 }

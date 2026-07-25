@@ -1,0 +1,37 @@
+{
+  "claim": "Algorithm 1 Proj -> Algorithm 2 TreeConst -> Algorithm 3 PDP_RSC",
+  "deterministic_completion": "When public attributes tie, sort by (attribute, vertex id), choose the minimum rank among lower-bound ties and maximum rank among upper-bound ties. This is consistent with the paper's set-valued argmin/argmax and is required for its stated q/q' equivalence.",
+  "finite_bug_finding_certificate": {
+    "graphs": 64,
+    "n": 4,
+    "neighbor_sensitivity_checks": 9216,
+    "patterns": 3,
+    "projection_query_checks": 9216,
+    "public_attribute_assignments_with_ties": 16
+  },
+  "general_proof_certificate": {
+    "asymptotic_simplification": "M=ceil(log_2 n)^(2d), while b uses (ceil(log_2 n)+1)^(2d). Thus x is at most 2sqrt(2)*4^d*GS_fH*log^(3d)(n)*sqrt(log(2n|Q|))/epsilon, which is the claimed Big-O with c^O(d) constants.",
+    "concentration_precondition": "proved for n>=8, d>=1, |Q|<=(n+1)^(2d)<=(2n)^(2d)",
+    "global_sensitivity": "Edge addition is coordinatewise monotone, hence the projection L1 difference equals the subgraph-count difference and is at most GS_fH = f_H(K_n)-f_H(K_n-e).",
+    "projection_identity": "Each occurrence is mapped once to its coordinatewise minimum and maximum public ranks; tie-aware boundary extremes make membership in an induced range equivalent to membership of its rank tuple.",
+    "pure_privacy": "Independent Laplace noise with b=GS_fH*(ceil(log_2 n)+1)^(2d)/epsilon is the vector Laplace mechanism; all query answers are post-processing of this one release.",
+    "range_tree_sensitivity": "One projected coordinate contributes to at most (ceil(log_2 n)+1)^(2d) released tree nodes, so the concatenated node vector has L1 sensitivity at most that factor times GS_fH.",
+    "small_n": "The theorem is asymptotic Big-O; the finitely many n<8 cases are absorbed by the hidden constant.",
+    "utility_mgf_derivation": "For Lap(b), E exp(tX)=1/(1-b^2 t^2).  When |t|<=1/(sqrt(2)b), -ln(1-b^2t^2)<=2b^2t^2.  Chernoff therefore gives Pr(|sum X_i|>=x)<=2 exp(-x^2/(8 M b^2)) for i<=M and x<=2sqrt(2)Mb.  Taking x=2sqrt(2)b sqrt(M ln(2n|Q|)) is valid because M>=ln(2n|Q|), and a union bound gives failure <=1/n.",
+    "worst_log_density_ratio": 1.0
+  },
+  "schema": "dprsc-claim3-pure-dp-certificate-v1",
+  "scope": "The exact pure-DP and maximum-error theorem is verified. Finite enumeration corroborates implementation obligations; the universal result rests on the independently reconstructed analytic derivation.",
+  "source_anchors": [
+    "id=\"alg1\"",
+    "id=\"alg2\"",
+    "id=\"alg3\"",
+    "id=\"S3.Thmtheorem3\"",
+    "id=\"A5.Thmtheorem1\"",
+    "id=\"A5.Thmtheorem2\"",
+    "id=\"A5.Thmtheorem3\"",
+    "id=\"A3.Thmtheorem2\""
+  ],
+  "source_sha256": "9387c720239542f024ef31654e84ced6e2687818f8f17703945aa114aab02a5b",
+  "verdict": "VERIFIED"
+}

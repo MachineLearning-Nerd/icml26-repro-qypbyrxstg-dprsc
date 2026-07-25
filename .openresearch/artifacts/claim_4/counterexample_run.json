@@ -1,0 +1,18 @@
+{
+  "actual_logical_cpu_allocation": 8,
+  "backend": "local",
+  "estimated_cores": 1,
+  "experiment_id": "af5d403e-3e90-4686-bd98-b9501635d45a",
+  "fixed_command": "uv run --frozen python repro/src/run_campaign.py",
+  "git_sha": "0f98574ffb380f01e027583eba5fa3b932d2946c",
+  "independent_checker": "PASS",
+  "negative_event_probability": 4.005510341651234e-07,
+  "primary_checker": "PASS",
+  "released_code_exception": "ValueError",
+  "run_id": "cf9aa006-466f-465f-9238-6006e8b11a8d",
+  "runtime_seconds": 4.139,
+  "schema": "dprsc-formal-run-evidence-v1",
+  "selected_cpu_upgrade_flavor": null,
+  "verdict": "FALSIFIED",
+  "workload_threads": 1
+}

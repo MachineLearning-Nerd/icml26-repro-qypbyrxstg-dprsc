@@ -28,10 +28,17 @@ This falsifies the named Algorithm 4/5 guarantee. It does **not** claim that no 
 - [Source audit](evidence/claim-4/source_audit.md)
 - [Raw source facts](evidence/claim-4/raw_source_facts.json)
 - [Machine-readable counterexample](evidence/claim-4/counterexample.json)
+- [Formal cumulative run record](evidence/claim-4/counterexample_run.json)
 - [Source verifier](evidence/verify_claim_sources.py)
 - [Analytical and released-code checker](evidence/claim-4/verify_claim4_counterexample.py)
 - [Independent 60-digit Decimal checker](evidence/claim-4/verify_claim4_counterexample_independent.py)
 - [Method](evidence/claim-4/method.md)
 - [Limitations](evidence/claim-4/limitations.md)
 
-The clipped repair `max(0, EstimateHS)` is the control: it removes this counterexample, and the counterexample verifier must exit nonzero. Formal cumulative run output will record the exact derived probability, implementation exception, independent result, control exit, Git SHA, CPU allocation, and runtime.
+The clipped repair `max(0, EstimateHS)` is the control: it removes this
+counterexample, and the counterexample verifier exits nonzero. The formal run
+used the fixed command at Git SHA
+`0f98574ffb380f01e027583eba5fa3b932d2946c`, estimated one workload core,
+observed 8 allocated logical CPUs while remaining single-threaded, and
+completed in 4.139 seconds. The primary and independent checkers passed, the
+released code raised `ValueError`, and the clipped control failed as intended.

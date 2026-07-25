@@ -1,1 +1,1 @@
-{"claim":3,"theorem":"3.3","algorithms":["Proj","TreeConst","PDP_RSC"],"privacy":"epsilon-DP","error_metric":"max absolute error over Q","success_probability":"1-1/n","current_verdict":"BLOCKED"}
+{"claim":3,"theorem":"3.3","algorithms":["Proj","TreeConst","PDP_RSC"],"privacy":"epsilon-DP","error_metric":"max absolute error over Q","success_probability":"1-1/n","current_verdict":"VERIFIED"}
