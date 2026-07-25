@@ -28,6 +28,28 @@ def run(*args: str) -> None:
     subprocess.run(args, cwd=ROOT, check=True)
 
 
+def run_expected_failure(*args: str) -> None:
+    print("EXEC_EXPECTED_FAILURE", " ".join(args), flush=True)
+    completed = subprocess.run(
+        args,
+        cwd=ROOT,
+        check=False,
+        capture_output=True,
+        text=True,
+    )
+    if completed.stdout:
+        print(completed.stdout, end="", flush=True)
+    if completed.stderr:
+        print(completed.stderr, end="", file=sys.stderr, flush=True)
+    if completed.returncode == 0:
+        raise AssertionError("negative control unexpectedly passed")
+    print(
+        "EXPECTED_FAILURE_CONFIRMED",
+        json.dumps({"returncode": completed.returncode}),
+        flush=True,
+    )
+
+
 def git_sha() -> str:
     return subprocess.check_output(
         ["git", "rev-parse", "HEAD"], cwd=ROOT, text=True
@@ -99,6 +121,13 @@ def main() -> None:
     )
 
     inventory = historical_csv_inventory()
+    run(sys.executable, "repro/src/verify_claim5_source.py")
+    run(sys.executable, "repro/src/verify_claim5_source_independent.py")
+    run_expected_failure(
+        sys.executable,
+        "repro/src/verify_claim5_source.py",
+        "--negative-control",
+    )
     summary = {
         "schema": "dprsc-baseline-summary-v1",
         "verdict_scope": "historical 5/10 candidate regression only",
@@ -107,6 +136,12 @@ def main() -> None:
             "finite_enumeration": json.loads(finite.read_text()),
         },
         "historical_csv_inventory": inventory,
+        "claim_5_source_contract": {
+            "status": "PASS",
+            "independent_checker": "PASS",
+            "negative_control": "EXPECTED_FAILURE_CONFIRMED",
+            "scientific_claim_status": "BLOCKED_PENDING_EMPIRICAL_REPRODUCTION",
+        },
         "runtime_seconds": round(time.monotonic() - started, 3),
     }
     (ARTIFACTS / "baseline_summary.json").write_text(

@@ -1,0 +1,50 @@
+{
+  "schema": "dprsc-claim-contract-v1",
+  "claim_id": 5,
+  "paper": {
+    "arxiv_id": "2606.08179",
+    "title": "Differentially Private Range Subgraph Counting",
+    "source_url": "https://ar5iv.labs.arxiv.org/html/2606.08179",
+    "retrieved_at_utc": "2026-07-25T06:41:27Z",
+    "sha256": "9387c720239542f024ef31654e84ced6e2687818f8f17703945aa114aab02a5b",
+    "anchors": ["S5", "S5.p3", "S5.p4", "S5.p5", "S5.p6", "S5.F5", "S5.F6"]
+  },
+  "imported_judge_paraphrase": "On all three graphs, PDP_RSC and ADP_RSC outperform PDP_Comp and ADP_Comp by 3 to 4 orders of magnitude in accuracy at query-set size Theta(n^2).",
+  "source_mapping_verdict": "CONTRADICTED_BY_SOURCE",
+  "exact_paper_contract": {
+    "datasets": [
+      {"name": "Wiki-Squirrel", "nodes": 5201, "edges": 198353},
+      {"name": "WormNet-v3", "nodes": 16347, "edges": 762822},
+      {"name": "CA-Netscience", "nodes": 379, "edges": 914}
+    ],
+    "patterns": ["triangle", "2-star", "edge"],
+    "accuracy": {
+      "algorithms": ["PDP_RSC", "ADP_RSC", "PDP_Comp", "ADP_Comp"],
+      "default_epsilon": 2.0,
+      "default_delta": 0.00001,
+      "default_dimension": 1,
+      "default_query_count": "ceil(n^1.5)",
+      "query_induced_vertex_count": "Theta(n)",
+      "metric": "mean relative error",
+      "minimum_independent_runs": 20,
+      "magnitude_claim": null
+    },
+    "runtime": {
+      "query_distribution": "i.i.d. uniform over queries producing distinct induced subgraphs",
+      "query_count_range": "1 to Theta(n^2)",
+      "measurement_stop_rule": "relative standard error of average query time below 5%",
+      "theta_n2_total_time": "mean query time multiplied by query count plus preprocessing time",
+      "reported_query_latency_speedup": "3 to 4 orders of magnitude",
+      "reported_total_time_speedup_at_theta_n2": "3 to 4 orders of magnitude",
+      "reported_total_time_crossover": "|Q| = Omega(n)"
+    }
+  },
+  "machine_decision": {
+    "source_contract_pass": "all source hash, anchor, scope, and protocol checks pass",
+    "empirical_verified": "paper-faithful runs cover every dataset/pattern/applicable algorithm, use >=20 independent accuracy runs and runtime sampling with RSE <5%, and their uncertainty intervals support the reported comparisons",
+    "empirical_falsified": "an assumption-satisfying run and independent checker establish a direct contradiction to a quantified source statement",
+    "otherwise": "BLOCKED"
+  },
+  "current_verdict": "BLOCKED",
+  "current_reason": "The source contract is verified, but the three-dataset paper-faithful empirical reproduction has not run yet."
+}

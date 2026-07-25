@@ -1,0 +1,21 @@
+{
+  "schema": "dprsc-claim5-source-facts-v1",
+  "source_sha256": "9387c720239542f024ef31654e84ced6e2687818f8f17703945aa114aab02a5b",
+  "accuracy_protocol": {
+    "anchor": "S5.p3",
+    "query_count": "ceil(n^1.5)",
+    "epsilon": 2.0,
+    "delta": 0.00001,
+    "dimension": 1,
+    "minimum_runs": 20
+  },
+  "runtime_protocol": {
+    "anchor": "S5.p6",
+    "query_count_range": "1 to Theta(n^2)",
+    "exhaustive_theta_n2": false,
+    "sampling_stop_rule": "relative standard error below 5%",
+    "query_latency_speedup": "3 to 4 orders of magnitude",
+    "total_time_speedup_at_theta_n2": "3 to 4 orders of magnitude"
+  },
+  "imported_accuracy_magnitude_attribution_supported": false
+}
