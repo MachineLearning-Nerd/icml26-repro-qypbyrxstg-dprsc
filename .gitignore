@@ -4,7 +4,7 @@ __pycache__/
 .ipynb_checkpoints/
 .env
 hf-cache/
-# vendored upstream clone (Airleave/DPRSC @ aae89538) — re-clone per README, not committed
-upstream/
+# The exact Airleave/DPRSC source and datasets are vendored under upstream/ so
+# fresh-clone experiment runs do not depend on a moving network checkout.
 # logbook source is published to the HF Space (DineshAI/QYpByrxSTg)
 .trackio/
