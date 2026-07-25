@@ -19,7 +19,10 @@ def main() -> None:
     parser.add_argument("--paper", type=Path, required=True)
     args = parser.parse_args()
 
-    record = json.loads(args.record.read_text())
+    raw_record = json.loads(args.record.read_text())
+    record = raw_record.get("payload", raw_record)
+    if not isinstance(record, dict):
+        raise AssertionError("Claim 1 record is not a JSON object")
     if record.get("schema") != "dprsc-claim1-four-route-audit-v1":
         raise AssertionError("unexpected Claim 1 record schema")
     if record.get("exact_verdict") != "BLOCKED" or record.get("confidence") != "LOW":
@@ -32,8 +35,19 @@ def main() -> None:
 
     empirical = routes[1]
     summaries = empirical.get("summaries")
-    if not isinstance(summaries, list) or len(summaries) != 3 * 3 * 4:
-        raise AssertionError("expected 36 full-scale calibration summaries")
+    if not isinstance(summaries, list) or len(summaries) != 3 * 3 * 8:
+        raise AssertionError("expected 72 full-scale calibration summaries")
+    if {row["epsilon"] for row in summaries} != {
+        0.5,
+        1.0,
+        1.5,
+        2.0,
+        2.5,
+        3.0,
+        3.5,
+        4.0,
+    }:
+        raise AssertionError("the eight-value epsilon sweep is incomplete")
     if {row["query_count"] for row in summaries} != {7379, 375086, 2090053}:
         raise AssertionError("paper-default query budgets are missing")
     if any(row["repetitions"] != 20 for row in summaries):
