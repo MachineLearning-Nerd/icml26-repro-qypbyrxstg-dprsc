@@ -89,7 +89,7 @@ def main() -> None:
         "python": platform.python_version(),
         "platform": platform.platform(),
         "estimated_cores": 4,
-        "estimated_runtime_minutes": "8-20",
+        "estimated_runtime_minutes": "15-30",
         "selected_backend": "hf",
         "selected_flavor": "cpu-upgrade",
         "selected_image": "ghcr.io/astral-sh/uv:python3.12-bookworm-slim",
@@ -249,6 +249,32 @@ def main() -> None:
         str(claim5_runtime),
         "--negative-control",
     )
+    claim1_audit = (
+        ROOT / ".openresearch" / "artifacts" / "claim_1"
+        / "theorem_audit_run.json"
+    )
+    run(
+        sys.executable,
+        "repro/src/run_claim1_theorem_audit.py",
+        "--out",
+        str(claim1_audit),
+    )
+    run(
+        sys.executable,
+        "repro/src/verify_claim1_theorem_audit.py",
+        str(claim1_audit),
+        "--paper",
+        "repro/sources/2606.08179.html",
+    )
+    for control in ("ignore-undefined", "mean-for-max", "witness-for-existence"):
+        run_expected_failure(
+            sys.executable,
+            "repro/src/run_claim1_theorem_audit.py",
+            "--out",
+            str(claim1_audit),
+            "--negative-control",
+            control,
+        )
     summary = {
         "schema": "dprsc-baseline-summary-v1",
         "verdict_scope": "historical 5/10 candidate regression only",
@@ -266,7 +292,7 @@ def main() -> None:
         "claims_1_to_4_source_contracts": {
             "status": "PASS",
             "negative_controls": 4,
-            "scientific_claim_status": "BLOCKED_PENDING_PROOF_OR_EMPIRICAL_EVIDENCE",
+            "scientific_claim_status": "SEE_CLAIM_SPECIFIC_TERMINAL_RECORDS",
         },
         "claim_4_counterexample": {
             "verdict": "FALSIFIED",
@@ -292,18 +318,26 @@ def main() -> None:
             "record": json.loads(claim2_dependency_audit.read_text()),
         },
         "claim_5_full_accuracy": {
-            "verdict": "PENDING_CUMULATIVE_INTERPRETATION",
+            "verdict": "BLOCKED_AS_PART_OF_EXACT_COMPOSITE_CLAIM",
             "primary_run": "PASS",
             "independent_checker": "PASS",
             "negative_control": "EXPECTED_FAILURE_CONFIRMED",
             "record": json.loads(claim5_accuracy.read_text()),
         },
         "claim_5_full_runtime": {
-            "verdict": "PENDING_CUMULATIVE_INTERPRETATION",
+            "verdict": "BLOCKED",
             "primary_run": "PASS",
             "independent_checker": "PASS",
             "negative_control": "EXPECTED_FAILURE_CONFIRMED",
             "record": json.loads(claim5_runtime.read_text()),
+        },
+        "claim_1_theorem_audit": {
+            "verdict": "BLOCKED",
+            "confidence": "LOW",
+            "primary_run": "PASS",
+            "independent_checker": "PASS",
+            "negative_controls": 3,
+            "record": json.loads(claim1_audit.read_text()),
         },
         "runtime_seconds": round(time.monotonic() - started, 3),
     }
