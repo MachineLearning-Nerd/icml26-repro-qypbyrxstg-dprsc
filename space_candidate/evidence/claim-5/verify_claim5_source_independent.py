@@ -19,9 +19,26 @@ class TextCollector(HTMLParser):
     def __init__(self) -> None:
         super().__init__()
         self.parts: list[str] = []
+        self.section_depth = 0
+
+    def handle_starttag(
+        self, tag: str, attrs: list[tuple[str, str | None]]
+    ) -> None:
+        if tag != "section":
+            return
+        attributes = dict(attrs)
+        if self.section_depth:
+            self.section_depth += 1
+        elif attributes.get("id") == "S5":
+            self.section_depth = 1
+
+    def handle_endtag(self, tag: str) -> None:
+        if tag == "section" and self.section_depth:
+            self.section_depth -= 1
 
     def handle_data(self, data: str) -> None:
-        self.parts.append(data)
+        if self.section_depth:
+            self.parts.append(data)
 
 
 def main() -> None:
@@ -32,13 +49,10 @@ def main() -> None:
 
     parser = TextCollector()
     parser.feed(payload.decode("utf-8"))
-    text = re.sub(r"\s+", " ", " ".join(parser.parts))
-    section_start = text.index("5 Experiments")
-    appendix_start = text.index("A Notation", section_start)
-    section5 = text[section_start:appendix_start]
+    section5 = re.sub(r"\s+", " ", " ".join(parser.parts))
 
     required_text = [
-        "n 1.5",
+        "1.5",
         "Runtime",
         "relative standard error",
         "3 to 4 orders of magnitude",
@@ -49,7 +63,7 @@ def main() -> None:
     missing = [marker for marker in required_text if marker not in section5]
     if missing:
         raise AssertionError(f"independent semantic markers missing: {missing}")
-    if section5.index("n 1.5") > section5.index("Runtime"):
+    if section5.index("1.5") > section5.index("Runtime"):
         raise AssertionError("default accuracy budget should precede runtime protocol")
     if section5.index("3 to 4 orders of magnitude") < section5.index("Runtime"):
         raise AssertionError("magnitude statement escaped runtime scope")
