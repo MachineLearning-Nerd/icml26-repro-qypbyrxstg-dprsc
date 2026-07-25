@@ -73,7 +73,10 @@ def main() -> None:
     parser.add_argument("--negative-control", action="store_true")
     args = parser.parse_args()
     try:
-        result = verify(json.loads(args.record.read_text()), args.negative_control)
+        record = json.loads(args.record.read_text())
+        if record.get("schema") == "dprsc-orx-log-extract-v1":
+            record = record["payload"]
+        result = verify(record, args.negative_control)
     except (AssertionError, KeyError, TypeError, ValueError) as exc:
         print(json.dumps({"status": "FAIL", "reason": str(exc)}, sort_keys=True))
         raise SystemExit(2)

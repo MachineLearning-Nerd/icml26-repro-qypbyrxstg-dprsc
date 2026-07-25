@@ -88,7 +88,11 @@ def main() -> None:
         "git_sha": git_sha(),
         "python": platform.python_version(),
         "platform": platform.platform(),
-        "estimated_cores": 1,
+        "estimated_cores": 4,
+        "estimated_runtime_minutes": "8-20",
+        "selected_backend": "hf",
+        "selected_flavor": "cpu-upgrade",
+        "selected_image": "ghcr.io/astral-sh/uv:python3.12-bookworm-slim",
         "actual_logical_cpu_allocation": os.cpu_count(),
         "selected_compute_policy": (
             "local only if <=1 core and <=5 minutes; otherwise hf cpu-upgrade"
@@ -222,6 +226,29 @@ def main() -> None:
         str(claim5_accuracy),
         "--negative-control",
     )
+    claim5_runtime = (
+        ROOT / ".openresearch" / "artifacts" / "claim_5"
+        / "full_runtime_run.json"
+    )
+    run(
+        sys.executable,
+        "repro/src/run_claim5_runtime.py",
+        "--accuracy",
+        str(claim5_accuracy),
+        "--out",
+        str(claim5_runtime),
+    )
+    run(
+        sys.executable,
+        "repro/src/verify_claim5_runtime.py",
+        str(claim5_runtime),
+    )
+    run_expected_failure(
+        sys.executable,
+        "repro/src/verify_claim5_runtime.py",
+        str(claim5_runtime),
+        "--negative-control",
+    )
     summary = {
         "schema": "dprsc-baseline-summary-v1",
         "verdict_scope": "historical 5/10 candidate regression only",
@@ -265,11 +292,18 @@ def main() -> None:
             "record": json.loads(claim2_dependency_audit.read_text()),
         },
         "claim_5_full_accuracy": {
-            "verdict": "PENDING_RUNTIME_PROTOCOL",
+            "verdict": "PENDING_CUMULATIVE_INTERPRETATION",
             "primary_run": "PASS",
             "independent_checker": "PASS",
             "negative_control": "EXPECTED_FAILURE_CONFIRMED",
             "record": json.loads(claim5_accuracy.read_text()),
+        },
+        "claim_5_full_runtime": {
+            "verdict": "PENDING_CUMULATIVE_INTERPRETATION",
+            "primary_run": "PASS",
+            "independent_checker": "PASS",
+            "negative_control": "EXPECTED_FAILURE_CONFIRMED",
+            "record": json.loads(claim5_runtime.read_text()),
         },
         "runtime_seconds": round(time.monotonic() - started, 3),
     }
