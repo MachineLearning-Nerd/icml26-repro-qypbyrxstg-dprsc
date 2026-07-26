@@ -26,12 +26,16 @@ DASHBOARD_FILES = Path(
 
 
 def load_payload(path: Path) -> dict:
-    envelope = json.loads(path.read_text())
-    payload = envelope["payload"]
-    # Campaign records are printed with ``json.dumps(..., sort_keys=True)``.
+    record = json.loads(path.read_text())
+    if "payload" not in record:
+        # Fresh campaign runs write the machine-readable payload directly.
+        return record
+
+    # Archived log extracts wrap the same payload with its printed-record hash.
+    payload = record["payload"]
     canonical = json.dumps(payload, sort_keys=True).encode()
     digest = hashlib.sha256(canonical).hexdigest()
-    if digest != envelope["payload_sha256"]:
+    if digest != record["payload_sha256"]:
         raise AssertionError(f"payload hash mismatch: {path}")
     return payload
 
