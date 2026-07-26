@@ -58,7 +58,11 @@ Fixed command:
 uv run --frozen python repro/src/run_campaign.py
 ```
 
-The exact publication action, after every remaining gate passes, is a
-text-only additive upload to the existing Space
-`DineshAI/QYpByrxSTg`, followed by an exact-revision download and traversal.
-No second Space will be created.
+Publication completed through a text-only additive commit to the existing
+Space `DineshAI/QYpByrxSTg`; no second Space was created. Published revision
+`0af4a5487541cbfa8e85a687a24483a1075c3454` was downloaded exactly, every
+manifest hash passed, and the canonical evaluator traversal passed with 81
+files opened and all 22 protected historical artifacts preserved. GitHub
+`master` was confirmed at
+`ff86be4c06d2a8f8b65c735478830e0c42db5e8a`. The paper is awaiting the live
+judge, and the live score remains 5/10 until a new verdict is recorded.

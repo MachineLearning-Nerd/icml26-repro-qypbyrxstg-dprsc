@@ -50,5 +50,10 @@ with MEDIUM confidence.
 The full text-only evidence tree includes all three released datasets, every
 runner and independent checker needed by the fixed command, raw run records,
 seeds, controls, compute estimates, actual CPU allocations, runtimes, and
-limitations. The final release regression SHA and exact published HF revision
-are filled only after those actions occur.
+limitations. Terminal HF `cpu-upgrade` run
+`7749e3aa-7f7d-44cd-ba3f-c25f5784b525` used Git SHA
+`ff86be4c06d2a8f8b65c735478830e0c42db5e8a`, exposed 64 logical CPUs, and
+completed in 11m40s. Published revision
+`0af4a5487541cbfa8e85a687a24483a1075c3454` passed an exact-download manifest
+check and evaluator traversal. The paper is awaiting the live judge; the
+previous live score remains 5/10.

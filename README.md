@@ -8,6 +8,12 @@ This is a claim-by-claim reproduction of
 **5/10**. The present evidence supports a conservative **7–8/10 forecast**;
 only the live judge can change the score.
 
+Publication receipt: the terminal release regression passed at Git SHA
+`ff86be4c06d2a8f8b65c735478830e0c42db5e8a` (HF `cpu-upgrade`, 11m40s), and
+Space revision `0af4a5487541cbfa8e85a687a24483a1075c3454` passed an exact
+post-download manifest and evaluator traversal. The paper is awaiting the live
+judge; 5/10 remains the only recorded score.
+
 The headline empirical result is strong: using all three released datasets,
 all three patterns, eight epsilon values, 20 repetitions, and the paper's
 default query counts, the proposed method has lower error in **144/144**
