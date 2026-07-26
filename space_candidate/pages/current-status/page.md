@@ -51,9 +51,9 @@ claim remains BLOCKED/MEDIUM.
 The full text-only evidence tree includes all three released datasets, every
 runner and independent checker needed by the fixed command, raw run records,
 seeds, controls, compute estimates, actual CPU allocations, runtimes, and
-limitations. Terminal HF `cpu-upgrade` run
-`7749e3aa-7f7d-44cd-ba3f-c25f5784b525` used Git SHA
-`ff86be4c06d2a8f8b65c735478830e0c42db5e8a`, exposed 64 logical CPUs, and
-completed in 11m40s. The previous published revision
+limitations. Terminal scientific HF `cpu-upgrade` run
+`a222c714-1f0c-4d05-881e-a7d1b85dac74` used Git SHA
+`c4cb4544392008732b669b626de6b2c4c8867342`, exposed 64 logical CPUs, and
+completed in 10m53s (635.455-second suite). The previous published revision
 `adf4e474c3afe562e54e0bfd1534e1323f0c5783` was rejudged at 4/10. This child
 does not claim a score increase; only a future live verdict can change it.

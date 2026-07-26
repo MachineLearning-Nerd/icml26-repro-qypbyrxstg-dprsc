@@ -22,10 +22,13 @@ exact evaluator-anchored source attribution; the paper's separate runtime
 observation remains BLOCKED.
 
 The current verifier is the fixed command
-`uv run --frozen python repro/src/run_campaign.py`. The previous published
-revision `adf4e474c3afe562e54e0bfd1534e1323f0c5783` was rejudged at **4/10**.
-This candidate forecasts at most 6/10; only a future live verdict can change
-the recorded score.
+`uv run --frozen python repro/src/run_campaign.py`. HF `cpu-upgrade` run
+`a222c714-1f0c-4d05-881e-a7d1b85dac74` passed at
+`c4cb4544392008732b669b626de6b2c4c8867342` in 10m53s with 64 logical CPUs
+visible. The previous published revision
+`adf4e474c3afe562e54e0bfd1534e1323f0c5783` was rejudged at **4/10**. This
+candidate forecasts at most 6/10; only a future live verdict can change the
+recorded score.
 
 Every file from judged revision
 `6d5d785bb7f0386ef5d46b609fb529dbd1058fcb` remains reachable under

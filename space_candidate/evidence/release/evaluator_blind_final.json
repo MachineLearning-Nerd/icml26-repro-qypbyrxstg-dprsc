@@ -92,11 +92,11 @@
     "evidence/reproduction/repro/src/verify_claim5_runtime.py",
     "evidence/claim-5/method.md",
     "evidence/claim-5/limitations.md",
+    "evidence/release/text_upload_allowlist.txt",
+    "evidence/release/text_manifest.sha256",
     "evidence/release/evaluator_blind_pass_1.json",
     "evidence/release/protected_subset.json",
-    "evidence/release/evaluator_blind_final.json",
-    "evidence/release/text_upload_allowlist.txt",
-    "evidence/release/text_manifest.sha256"
+    "evidence/release/evaluator_blind_final.json"
   ],
   "files_opened_count": 85,
   "issues": [],

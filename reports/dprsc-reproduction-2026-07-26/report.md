@@ -203,6 +203,7 @@ Every branch below used the exact same run command.
 | [`orx/claim-5-full-three-dataset-paper-protocol-reprod`](https://github.com/MachineLearning-Nerd/icml26-repro-qypbyrxstg-dprsc/tree/orx/claim-5-full-three-dataset-paper-protocol-reprod) | Full accuracy protocol | `uv run --frozen python repro/src/run_campaign.py` | 144/144 orderings hold | HF cpu-upgrade |
 | [`orx/claim-5-adaptive-rse-runtime-and-cumulative-accu`](https://github.com/MachineLearning-Nerd/icml26-repro-qypbyrxstg-dprsc/tree/orx/claim-5-adaptive-rse-runtime-and-cumulative-accu) | Adaptive exact runtime protocol | `uv run --frozen python repro/src/run_campaign.py` | Claim 5 BLOCKED/MEDIUM | HF cpu-upgrade, 16m51s |
 | [`orx/claim-1-theorem-audit-and-cumulative-full-scale`](https://github.com/MachineLearning-Nerd/icml26-repro-qypbyrxstg-dprsc/tree/orx/claim-1-theorem-audit-and-cumulative-full-scale) | Four-route Claim 1 audit and cumulative regression | `uv run --frozen python repro/src/run_campaign.py` | Claim 1 BLOCKED/LOW; cumulative PASS | HF cpu-upgrade, 17m46s |
+| [`orx/claim-5-anchored-source-attribution-falsificatio`](https://github.com/MachineLearning-Nerd/icml26-repro-qypbyrxstg-dprsc/tree/orx/claim-5-anchored-source-attribution-falsificatio) | Exact anchored “are reported” source contract | `uv run --frozen python repro/src/run_campaign.py` | Anchored Claim 5 FALSIFIED/HIGH; cumulative PASS | HF cpu-upgrade, 10m53s |
 | `master` | Publication surface | Not run as an experiment (publication surface) | README, report, notebook | None |
 
 ## Reproduce and inspect
@@ -234,7 +235,8 @@ Claim 2; and raw timings plus an assumption-matched runtime environment for
 the paper's actual Section 5 timing observation.
 
 The previous Space revision
-`adf4e474c3afe562e54e0bfd1534e1323f0c5783` was rejudged at 4/10. This child
-adds the exact anchored Claim 5 source-attribution falsification. Its run and
-publication receipt will be recorded here before release; no score increase is
-claimed until a future live verdict.
+`adf4e474c3afe562e54e0bfd1534e1323f0c5783` was rejudged at 4/10. The anchored
+Claim 5 source-falsification run
+`a222c714-1f0c-4d05-881e-a7d1b85dac74` passed at
+`c4cb4544392008732b669b626de6b2c4c8867342` in 10m53s on HF `cpu-upgrade`.
+No score increase is claimed until a future live verdict.

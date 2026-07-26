@@ -7,6 +7,8 @@
 Only the live evaluator can change the score. The current 4/10 is Claim 3 plus
 Claim 4. The possible two-point increase depends on accepting Claim 5's exact
 source-attribution falsification; no points are forecast for BLOCKED claims.
+Current total score: **4/10**. Conservative projected total: **4–6/10**.
+Best-supported possible total: **6/10 forecast**.
 
 | Claim | Current points | Possible points | Confidence | Evidence status | Basis and remaining risk |
 | --- | ---: | ---: | --- | --- | --- |
@@ -50,11 +52,11 @@ baseline through
 source contracts, Claim 4 falsification, Claim 3 proof certificate, Claim 2
 dependency audit, full Claim 5 accuracy, adaptive Claim 5 runtime, and the
 four-route Claim 1 audit, followed by the anchored Claim 5 source
-falsification. The latest completed cumulative science run before this child was
-`8e48d699-77f6-4924-93a8-f1cc62d50777` at
-`9cbe9f7d90b6a2ec32d8bf1047450c5c26aa6ec3`, using HF `cpu-upgrade`.
+falsification. The winning scientific run is
+`a222c714-1f0c-4d05-881e-a7d1b85dac74` at
+`c4cb4544392008732b669b626de6b2c4c8867342`, using HF `cpu-upgrade`.
 Estimated allocation was 4 cores for 15–30 minutes; 64 logical CPUs were
-exposed; the suite took `1036.093 s` (`17m46s` orchestrator duration).
+exposed; the suite took `635.455 s` (`10m53s` orchestrator duration).
 
 Fixed command:
 
@@ -65,5 +67,12 @@ uv run --frozen python repro/src/run_campaign.py
 The previous text-only additive publication to the existing Space
 `DineshAI/QYpByrxSTg` produced revision
 `adf4e474c3afe562e54e0bfd1534e1323f0c5783`, which the live evaluator scored
-4/10. No second Space will be created. This report will be updated with the
-new run, manifest, Git SHA, and publication receipt before release.
+4/10. No second Space will be created.
+
+Exact publication action: upload only the paths in
+[text_upload_allowlist.txt](evidence/release/text_upload_allowlist.txt), with
+hashes fixed by
+[text_manifest.sha256](evidence/release/text_manifest.sha256), through the
+text-only Hugging Face API to `DineshAI/QYpByrxSTg`; then download the exact
+new revision and repeat every hash, protected-subset, secret-scan, and
+canonical-traversal check.

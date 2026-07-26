@@ -114,9 +114,10 @@ Fixed command:
 uv run --frozen python repro/src/run_campaign.py
 ```
 
-Successful cumulative run `8e48d699-77f6-4924-93a8-f1cc62d50777` at source
-Git SHA `9cbe9f7d90b6a2ec32d8bf1047450c5c26aa6ec3`; HF `cpu-upgrade`; estimated
+Successful cumulative run `a222c714-1f0c-4d05-881e-a7d1b85dac74` at source
+Git SHA `c4cb4544392008732b669b626de6b2c4c8867342`; HF `cpu-upgrade`; estimated
 4 cores and 15–30 minutes; 64 logical CPUs exposed; scientific suite
-`1036.093 s`; orchestrator `17m46s`. Seeds are embedded in both raw records.
+`635.455 s`; orchestrator `10m53s`. The source test is deterministic; seeds
+are embedded in both empirical raw records.
 The two source-attribution controls, query-budget control, and biased-sampler
 control exit nonzero.
