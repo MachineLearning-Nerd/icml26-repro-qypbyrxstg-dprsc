@@ -21,9 +21,13 @@ The current cumulative verdicts are: Claim 3 **VERIFIED**, Claim 4
 as a pass.
 
 The current verifier is the fixed command
-`uv run --frozen python repro/src/run_campaign.py` at release-child revision
-`9abbfe44-94b7-4fc9-9cf7-0a9cbfa7fbc2` (final Git SHA is recorded after the
-release regression). It supersedes the judged revision's verification code.
+`uv run --frozen python repro/src/run_campaign.py` at terminal release Git SHA
+`ff86be4c06d2a8f8b65c735478830e0c42db5e8a`. HF `cpu-upgrade` run
+`7749e3aa-7f7d-44cd-ba3f-c25f5784b525` completed in 11m40s with 64 logical
+CPUs visible. Published revision
+`0af4a5487541cbfa8e85a687a24483a1075c3454` passed an exact-download manifest
+check and evaluator traversal. The reproduction is awaiting the live judge;
+the recorded score remains 5/10 until that evaluation.
 
 Every file from judged revision
 `6d5d785bb7f0386ef5d46b609fb529dbd1058fcb` remains reachable under

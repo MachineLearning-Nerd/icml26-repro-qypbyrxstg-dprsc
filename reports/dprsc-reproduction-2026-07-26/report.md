@@ -225,3 +225,10 @@ approximate-DP mechanism and exact proof for Claim 1; a valid
 same-exponent partial-discrepancy theorem or theorem-level counterexample for
 Claim 2; and an assumption-matched runtime environment or narrower source
 interpretation for Claim 5.
+
+Publication receipt: terminal HF `cpu-upgrade` regression
+`7749e3aa-7f7d-44cd-ba3f-c25f5784b525` passed at Git SHA
+`ff86be4c06d2a8f8b65c735478830e0c42db5e8a` in 11m40s. Space revision
+`0af4a5487541cbfa8e85a687a24483a1075c3454` passed exact-download manifest and
+canonical traversal checks. The reproduction is awaiting the live judge; the
+recorded score remains 5/10.
