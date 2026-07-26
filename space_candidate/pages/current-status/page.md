@@ -1,6 +1,6 @@
 # Current verification status
 
-**Claim 3 is VERIFIED, Claim 4 is FALSIFIED, and Claims 1, 2, and 5 remain
+**Claim 3 is VERIFIED; Claims 4 and 5 are FALSIFIED; Claims 1 and 2 remain
 BLOCKED.** Exact source contracts now replace the rejected historical ontology.
 No source-only, toy, proxy, or finite asymptotic calibration is presented as
 scientific verification.
@@ -21,7 +21,7 @@ Paper source: [archived ar5iv HTML](evidence/claim-5/source/2606.08179.html), SH
 | 2 | [Claim 2](#/current-claim-2) | Yes | Primary-source hashes and exact recursion ratios | Yes | Reconstruction SMT + exact-rational recursion + independent checker | Omitted rounds, squared-error promotion, and GS substitution fail | Exact contract; written same-exponent partial-discrepancy step is unproved | BLOCKED |
 | 3 | [Claim 3](#/current-claim-3) | Yes | Proof obligations and exact counts inline | Yes | General analytic + exhaustive + independent Decimal | Average/max, tied boundary, and under-noised controls fail | Exact Algorithm 1–3 chain and Theorem 3.3 | VERIFIED |
 | 4 | [Claim 4](#/current-claim-4) | Yes | Counterexample and formal run inline | Yes | Analytic + implementation + independent Decimal | Clipped repair rejects counterexample | Exact named Algorithm 4/5 chain | FALSIFIED |
-| 5 | [Claim 5](#/current-claim-5) | Yes | 144 accuracy comparisons and 9 runtime rows inline | Yes | Source + accuracy + runtime independent checkers | Query-budget and biased-sampler controls exit nonzero | Exact Section 5 accuracy and runtime protocols | BLOCKED |
+| 5 | [Claim 5](#/current-claim-5) | Yes | Exact source scopes, 144 accuracy comparisons, and 9 runtime rows inline | Yes | Raw-anchor + independent semantic source checkers | Misattribution and budget-conflation controls exit nonzero | Exact anchored “are reported” attribution; actual runtime claim separated | FALSIFIED |
 
 Claims 1 and 2 each completed exactly three materially different verification
 routes plus the mandatory fourth falsification route. Neither fourth route
@@ -30,11 +30,12 @@ falsified the exact theorem: Claim 1 is existential over algorithms, and Claim
 a box-incidence/DP counterexample. They are rigorously documented BLOCKED
 results.
 
-Claim 5 completed the full released-data protocol. Its accuracy ordering holds
-in all 144 matched comparisons. The runtime trend is strong but the literal
-3–4-order statement is not uniform on this hardware, and insufficient
-hardware detail prevents a valid falsification. It therefore remains BLOCKED
-with MEDIUM confidence.
+Claim 5's evaluator-anchored attribution is FALSIFIED/HIGH by the complete
+pinned Section 5: default accuracy uses \(\lceil n^{1.5}\rceil\), while the
+3–4-order magnitude and \(\Theta(n^2)\) belong to Runtime. This does not
+rewrite the paper's actual observations. Full released-data accuracy holds in
+all 144 matched comparisons, while the separate hardware-dependent runtime
+claim remains BLOCKED/MEDIUM.
 
 ## Reproducibility surface
 
@@ -53,7 +54,6 @@ seeds, controls, compute estimates, actual CPU allocations, runtimes, and
 limitations. Terminal HF `cpu-upgrade` run
 `7749e3aa-7f7d-44cd-ba3f-c25f5784b525` used Git SHA
 `ff86be4c06d2a8f8b65c735478830e0c42db5e8a`, exposed 64 logical CPUs, and
-completed in 11m40s. Published revision
-`0af4a5487541cbfa8e85a687a24483a1075c3454` passed an exact-download manifest
-check and evaluator traversal. The paper is awaiting the live judge; the
-previous live score remains 5/10.
+completed in 11m40s. The previous published revision
+`adf4e474c3afe562e54e0bfd1534e1323f0c5783` was rejudged at 4/10. This child
+does not claim a score increase; only a future live verdict can change it.

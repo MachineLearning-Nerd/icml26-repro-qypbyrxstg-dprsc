@@ -1,0 +1,14 @@
+{
+  "accuracy_scope_contains_3_to_4_orders": false,
+  "actual_paper_runtime_claim_verdict": "BLOCKED",
+  "anchored_claim_verdict": "FALSIFIED",
+  "default_accuracy_budget": "ceil(n^1.5)",
+  "magnitude_scope": "Runtime",
+  "method": "stdlib HTMLParser semantic text extraction",
+  "reported_hardware": "Intel Xeon Platinum 8562Y at 2.80 GHz with 768 GB RAM",
+  "result": "PASS",
+  "runtime_budget": "Theta(n^2)",
+  "schema": "dprsc-claim5-independent-source-check-v2",
+  "section_scope": "Section 5 only",
+  "sha256": "9387c720239542f024ef31654e84ced6e2687818f8f17703945aa114aab02a5b"
+}

@@ -16,18 +16,16 @@ tags:
 # Repro - DPRSC (DP Range Subgraph Counting)
 
 Start at the [current five-claim verification and visibility matrix](#/current-status).
-The current cumulative verdicts are: Claim 3 **VERIFIED**, Claim 4
-**FALSIFIED**, and Claims 1, 2, and 5 **BLOCKED**. “Blocked” is not presented
-as a pass.
+The current cumulative verdicts are: Claim 3 **VERIFIED**, Claims 4 and 5
+**FALSIFIED**, and Claims 1 and 2 **BLOCKED**. Claim 5's verdict applies to the
+exact evaluator-anchored source attribution; the paper's separate runtime
+observation remains BLOCKED.
 
 The current verifier is the fixed command
-`uv run --frozen python repro/src/run_campaign.py` at terminal release Git SHA
-`ff86be4c06d2a8f8b65c735478830e0c42db5e8a`. HF `cpu-upgrade` run
-`7749e3aa-7f7d-44cd-ba3f-c25f5784b525` completed in 11m40s with 64 logical
-CPUs visible. Published revision
-`0af4a5487541cbfa8e85a687a24483a1075c3454` passed an exact-download manifest
-check and evaluator traversal. The reproduction is awaiting the live judge;
-the recorded score remains 5/10 until that evaluation.
+`uv run --frozen python repro/src/run_campaign.py`. The previous published
+revision `adf4e474c3afe562e54e0bfd1534e1323f0c5783` was rejudged at **4/10**.
+This candidate forecasts at most 6/10; only a future live verdict can change
+the recorded score.
 
 Every file from judged revision
 `6d5d785bb7f0386ef5d46b609fb529dbd1058fcb` remains reachable under

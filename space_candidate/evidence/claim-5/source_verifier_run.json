@@ -1,22 +1,50 @@
 {
-  "schema": "dprsc-claim5-source-run-v1",
-  "experiment_id": "b41fa164-6f19-4fab-84fc-76c6a1f22fae",
-  "run_id": "a206295c-9236-4059-aae3-70aa42d70b3d",
-  "git_sha": "08ab3d805eb48a316ba78b890794cd36ba7cc352",
-  "fixed_command": "uv run --frozen python repro/src/run_campaign.py",
-  "backend": "local",
-  "estimated_cores": 1,
-  "selected_cpu_upgrade_flavor": null,
-  "actual_logical_cpu_allocation": 8,
-  "workload_threads": 1,
-  "runtime_seconds": 2.6,
-  "primary_checker": "PASS",
-  "independent_checker": "PASS",
-  "negative_control": {
-    "expected_exit_code": 2,
-    "observed_exit_code": 2,
-    "status": "EXPECTED_FAILURE_CONFIRMED"
+  "accuracy_protocol": {
+    "default_query_count": "ceil(n^1.5)",
+    "delta": 1e-05,
+    "dimension": 1,
+    "epsilon": 2.0,
+    "minimum_repetitions": 20
   },
-  "historical_regression_tests": "8/8 PASS",
-  "scientific_verdict": "BLOCKED"
+  "actual_paper_runtime_claim_verdict": "BLOCKED",
+  "anchored_claim": "On Wiki-Squirrel, WormNet-v3, and CA-Netscience, PDP_RSC and ADP_RSC are reported to outperform PDP_Comp and ADP_Comp by 3 to 4 orders of magnitude in accuracy at query-set size Theta(n^2).",
+  "anchored_claim_verdict": "FALSIFIED",
+  "anchors_checked": [
+    "S5",
+    "S5.p3",
+    "S5.p6"
+  ],
+  "datasets": [
+    {
+      "edges": 914,
+      "name": "CA-Netscience",
+      "nodes": 379
+    },
+    {
+      "edges": 198353,
+      "name": "Wiki-Squirrel",
+      "nodes": 5201
+    },
+    {
+      "edges": 762822,
+      "name": "WormNet-v3",
+      "nodes": 16347
+    }
+  ],
+  "falsification_basis": "The proposition is an attribution about the contents of Section 5. The complete pinned section assigns ceil(n^1.5) to the default accuracy protocol and assigns both 3-to-4-order statements and Theta(n^2) to the later Runtime scope.",
+  "magnitude_scope": {
+    "accuracy": "no 3-to-4-order statement in Section 5",
+    "query_latency": "3 to 4 orders of magnitude",
+    "total_time_at_Theta_n2": "3 to 4 orders of magnitude"
+  },
+  "runtime_protocol": {
+    "measurement": "sample query times until relative standard error < 5%",
+    "reported_hardware": "Intel Xeon Platinum 8562Y at 2.80 GHz with 768 GB RAM",
+    "reported_query_count_range": "1 to Theta(n^2)",
+    "theta_n2_total_time": "extrapolated from mean query time plus preprocessing"
+  },
+  "schema": "dprsc-claim5-source-verification-v2",
+  "sha256": "9387c720239542f024ef31654e84ced6e2687818f8f17703945aa114aab02a5b",
+  "source": "repro/sources/2606.08179.html",
+  "source_contract_status": "PASS"
 }

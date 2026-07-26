@@ -175,7 +175,8 @@ def _(mo):
     | Approximate-DP Algorithms 4–5 | **FALSIFIED / HIGH** | Algorithm 4 can return a negative value, which Algorithm 5 uses as a Laplace scale. Released NumPy raises `ValueError` on a valid input. |
     | Theorem 1.3 existence | **BLOCKED / LOW** | The named witness is invalid, but a flaw in one construction does not falsify an existential theorem over all algorithms. |
     | Theorem 1.4 lower bound | **BLOCKED / LOW** | The paper-specific reconstruction closes, but a cited partial-discrepancy transfer does not establish the written logarithmic exponent. |
-    | Section 5 composite | **BLOCKED / MEDIUM** | Accuracy aligns fully; runtime speedups range from 2.18x to 10,640x, so “3–4 orders” is not uniform on this hardware. |
+    | Evaluator-anchored Section 5 attribution | **FALSIFIED / HIGH** | The pinned source uses ceil(n^1.5) for default accuracy and places both “3–4 orders” and Theta(n²) under Runtime. |
+    | Actual Section 5 runtime observation | **BLOCKED / MEDIUM** | Accuracy aligns fully; unmatched-hardware runtime speedups range from 2.18x to 10,640x. |
 
     The important methodological rule is that evidence must match the
     quantifier. Finite experiments can reproduce an empirical ordering;

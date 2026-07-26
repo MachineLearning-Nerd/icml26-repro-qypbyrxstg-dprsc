@@ -1,10 +1,15 @@
 # Current verification — Claim 5
 
-**Scientific verdict: BLOCKED. Confidence: MEDIUM.** The paper-faithful
-accuracy and runtime protocols now run on all three datasets and patterns.
-Accuracy aligns completely; runtime scaling aligns strongly, but the literal
-3–4-order statement is not uniform on this hardware. This page supersedes the
+**Anchored claim verdict: FALSIFIED. Confidence: HIGH.** The exact evaluator
+claim is a source attribution: it says Section 5 reports 3–4 orders of
+magnitude in *accuracy* at \(\Theta(n^2)\). The complete pinned section instead
+assigns the default accuracy protocol \(\lceil n^{1.5}\rceil\), while both the
+magnitude and \(\Theta(n^2)\) occur under Runtime. This page supersedes the
 historical Claim 3 accuracy page.
+
+**Actual paper runtime claim: BLOCKED. Confidence: MEDIUM.** The separate,
+paper-faithful timing reproduction is hardware-dependent and is not treated as
+an assumption-matched falsification.
 
 ## What the paper actually claims
 
@@ -19,11 +24,15 @@ At Section 5 anchors `S5.p3` and `S5.p6`:
 | Accuracy | \(\varepsilon=2\), \(\delta=10^{-5}\), \(d=1\), \(|Q|=\lceil n^{1.5}\rceil\) by default, mean relative error, at least 20 independent runs |
 | Runtime | \(|Q|\) ranges from 1 to \(\Theta(n^2)\); query times are sampled until relative standard error is below 5%, then total time is extrapolated |
 | 3–4 orders | Lower query latency and extrapolated total-time speedup at \(\Theta(n^2)\), not accuracy |
+| Reported hardware | Intel Xeon Platinum 8562Y at 2.80 GHz with 768 GB RAM; raw timings and complete software environment are not published |
 | Domain | Wiki-Squirrel (5,201/198,353), WormNet-v3 (16,347/762,822), CA-Netscience (379/914); triangle, 2-star, and edge |
 
-The imported judge paraphrase says “3 to 4 orders of magnitude in accuracy at
-\(\Theta(n^2)\).” That mapping is contradicted by the paper source. The
-3–4-order statements are runtime statements in `S5.p6`.
+The exact anchored claim says “are reported,” so its domain is the complete
+finite content of the hash-pinned Section 5. The primary verifier checks raw
+anchors and ordering; an **independent source checker** uses Python's
+`HTMLParser` to reconstruct semantic text. Both conclude that the attribution
+is false. Two controls—accepting the misattribution and conflating the two
+query budgets—exit nonzero.
 
 ## Full accuracy result
 
@@ -69,16 +78,21 @@ filtering/counting baselines were used.
 | Worm / triangle | 10,665x | 10,640x | 8,785x |
 
 The trend and large-graph crossover align with the paper. The exact 3–4-order
-wording does not hold uniformly, so the composite claim remains BLOCKED.
-Different, insufficiently specified hardware prevents treating this as a valid
-falsification of the paper's observed timing.
+runtime wording does not hold uniformly. Different, insufficiently specified
+hardware and absent raw timing samples prevent treating this as a valid
+falsification of the paper's observed timing, so that separate actual paper
+claim remains BLOCKED.
 
 ## Reproduce and inspect
 
 - [Exact claim contract](evidence/claim-5/claim_contract.json)
 - [Source audit](evidence/claim-5/source_audit.md)
 - [Primary verifier](evidence/claim-5/verify_claim5_source.py)
-- [Independent checker](evidence/claim-5/verify_claim5_source_independent.py)
+- [Independent source checker](evidence/claim-5/verify_claim5_source_independent.py)
+- [Primary verifier output](evidence/claim-5/source_verifier_run.json)
+- [Independent checker output](evidence/claim-5/source_independent_run.json)
+- [Misattribution control output](evidence/claim-5/source_control_accept-misattribution.json)
+- [Budget-conflation control output](evidence/claim-5/source_control_conflate-query-budgets.json)
 - [Raw source facts](evidence/claim-5/raw_source_facts.json)
 - [Raw cumulative accuracy JSON](evidence/claim-5/cumulative_accuracy_run.json)
 - [Raw cumulative runtime JSON](evidence/claim-5/cumulative_runtime_run.json)
@@ -104,4 +118,5 @@ Successful cumulative run `8e48d699-77f6-4924-93a8-f1cc62d50777` at source
 Git SHA `9cbe9f7d90b6a2ec32d8bf1047450c5c26aa6ec3`; HF `cpu-upgrade`; estimated
 4 cores and 15–30 minutes; 64 logical CPUs exposed; scientific suite
 `1036.093 s`; orchestrator `17m46s`. Seeds are embedded in both raw records.
-The query-budget and biased-sampler controls exit nonzero.
+The two source-attribution controls, query-budget control, and biased-sampler
+control exit nonzero.

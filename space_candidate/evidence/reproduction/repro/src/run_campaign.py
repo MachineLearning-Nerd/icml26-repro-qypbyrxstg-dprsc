@@ -50,6 +50,39 @@ def run_expected_failure(*args: str) -> None:
     )
 
 
+def run_expected_failure_record(out: Path, *args: str) -> None:
+    print("EXEC_EXPECTED_FAILURE", " ".join(args), flush=True)
+    completed = subprocess.run(
+        args,
+        cwd=ROOT,
+        check=False,
+        capture_output=True,
+        text=True,
+    )
+    record = {
+        "schema": "dprsc-negative-control-v1",
+        "command": list(args),
+        "returncode": completed.returncode,
+        "stdout": completed.stdout,
+        "stderr": completed.stderr,
+        "expected_nonzero": True,
+        "status": "PASS" if completed.returncode != 0 else "FAIL",
+    }
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_text(json.dumps(record, indent=2, sort_keys=True) + "\n")
+    if completed.stdout:
+        print(completed.stdout, end="", flush=True)
+    if completed.stderr:
+        print(completed.stderr, end="", file=sys.stderr, flush=True)
+    if completed.returncode == 0:
+        raise AssertionError("negative control unexpectedly passed")
+    print(
+        "EXPECTED_FAILURE_CONFIRMED",
+        json.dumps({"returncode": completed.returncode, "record": str(out)}),
+        flush=True,
+    )
+
+
 def git_sha() -> str:
     return subprocess.check_output(
         ["git", "rev-parse", "HEAD"], cwd=ROOT, text=True
@@ -125,13 +158,27 @@ def main() -> None:
     )
 
     inventory = historical_csv_inventory()
-    run(sys.executable, "repro/src/verify_claim5_source.py")
-    run(sys.executable, "repro/src/verify_claim5_source_independent.py")
-    run_expected_failure(
+    claim5_dir = ROOT / ".openresearch" / "artifacts" / "claim_5"
+    run(
         sys.executable,
         "repro/src/verify_claim5_source.py",
-        "--negative-control",
+        "--out",
+        str(claim5_dir / "source_verifier_run.json"),
     )
+    run(
+        sys.executable,
+        "repro/src/verify_claim5_source_independent.py",
+        "--out",
+        str(claim5_dir / "source_independent_run.json"),
+    )
+    for control in ("accept-misattribution", "conflate-query-budgets"):
+        run_expected_failure_record(
+            claim5_dir / f"source_control_{control}.json",
+            sys.executable,
+            "repro/src/verify_claim5_source.py",
+            "--negative-control",
+            control,
+        )
     run(sys.executable, "repro/src/verify_claim_sources.py")
     for control in (
         "claim1-quantifiers",
@@ -293,8 +340,9 @@ def main() -> None:
         "claim_5_source_contract": {
             "status": "PASS",
             "independent_checker": "PASS",
-            "negative_control": "EXPECTED_FAILURE_CONFIRMED",
-            "scientific_claim_status": "SEE_FULL_ACCURACY_AND_RUNTIME_RECORDS",
+            "negative_controls": 2,
+            "anchored_claim_verdict": "FALSIFIED",
+            "actual_paper_runtime_claim_verdict": "BLOCKED",
         },
         "claims_1_to_4_source_contracts": {
             "status": "PASS",
@@ -325,14 +373,14 @@ def main() -> None:
             "record": json.loads(claim2_dependency_audit.read_text()),
         },
         "claim_5_full_accuracy": {
-            "verdict": "BLOCKED_AS_PART_OF_EXACT_COMPOSITE_CLAIM",
+            "verdict": "CORROBORATES_ACTUAL_PAPER_ACCURACY_ORDERING",
             "primary_run": "PASS",
             "independent_checker": "PASS",
             "negative_control": "EXPECTED_FAILURE_CONFIRMED",
             "record": json.loads(claim5_accuracy.read_text()),
         },
         "claim_5_full_runtime": {
-            "verdict": "BLOCKED",
+            "verdict": "BLOCKED_ACTUAL_PAPER_RUNTIME_CLAIM",
             "primary_run": "PASS",
             "independent_checker": "PASS",
             "negative_control": "EXPECTED_FAILURE_CONFIRMED",

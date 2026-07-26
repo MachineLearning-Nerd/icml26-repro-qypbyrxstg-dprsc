@@ -1,0 +1,14 @@
+{
+  "command": [
+    "/Users/dineshjinjala/.cache/openresearch/worktrees/MachineLearning-Nerd/icml26-repro-qypbyrxstg-dprsc/chat_c6ae9b4f-6a59-41e4-a1e8-455d0a40e045/.venv/bin/python3",
+    "repro/src/verify_claim5_source.py",
+    "--negative-control",
+    "accept-misattribution"
+  ],
+  "expected_nonzero": true,
+  "returncode": 1,
+  "schema": "dprsc-negative-control-v1",
+  "status": "PASS",
+  "stderr": "Traceback (most recent call last):\n  File \"/Users/dineshjinjala/.cache/openresearch/worktrees/MachineLearning-Nerd/icml26-repro-qypbyrxstg-dprsc/chat_c6ae9b4f-6a59-41e4-a1e8-455d0a40e045/repro/src/verify_claim5_source.py\", line 153, in <module>\n    raise SystemExit(main())\n                     ^^^^^^\n  File \"/Users/dineshjinjala/.cache/openresearch/worktrees/MachineLearning-Nerd/icml26-repro-qypbyrxstg-dprsc/chat_c6ae9b4f-6a59-41e4-a1e8-455d0a40e045/repro/src/verify_claim5_source.py\", line 133, in main\n    raise AssertionError(\nAssertionError: NEGATIVE_CONTROL_EXPECTED_FAILURE: accepting the anchored accuracy attribution requires '3 to 4 orders of magnitude', observed 'no 3-to-4-order statement in Section 5'\n",
+  "stdout": ""
+}

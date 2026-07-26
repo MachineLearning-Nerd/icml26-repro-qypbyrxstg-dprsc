@@ -364,12 +364,23 @@ def main() -> None:
     claim1 = load_payload(
         ROOT / ".openresearch" / "artifacts" / "claim_1" / "theorem_audit_run.json"
     )
+    claim5_source = load_payload(
+        ROOT / ".openresearch" / "artifacts" / "claim_5" / "source_verifier_run.json"
+    )
     style()
     summary = {
         "schema": "dprsc-release-summary-v1",
         "accuracy": accuracy_figure(accuracy),
         "runtime": runtime_figure(runtime),
         "claim1_calibration": theorem_calibration_figure(claim1),
+        "claim5_anchored_source": {
+            "verdict": claim5_source["anchored_claim_verdict"],
+            "source_sha256": claim5_source["sha256"],
+            "accuracy_budget": claim5_source["accuracy_protocol"][
+                "default_query_count"
+            ],
+            "magnitude_scope": "Runtime",
+        },
         "source_records": {
             "claim1": "theorem_audit_run.json",
             "claim5_accuracy": "cumulative_accuracy_run.json",

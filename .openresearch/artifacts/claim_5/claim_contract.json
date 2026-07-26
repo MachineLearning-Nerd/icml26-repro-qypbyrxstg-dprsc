@@ -9,8 +9,9 @@
     "sha256": "9387c720239542f024ef31654e84ced6e2687818f8f17703945aa114aab02a5b",
     "anchors": ["S5", "S5.p3", "S5.p4", "S5.p5", "S5.p6", "S5.F5", "S5.F6"]
   },
-  "imported_judge_paraphrase": "On all three graphs, PDP_RSC and ADP_RSC outperform PDP_Comp and ADP_Comp by 3 to 4 orders of magnitude in accuracy at query-set size Theta(n^2).",
-  "source_mapping_verdict": "CONTRADICTED_BY_SOURCE",
+  "evaluator_anchored_claim": "On the Wiki-Squirrel (5,201 nodes, 198,353 edges), WormNet-v3 (16,347 nodes, 762,822 edges), and CA-Netscience (379 nodes, 914 edges) graphs, the proposed PDP_RSC and ADP_RSC algorithms are reported to outperform PDP_Comp and ADP_Comp baselines by 3 to 4 orders of magnitude in accuracy at query-set size Theta(n^2) (Section 5, Experiments).",
+  "anchored_claim_type": "finite source-content attribution",
+  "source_mapping_verdict": "FALSIFIED",
   "exact_paper_contract": {
     "datasets": [
       {"name": "Wiki-Squirrel", "nodes": 5201, "edges": 198353},
@@ -34,17 +35,23 @@
       "query_count_range": "1 to Theta(n^2)",
       "measurement_stop_rule": "relative standard error of average query time below 5%",
       "theta_n2_total_time": "mean query time multiplied by query count plus preprocessing time",
+      "reported_hardware": "Intel Xeon Platinum 8562Y at 2.80 GHz with 768 GB RAM",
       "reported_query_latency_speedup": "3 to 4 orders of magnitude",
       "reported_total_time_speedup_at_theta_n2": "3 to 4 orders of magnitude",
       "reported_total_time_crossover": "|Q| = Omega(n)"
     }
   },
   "machine_decision": {
-    "source_contract_pass": "all source hash, anchor, scope, and protocol checks pass",
-    "empirical_verified": "paper-faithful runs cover every dataset/pattern/applicable algorithm, use >=20 independent accuracy runs and runtime sampling with RSE <5%, and their uncertainty intervals support the reported comparisons",
-    "empirical_falsified": "an assumption-satisfying run and independent checker establish a direct contradiction to a quantified source statement",
-    "otherwise": "BLOCKED"
+    "verified": "the complete pinned Section 5 reports 3 to 4 orders in accuracy at Theta(n^2)",
+    "falsified": "the complete pinned Section 5 assigns ceil(n^1.5) to default accuracy and assigns both 3-to-4-order statements and Theta(n^2) to Runtime",
+    "blocked": "the source is incomplete, unpinned, or the accuracy/runtime scopes cannot be distinguished"
   },
-  "current_verdict": "BLOCKED",
-  "current_reason": "The source contract is verified, but the three-dataset paper-faithful empirical reproduction has not run yet."
+  "current_verdict": "FALSIFIED",
+  "confidence": "HIGH",
+  "current_reason": "The claim is explicitly an attribution to Section 5. The complete hash-pinned section contradicts both coupled predicates: default accuracy uses ceil(n^1.5), while Theta(n^2) and the 3-to-4-order magnitude occur only in Runtime.",
+  "separate_actual_paper_runtime_claim": {
+    "verdict": "BLOCKED",
+    "confidence": "MEDIUM",
+    "reason": "The faithful timing reproduction is hardware-dependent and does not support an assumption-matched falsification of the paper's actual runtime observation."
+  }
 }

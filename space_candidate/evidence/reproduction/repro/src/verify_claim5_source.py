@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Fail-closed verifier for the exact Section 5 source contract.
+"""Fail-closed verifier for the evaluator-anchored Claim 5 attribution.
 
 This verifier deliberately separates the imported judge paraphrase from the
 paper's actual experimental claims.  It operates on the archived HTML bytes so
@@ -12,7 +12,6 @@ import argparse
 import hashlib
 import json
 from pathlib import Path
-import sys
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -40,6 +39,14 @@ def verify(source: Path) -> dict[str, object]:
         "dataset_ca": "CA-Netscience",
         "dataset_wiki": "Wiki-Squirrel",
         "dataset_wormnet": "WormNet-v3",
+        "dataset_ca_row": ">379</th>",
+        "dataset_ca_edges": ">914</th>",
+        "dataset_wiki_nodes": ">5,201</td>",
+        "dataset_wiki_edges": ">198,353</td>",
+        "dataset_wormnet_nodes": ">16,347</td>",
+        "dataset_wormnet_edges": ">762,822</td>",
+        "runtime_cpu": "Intel(R) Xeon(R) Platinum 8562Y Processor @ 2.80 GHZ",
+        "runtime_ram": "768 GB RAM",
     }
     missing = [name for name, marker in required.items() if marker not in html]
     if missing:
@@ -62,7 +69,7 @@ def verify(source: Path) -> dict[str, object]:
         raise AssertionError("3–4-order statements are not both in the runtime scope")
 
     return {
-        "schema": "dprsc-claim5-source-verification-v1",
+        "schema": "dprsc-claim5-source-verification-v2",
         "source": str(source.relative_to(ROOT)),
         "sha256": digest,
         "anchors_checked": ["S5", "S5.p3", "S5.p6"],
@@ -82,6 +89,9 @@ def verify(source: Path) -> dict[str, object]:
             "reported_query_count_range": "1 to Theta(n^2)",
             "measurement": "sample query times until relative standard error < 5%",
             "theta_n2_total_time": "extrapolated from mean query time plus preprocessing",
+            "reported_hardware": (
+                "Intel Xeon Platinum 8562Y at 2.80 GHz with 768 GB RAM"
+            ),
         },
         "magnitude_scope": {
             "query_latency": "3 to 4 orders of magnitude",
@@ -89,25 +99,52 @@ def verify(source: Path) -> dict[str, object]:
             "accuracy": "no 3-to-4-order statement in Section 5",
         },
         "source_contract_status": "PASS",
-        "scientific_claim_status": "BLOCKED_PENDING_EMPIRICAL_REPRODUCTION",
+        "anchored_claim": (
+            "On Wiki-Squirrel, WormNet-v3, and CA-Netscience, PDP_RSC and "
+            "ADP_RSC are reported to outperform PDP_Comp and ADP_Comp by 3 "
+            "to 4 orders of magnitude in accuracy at query-set size Theta(n^2)."
+        ),
+        "anchored_claim_verdict": "FALSIFIED",
+        "falsification_basis": (
+            "The proposition is an attribution about the contents of Section 5. "
+            "The complete pinned section assigns ceil(n^1.5) to the default "
+            "accuracy protocol and assigns both 3-to-4-order statements and "
+            "Theta(n^2) to the later Runtime scope."
+        ),
+        "actual_paper_runtime_claim_verdict": "BLOCKED",
     }
 
 
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--source", type=Path, default=DEFAULT_SOURCE)
-    parser.add_argument("--negative-control", action="store_true")
+    parser.add_argument("--out", type=Path)
+    parser.add_argument(
+        "--negative-control",
+        choices=("accept-misattribution", "conflate-query-budgets"),
+    )
     args = parser.parse_args()
 
     result = verify(args.source)
-    if args.negative_control:
-        print(
-            "NEGATIVE_CONTROL_EXPECTED_FAILURE: imported attribution "
-            "'accuracy improves by 3 to 4 orders at Theta(n^2)' is absent from "
-            "the paper's Section 5 source contract",
-            file=sys.stderr,
-        )
-        return 2
+    if args.negative_control == "accept-misattribution":
+        expected = "3 to 4 orders of magnitude"
+        observed = result["magnitude_scope"]["accuracy"]  # type: ignore[index]
+        if observed != expected:
+            raise AssertionError(
+                "NEGATIVE_CONTROL_EXPECTED_FAILURE: accepting the anchored "
+                f"accuracy attribution requires {expected!r}, observed {observed!r}"
+            )
+    if args.negative_control == "conflate-query-budgets":
+        expected = "Theta(n^2)"
+        observed = result["accuracy_protocol"]["default_query_count"]  # type: ignore[index]
+        if observed != expected:
+            raise AssertionError(
+                "NEGATIVE_CONTROL_EXPECTED_FAILURE: conflating query budgets "
+                f"requires default accuracy {expected!r}, observed {observed!r}"
+            )
+    if args.out:
+        args.out.parent.mkdir(parents=True, exist_ok=True)
+        args.out.write_text(json.dumps(result, indent=2, sort_keys=True) + "\n")
     print("CLAIM5_SOURCE_RESULT", json.dumps(result, sort_keys=True))
     return 0
 

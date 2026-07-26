@@ -9,7 +9,7 @@
     "2": "BLOCKED",
     "3": "VERIFIED",
     "4": "FALSIFIED",
-    "5": "BLOCKED"
+    "5": "FALSIFIED"
   },
   "files_opened": [
     "README.md",
@@ -79,6 +79,10 @@
     "evidence/claim-5/source_audit.md",
     "evidence/claim-5/verify_claim5_source.py",
     "evidence/claim-5/verify_claim5_source_independent.py",
+    "evidence/claim-5/source_verifier_run.json",
+    "evidence/claim-5/source_independent_run.json",
+    "evidence/claim-5/source_control_accept-misattribution.json",
+    "evidence/claim-5/source_control_conflate-query-budgets.json",
     "evidence/claim-5/raw_source_facts.json",
     "evidence/claim-5/cumulative_accuracy_run.json",
     "evidence/claim-5/cumulative_runtime_run.json",
@@ -94,7 +98,7 @@
     "evidence/release/text_upload_allowlist.txt",
     "evidence/release/text_manifest.sha256"
   ],
-  "files_opened_count": 81,
+  "files_opened_count": 85,
   "issues": [],
   "phase": "final",
   "protected_mappings_found": 22,

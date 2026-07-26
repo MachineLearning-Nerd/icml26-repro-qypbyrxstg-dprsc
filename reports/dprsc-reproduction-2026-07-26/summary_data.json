@@ -17,6 +17,12 @@
       32.17985243971953
     ]
   },
+  "claim5_anchored_source": {
+    "accuracy_budget": "ceil(n^1.5)",
+    "magnitude_scope": "Runtime",
+    "source_sha256": "9387c720239542f024ef31654e84ced6e2687818f8f17703945aa114aab02a5b",
+    "verdict": "FALSIFIED"
+  },
   "runtime": {
     "conservative_95_lower_range": [
       1.7957250580279522,

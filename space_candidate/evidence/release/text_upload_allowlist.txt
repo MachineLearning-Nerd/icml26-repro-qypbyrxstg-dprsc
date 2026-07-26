@@ -50,6 +50,9 @@ evidence/claim-5/method.md
 evidence/claim-5/raw_source_facts.json
 evidence/claim-5/source/2606.08179.html
 evidence/claim-5/source_audit.md
+evidence/claim-5/source_control_accept-misattribution.json
+evidence/claim-5/source_control_conflate-query-budgets.json
+evidence/claim-5/source_independent_run.json
 evidence/claim-5/source_verifier_run.json
 evidence/claim-5/verify_claim5_source.py
 evidence/claim-5/verify_claim5_source_independent.py

@@ -17,5 +17,7 @@
     "query_latency_speedup": "3 to 4 orders of magnitude",
     "total_time_speedup_at_theta_n2": "3 to 4 orders of magnitude"
   },
-  "imported_accuracy_magnitude_attribution_supported": false
+  "evaluator_anchored_accuracy_magnitude_attribution_supported": false,
+  "evaluator_anchored_claim_verdict": "FALSIFIED",
+  "actual_paper_runtime_claim_verdict": "BLOCKED"
 }

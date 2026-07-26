@@ -53,3 +53,20 @@ The second-pass statement is accepted only when
 `verify_release_candidate.py --phase final` exits zero. Any missing link,
 marker, protected byte sequence, manifest entry, or credential-shaped value
 makes it exit nonzero.
+
+## Rejudge correction pass
+
+After revision `adf4e474c3afe562e54e0bfd1534e1323f0c5783` was scored 4/10, the
+review was repeated from the same three canonical entrypoints without repository
+knowledge. It found that the evaluator-anchored Claim 5 is explicitly an “are
+reported” attribution and that the candidate had already documented the source
+mismatch but left the current verdict BLOCKED.
+
+The corrected candidate makes the finite source contract executable. The blind
+reviewer opened **85 files**, found Claim 5's primary raw-anchor verifier,
+independent semantic parser, two failing controls, raw outputs, full empirical
+context, and the limitation that the paper's actual runtime observation remains
+BLOCKED. It concluded: Claim 1 BLOCKED, Claim 2 BLOCKED, Claim 3 VERIFIED,
+Claim 4 FALSIFIED, and anchored Claim 5 FALSIFIED. The current
+[evaluator_blind_final.json](evidence/release/evaluator_blind_final.json)
+records this traversal.

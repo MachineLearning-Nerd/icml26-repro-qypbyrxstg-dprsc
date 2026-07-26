@@ -1,10 +1,12 @@
 # Claim 5 method
 
-The source verifier checks the archived HTML hash, named Section 5 anchors,
-dataset names, and protocol ordering. An independent `HTMLParser` checker
-reconstructs the attribution without sharing the first verifier's raw-markup
-markers. The source negative control asserts the imported but unsupported
-mapping “3–4 orders in accuracy at Theta(n^2)” and exits nonzero.
+The source verifier checks the archived HTML hash, complete Section 5 scope,
+named anchors, dataset names, and protocol ordering. It directly decides the
+evaluator-anchored attribution, whose predicate is “are reported.” An
+independent `HTMLParser` checker reconstructs the semantic text without sharing
+the first verifier's raw-markup markers. Two source controls deliberately
+accept the unsupported accuracy attribution or conflate the accuracy and
+runtime query budgets; both exit nonzero.
 
 The accuracy route uses the exact three released graphs and public attributes.
 For each dataset, pattern, and epsilon in `{0.5, 1, ..., 4}`, it evaluates
@@ -25,3 +27,5 @@ the negative control and exits nonzero.
 
 The paper's fixed query counts and stop rule were selected before observing
 the results; no theorem-derived threshold was used as an acceptance cutoff.
+Those empirical records are corroboration for the paper's actual claims, not
+inputs to the source-attribution falsification.

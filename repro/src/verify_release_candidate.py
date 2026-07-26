@@ -91,12 +91,12 @@ REQUIREMENTS = {
         "Exact contract",
     ],
     "pages/current-claim-5/page.md": [
-        "Scientific verdict: BLOCKED",
-        "Confidence: MEDIUM",
+        "Anchored claim verdict: FALSIFIED",
+        "Confidence: HIGH",
         "cumulative_accuracy_run.json",
         "cumulative_runtime_run.json",
-        "Accuracy checker",
-        "Runtime checker",
+        "Independent source checker",
+        "Actual paper runtime claim: BLOCKED",
         "controls",
     ],
 }
@@ -215,7 +215,7 @@ def visibility_issues(phase: str, opened: list[str]) -> list[str]:
         issues.append("historical navigation labels incomplete")
     report = (SPACE / "pages/release-report/page.md").read_text()
     for marker in (
-        "Previous live judged score: `5/10`",
+        "Previous live judged score: `4/10`",
         "Conservative projected score range",
         "Best-supported possible new score",
         "| Claim | Current points | Possible points | Confidence | Evidence status | Basis and remaining risk |",
@@ -346,7 +346,7 @@ def main() -> None:
             "2": "BLOCKED",
             "3": "VERIFIED",
             "4": "FALSIFIED",
-            "5": "BLOCKED",
+            "5": "FALSIFIED",
         },
         "issues": issues,
         "protected_old_file_count": len(OLD_HASHES),
