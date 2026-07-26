@@ -1,0 +1,36 @@
+{
+  "accuracy": {
+    "epsilon_2_approx_ratio_range": [
+      1.4719344552646125,
+      9.49489366120081
+    ],
+    "epsilon_2_pure_ratio_range": [
+      11.472233978058446,
+      884.0103117877187
+    ],
+    "matched_comparisons_all_eps": 144,
+    "matched_comparisons_holding": 144
+  },
+  "claim1_calibration": {
+    "p95_normalized_range": [
+      6.080629509068456,
+      32.17985243971953
+    ]
+  },
+  "runtime": {
+    "conservative_95_lower_range": [
+      1.7957250580279522,
+      8785.374970629306
+    ],
+    "mean_speedup_range": [
+      2.1762758364572523,
+      10640.15585065317
+    ]
+  },
+  "schema": "dprsc-release-summary-v1",
+  "source_records": {
+    "claim1": "theorem_audit_run.json",
+    "claim5_accuracy": "cumulative_accuracy_run.json",
+    "claim5_runtime": "cumulative_runtime_run.json"
+  }
+}

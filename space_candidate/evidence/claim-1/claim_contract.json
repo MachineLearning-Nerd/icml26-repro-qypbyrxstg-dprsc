@@ -17,7 +17,14 @@
     "hidden_constants": "c^O(d) for a universal c > 1",
     "efficiency_scope": "polynomial time for d = O(log n / log log n)"
   },
-  "acceptance": "A proof-level privacy, utility, and complexity certificate for the named algorithm plus a defensible priority audit; finite error observations alone cannot establish the asymptotic theorem.",
+  "acceptance": "A proof-level privacy, utility, and complexity certificate for a total-domain algorithm attaining the exact bound plus a defensible priority audit; finite error observations alone cannot establish the asymptotic theorem.",
   "current_verdict": "BLOCKED",
-  "reason": "The exact source contract is machine-checked, but privacy/utility proof dependencies and the priority claim have not been independently discharged."
+  "confidence": "LOW",
+  "completed_routes": [
+    "independent symbolic proof-chain reconstruction",
+    "full-scale finite max-error calibration",
+    "repair analysis and primary-literature priority audit",
+    "mandatory assumption-satisfying falsification search"
+  ],
+  "reason": "The named Algorithm 5 witness is undefined when EstimateHS is negative, finite calibration cannot establish the asymptotic universal contract, no certified repair was found, and falsifying the offered witness does not falsify an existential theorem over all possible algorithms."
 }

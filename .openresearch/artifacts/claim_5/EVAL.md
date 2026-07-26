@@ -1,7 +1,26 @@
 # Claim 5 evaluator checklist
 
-Current verdict: **BLOCKED**.
+Current verdict: **BLOCKED**. Confidence: **MEDIUM**.
 
-The exact source contract, two executable checkers, archived source, raw source facts, and a negative control are present. Formal run `a206295c-9236-4059-aae3-70aa42d70b3d` at Git SHA `08ab3d805eb48a316ba78b890794cd36ba7cc352` passed both checkers and confirmed the control's expected exit code 2 in 2.600 seconds. The empirical comparison across all three datasets has not yet been executed, so this artifact must not receive full scientific credit.
+The paper-faithful accuracy reproduction now covers Wiki-Squirrel,
+WormNet-v3, and CA-Netscience; edge, 2-star, and triangle; eight epsilon
+values; 20 deterministic repetitions; and the paper-default
+`ceil(n^1.5)` query budget. All 144 privacy-matched
+proposed-versus-baseline orderings hold.
 
-The canonical candidate page is `space_candidate/pages/current-claim-5/page.md`. It links the source snapshot, raw facts, both checkers, contract, and control behavior. Historical judged pages remain preserved but are explicitly labeled “Historical rejected baseline” in navigation.
+The runtime reproduction samples exact i.i.d. uniform distinct intervals,
+uses the released `range_tree.querySplit`, samples the exact filtering/counting
+baselines until RSE is below 5%, and extrapolates to the full distinct-query
+Theta(n^2) domain. All nine sampling comparisons reach the stop rule.
+
+The exact 3–4-order wording is not uniformly reproduced: mean total-time
+speedups range from 2.18x to 10,640x, with conservative 95% lower values from
+1.80x to 8,785x. Because runtime is hardware-dependent and the paper does not
+publish a sufficient environment specification for an assumption-matched
+counterexample, the result is BLOCKED rather than FALSIFIED.
+
+Canonical page: `space_candidate/pages/current-claim-5/page.md`. Raw cumulative
+records, executable primary and independent checkers, source snapshot, locked
+environment, negative-control output, exact command, seeds, and compute/runtime
+metadata are linked there. Historical judged pages remain reachable and are
+explicitly labeled “Historical rejected baseline.”

@@ -1,0 +1,1307 @@
+{
+  "payload": {
+    "claim_id": 1,
+    "confidence": "LOW",
+    "environment": {
+      "logical_cpus_visible": 64,
+      "numpy": "2.5.1",
+      "python": "3.12.12"
+    },
+    "exact_verdict": "BLOCKED",
+    "final_reason": "The stated Algorithm 5 witness is not a total randomized algorithm, finite observations cannot establish the asymptotic quantifiers, and the priority statement is not exhaustively decidable from the reviewed corpus. The mandatory falsification route does not contradict the theorem's existential quantifier.",
+    "routes": [
+      {
+        "blocking_result": "Lemma E.4 guarantees upper-bounding only with high probability. On its complementary positive-probability event EstimateHS can be negative, yet Lemmas E.5-E.7 use it as a Laplace scale. The purported randomized output distribution is then undefined.",
+        "checks": 192,
+        "conditional_result": "The printed epsilon/delta composition and Lemma E.7 tail scaling are algebraically consistent conditional on a finite positive EstimateHS value.",
+        "name": "independent symbolic proof-chain reconstruction",
+        "route": 1,
+        "status": "INCONCLUSIVE_FOR_EXISTENTIAL_THEOREM"
+      },
+      {
+        "datasets": 3,
+        "invalid_scales": 0,
+        "limitation": "Finite normalized ratios cannot prove an asymptotic Big-O claim with hidden c^O(d) constants, arbitrary Q, and probability 1-1/n.",
+        "name": "full-scale finite max-error calibration",
+        "non_circularity": "The query budgets and 20 repetitions are the paper's Section 5 protocol, not selected from the theorem formula. No arbitrary Big-O constant is used as an acceptance threshold.",
+        "route": 2,
+        "status": "SCOPED_CORROBORATION_ONLY",
+        "summaries": [
+          {
+            "dataset": "ca-netscience",
+            "epsilon": 0.5,
+            "nodes": 379,
+            "normalized_max_error_max": 8.404933685143886,
+            "normalized_max_error_mean": 6.238735309004696,
+            "normalized_max_error_p95": 7.2251587351861115,
+            "pattern": "edge",
+            "query_count": 7379,
+            "repetitions": 20
+          },
+          {
+            "dataset": "ca-netscience",
+            "epsilon": 1.0,
+            "nodes": 379,
+            "normalized_max_error_max": 8.23529675963469,
+            "normalized_max_error_mean": 6.11281880370783,
+            "normalized_max_error_p95": 7.079333228398438,
+            "pattern": "edge",
+            "query_count": 7379,
+            "repetitions": 20
+          },
+          {
+            "dataset": "ca-netscience",
+            "epsilon": 1.5,
+            "nodes": 379,
+            "normalized_max_error_max": 8.075533281442295,
+            "normalized_max_error_mean": 5.994231068238835,
+            "normalized_max_error_p95": 6.941995263190479,
+            "pattern": "edge",
+            "query_count": 7379,
+            "repetitions": 20
+          },
+          {
+            "dataset": "ca-netscience",
+            "epsilon": 2.0,
+            "nodes": 379,
+            "normalized_max_error_max": 7.924721192403305,
+            "normalized_max_error_mean": 5.882287685916216,
+            "normalized_max_error_p95": 6.8123522078957395,
+            "pattern": "edge",
+            "query_count": 7379,
+            "repetitions": 20
+          },
+          {
+            "dataset": "ca-netscience",
+            "epsilon": 2.5,
+            "nodes": 379,
+            "normalized_max_error_max": 7.782054651941672,
+            "normalized_max_error_mean": 5.77639050495871,
+            "normalized_max_error_p95": 6.689711335326202,
+            "pattern": "edge",
+            "query_count": 7379,
+            "repetitions": 20
+          },
+          {
+            "dataset": "ca-netscience",
+            "epsilon": 3.0,
+            "nodes": 379,
+            "normalized_max_error_max": 7.646825857358553,
+            "normalized_max_error_mean": 5.676014144220605,
+            "normalized_max_error_p95": 6.5734641948927335,
+            "pattern": "edge",
+            "query_count": 7379,
+            "repetitions": 20
+          },
+          {
+            "dataset": "ca-netscience",
+            "epsilon": 3.5,
+            "nodes": 379,
+            "normalized_max_error_max": 7.518410223293755,
+            "normalized_max_error_mean": 5.580694992341471,
+            "normalized_max_error_p95": 6.4630738723804075,
+            "pattern": "edge",
+            "query_count": 7379,
+            "repetitions": 20
+          },
+          {
+            "dataset": "ca-netscience",
+            "epsilon": 4.0,
+            "nodes": 379,
+            "normalized_max_error_max": 7.396254210623412,
+            "normalized_max_error_mean": 5.490022173494519,
+            "normalized_max_error_p95": 6.358064527266756,
+            "pattern": "edge",
+            "query_count": 7379,
+            "repetitions": 20
+          },
+          {
+            "dataset": "ca-netscience",
+            "epsilon": 0.5,
+            "nodes": 379,
+            "normalized_max_error_max": 27.131767214001016,
+            "normalized_max_error_mean": 20.139113579548287,
+            "normalized_max_error_p95": 23.323363661246976,
+            "pattern": "2star",
+            "query_count": 7379,
+            "repetitions": 20
+          },
+          {
+            "dataset": "ca-netscience",
+            "epsilon": 1.0,
+            "nodes": 379,
+            "normalized_max_error_max": 26.80501321250059,
+            "normalized_max_error_mean": 19.896573685376083,
+            "normalized_max_error_p95": 23.042475124033334,
+            "pattern": "2star",
+            "query_count": 7379,
+            "repetitions": 20
+          },
+          {
+            "dataset": "ca-netscience",
+            "epsilon": 1.5,
+            "nodes": 379,
+            "normalized_max_error_max": 26.513003833963744,
+            "normalized_max_error_mean": 19.679823703914785,
+            "normalized_max_error_p95": 22.791454212848627,
+            "pattern": "2star",
+            "query_count": 7379,
+            "repetitions": 20
+          },
+          {
+            "dataset": "ca-netscience",
+            "epsilon": 2.0,
+            "nodes": 379,
+            "normalized_max_error_max": 26.25148298134391,
+            "normalized_max_error_mean": 19.485704459385317,
+            "normalized_max_error_p95": 22.56664224602974,
+            "pattern": "2star",
+            "query_count": 7379,
+            "repetitions": 20
+          },
+          {
+            "dataset": "ca-netscience",
+            "epsilon": 2.5,
+            "nodes": 379,
+            "normalized_max_error_max": 26.016619538367415,
+            "normalized_max_error_mean": 19.311372226748936,
+            "normalized_max_error_p95": 22.364745869429306,
+            "pattern": "2star",
+            "query_count": 7379,
+            "repetitions": 20
+          },
+          {
+            "dataset": "ca-netscience",
+            "epsilon": 3.0,
+            "nodes": 379,
+            "normalized_max_error_max": 25.805001606958236,
+            "normalized_max_error_mean": 19.15429445431695,
+            "normalized_max_error_p95": 22.182832102715647,
+            "pattern": "2star",
+            "query_count": 7379,
+            "repetitions": 20
+          },
+          {
+            "dataset": "ca-netscience",
+            "epsilon": 3.5,
+            "nodes": 379,
+            "normalized_max_error_max": 25.613621659640902,
+            "normalized_max_error_mean": 19.012238742815676,
+            "normalized_max_error_p95": 22.01831557588767,
+            "pattern": "2star",
+            "query_count": 7379,
+            "repetitions": 20
+          },
+          {
+            "dataset": "ca-netscience",
+            "epsilon": 4.0,
+            "nodes": 379,
+            "normalized_max_error_max": 25.43985262228423,
+            "normalized_max_error_mean": 18.883255092309906,
+            "normalized_max_error_p95": 21.868937969211068,
+            "pattern": "2star",
+            "query_count": 7379,
+            "repetitions": 20
+          },
+          {
+            "dataset": "ca-netscience",
+            "epsilon": 0.5,
+            "nodes": 379,
+            "normalized_max_error_max": 36.40842931039793,
+            "normalized_max_error_mean": 27.024907273886775,
+            "normalized_max_error_p95": 31.297888944845884,
+            "pattern": "triangle",
+            "query_count": 7379,
+            "repetitions": 20
+          },
+          {
+            "dataset": "ca-netscience",
+            "epsilon": 1.0,
+            "nodes": 379,
+            "normalized_max_error_max": 35.95987798088058,
+            "normalized_max_error_mean": 26.691960801946472,
+            "normalized_max_error_p95": 30.91229939969932,
+            "pattern": "triangle",
+            "query_count": 7379,
+            "repetitions": 20
+          },
+          {
+            "dataset": "ca-netscience",
+            "epsilon": 1.5,
+            "nodes": 379,
+            "normalized_max_error_max": 35.56655938108518,
+            "normalized_max_error_mean": 26.40001196235371,
+            "normalized_max_error_p95": 30.574189734176812,
+            "pattern": "triangle",
+            "query_count": 7379,
+            "repetitions": 20
+          },
+          {
+            "dataset": "ca-netscience",
+            "epsilon": 2.0,
+            "nodes": 379,
+            "normalized_max_error_max": 35.222765510236314,
+            "normalized_max_error_mean": 26.14482387385335,
+            "normalized_max_error_p95": 30.278653162192,
+            "pattern": "triangle",
+            "query_count": 7379,
+            "repetitions": 20
+          },
+          {
+            "dataset": "ca-netscience",
+            "epsilon": 2.5,
+            "nodes": 379,
+            "normalized_max_error_max": 34.92270518334761,
+            "normalized_max_error_mean": 25.922097909994665,
+            "normalized_max_error_p95": 30.020711389761985,
+            "pattern": "triangle",
+            "query_count": 7379,
+            "repetitions": 20
+          },
+          {
+            "dataset": "ca-netscience",
+            "epsilon": 3.0,
+            "nodes": 379,
+            "normalized_max_error_max": 34.66067243002976,
+            "normalized_max_error_mean": 25.727598696618436,
+            "normalized_max_error_p95": 29.79545937618743,
+            "pattern": "triangle",
+            "query_count": 7379,
+            "repetitions": 20
+          },
+          {
+            "dataset": "ca-netscience",
+            "epsilon": 3.5,
+            "nodes": 379,
+            "normalized_max_error_max": 34.431240586822426,
+            "normalized_max_error_mean": 25.55729818089187,
+            "normalized_max_error_p95": 29.598232182234742,
+            "pattern": "triangle",
+            "query_count": 7379,
+            "repetitions": 20
+          },
+          {
+            "dataset": "ca-netscience",
+            "epsilon": 4.0,
+            "nodes": 379,
+            "normalized_max_error_max": 34.22943026786029,
+            "normalized_max_error_mean": 25.40750031099838,
+            "normalized_max_error_p95": 29.42474936327125,
+            "pattern": "triangle",
+            "query_count": 7379,
+            "repetitions": 20
+          },
+          {
+            "dataset": "musae-squirrel",
+            "epsilon": 0.5,
+            "nodes": 5201,
+            "normalized_max_error_max": 8.173296489263084,
+            "normalized_max_error_mean": 6.2772701160961555,
+            "normalized_max_error_p95": 7.428761165379762,
+            "pattern": "edge",
+            "query_count": 375086,
+            "repetitions": 20
+          },
+          {
+            "dataset": "musae-squirrel",
+            "epsilon": 1.0,
+            "nodes": 5201,
+            "normalized_max_error_max": 8.00833470138314,
+            "normalized_max_error_mean": 6.150575862104894,
+            "normalized_max_error_p95": 7.278826347135497,
+            "pattern": "edge",
+            "query_count": 375086,
+            "repetitions": 20
+          },
+          {
+            "dataset": "musae-squirrel",
+            "epsilon": 1.5,
+            "nodes": 5201,
+            "normalized_max_error_max": 7.852974251873537,
+            "normalized_max_error_mean": 6.031255645566681,
+            "normalized_max_error_p95": 7.137618246405392,
+            "pattern": "edge",
+            "query_count": 375086,
+            "repetitions": 20
+          },
+          {
+            "dataset": "musae-squirrel",
+            "epsilon": 2.0,
+            "nodes": 5201,
+            "normalized_max_error_max": 7.706318494189267,
+            "normalized_max_error_mean": 5.918620822362327,
+            "normalized_max_error_p95": 7.004321895441562,
+            "pattern": "edge",
+            "query_count": 375086,
+            "repetitions": 20
+          },
+          {
+            "dataset": "musae-squirrel",
+            "epsilon": 2.5,
+            "nodes": 5201,
+            "normalized_max_error_max": 7.567583796454363,
+            "normalized_max_error_mean": 5.8120695461054375,
+            "normalized_max_error_p95": 6.878225046247649,
+            "pattern": "edge",
+            "query_count": 375086,
+            "repetitions": 20
+          },
+          {
+            "dataset": "musae-squirrel",
+            "epsilon": 3.0,
+            "nodes": 5201,
+            "normalized_max_error_max": 7.4360818627785354,
+            "normalized_max_error_mean": 5.71107319052767,
+            "normalized_max_error_p95": 6.758702102311056,
+            "pattern": "edge",
+            "query_count": 375086,
+            "repetitions": 20
+          },
+          {
+            "dataset": "musae-squirrel",
+            "epsilon": 3.5,
+            "nodes": 5201,
+            "normalized_max_error_max": 7.311205321167806,
+            "normalized_max_error_mean": 5.615165280679517,
+            "normalized_max_error_p95": 6.6452010193632685,
+            "pattern": "edge",
+            "query_count": 375086,
+            "repetitions": 20
+          },
+          {
+            "dataset": "musae-squirrel",
+            "epsilon": 4.0,
+            "nodes": 5201,
+            "normalized_max_error_max": 7.192415887853699,
+            "normalized_max_error_mean": 5.52393240287676,
+            "normalized_max_error_p95": 6.537232547863359,
+            "pattern": "edge",
+            "query_count": 375086,
+            "repetitions": 20
+          },
+          {
+            "dataset": "musae-squirrel",
+            "epsilon": 0.5,
+            "nodes": 5201,
+            "normalized_max_error_max": 26.38402467227811,
+            "normalized_max_error_mean": 20.263506876962392,
+            "normalized_max_error_p95": 23.98060784033944,
+            "pattern": "2star",
+            "query_count": 375086,
+            "repetitions": 20
+          },
+          {
+            "dataset": "musae-squirrel",
+            "epsilon": 1.0,
+            "nodes": 5201,
+            "normalized_max_error_max": 26.066275903119287,
+            "normalized_max_error_mean": 20.01946888620955,
+            "normalized_max_error_p95": 23.69180396300853,
+            "pattern": "2star",
+            "query_count": 375086,
+            "repetitions": 20
+          },
+          {
+            "dataset": "musae-squirrel",
+            "epsilon": 1.5,
+            "nodes": 5201,
+            "normalized_max_error_max": 25.782314206592677,
+            "normalized_max_error_mean": 19.80138010476572,
+            "normalized_max_error_p95": 23.433709370895862,
+            "pattern": "2star",
+            "query_count": 375086,
+            "repetitions": 20
+          },
+          {
+            "dataset": "musae-squirrel",
+            "epsilon": 2.0,
+            "nodes": 5201,
+            "normalized_max_error_max": 25.52800078228037,
+            "normalized_max_error_mean": 19.606061843565378,
+            "normalized_max_error_p95": 23.20256228197675,
+            "pattern": "2star",
+            "query_count": 375086,
+            "repetitions": 20
+          },
+          {
+            "dataset": "musae-squirrel",
+            "epsilon": 2.5,
+            "nodes": 5201,
+            "normalized_max_error_max": 25.299610098207634,
+            "normalized_max_error_mean": 19.430652812728447,
+            "normalized_max_error_p95": 22.994976536543078,
+            "pattern": "2star",
+            "query_count": 375086,
+            "repetitions": 20
+          },
+          {
+            "dataset": "musae-squirrel",
+            "epsilon": 3.0,
+            "nodes": 5201,
+            "normalized_max_error_max": 25.093824287082324,
+            "normalized_max_error_mean": 19.272604817749865,
+            "normalized_max_error_p95": 22.807936503909723,
+            "pattern": "2star",
+            "query_count": 375086,
+            "repetitions": 20
+          },
+          {
+            "dataset": "musae-squirrel",
+            "epsilon": 3.5,
+            "nodes": 5201,
+            "normalized_max_error_max": 24.90771870789269,
+            "normalized_max_error_mean": 19.129671670491536,
+            "normalized_max_error_p95": 22.63878395925891,
+            "pattern": "2star",
+            "query_count": 375086,
+            "repetitions": 20
+          },
+          {
+            "dataset": "musae-squirrel",
+            "epsilon": 4.0,
+            "nodes": 5201,
+            "normalized_max_error_max": 24.73873868780279,
+            "normalized_max_error_mean": 18.99989132645029,
+            "normalized_max_error_p95": 22.485196944201025,
+            "pattern": "2star",
+            "query_count": 375086,
+            "repetitions": 20
+          },
+          {
+            "dataset": "musae-squirrel",
+            "epsilon": 0.5,
+            "nodes": 5201,
+            "normalized_max_error_max": 35.40502502574644,
+            "normalized_max_error_mean": 27.19183206503166,
+            "normalized_max_error_p95": 32.17985243971953,
+            "pattern": "triangle",
+            "query_count": 375086,
+            "repetitions": 20
+          },
+          {
+            "dataset": "musae-squirrel",
+            "epsilon": 1.0,
+            "nodes": 5201,
+            "normalized_max_error_max": 34.968835622696346,
+            "normalized_max_error_mean": 26.856829082046637,
+            "normalized_max_error_p95": 31.78339711690268,
+            "pattern": "triangle",
+            "query_count": 375086,
+            "repetitions": 20
+          },
+          {
+            "dataset": "musae-squirrel",
+            "epsilon": 1.5,
+            "nodes": 5201,
+            "normalized_max_error_max": 34.586356753582635,
+            "normalized_max_error_mean": 26.56307696155526,
+            "normalized_max_error_p95": 31.435759640006683,
+            "pattern": "triangle",
+            "query_count": 375086,
+            "repetitions": 20
+          },
+          {
+            "dataset": "musae-squirrel",
+            "epsilon": 2.0,
+            "nodes": 5201,
+            "normalized_max_error_max": 34.25203772824567,
+            "normalized_max_error_mean": 26.30631265235065,
+            "normalized_max_error_p95": 31.13189495144027,
+            "pattern": "triangle",
+            "query_count": 375086,
+            "repetitions": 20
+          },
+          {
+            "dataset": "musae-squirrel",
+            "epsilon": 2.5,
+            "nodes": 5201,
+            "normalized_max_error_max": 33.960246964844245,
+            "normalized_max_error_mean": 26.082210976648703,
+            "normalized_max_error_p95": 30.866684470648266,
+            "pattern": "triangle",
+            "query_count": 375086,
+            "repetitions": 20
+          },
+          {
+            "dataset": "musae-squirrel",
+            "epsilon": 3.0,
+            "nodes": 5201,
+            "normalized_max_error_max": 33.705435747648046,
+            "normalized_max_error_mean": 25.886510399647364,
+            "normalized_max_error_p95": 30.635084934610763,
+            "pattern": "triangle",
+            "query_count": 375086,
+            "repetitions": 20
+          },
+          {
+            "dataset": "musae-squirrel",
+            "epsilon": 3.5,
+            "nodes": 5201,
+            "normalized_max_error_max": 33.48232697024911,
+            "normalized_max_error_mean": 25.71515798843301,
+            "normalized_max_error_p95": 30.432299947748504,
+            "pattern": "triangle",
+            "query_count": 375086,
+            "repetitions": 20
+          },
+          {
+            "dataset": "musae-squirrel",
+            "epsilon": 4.0,
+            "nodes": 5201,
+            "normalized_max_error_max": 33.28607847701164,
+            "normalized_max_error_mean": 25.564434861779425,
+            "normalized_max_error_p95": 30.25392844400556,
+            "pattern": "triangle",
+            "query_count": 375086,
+            "repetitions": 20
+          },
+          {
+            "dataset": "bio-WormNet-v3",
+            "epsilon": 0.5,
+            "nodes": 16347,
+            "normalized_max_error_max": 7.100524048451416,
+            "normalized_max_error_mean": 5.849279385998098,
+            "normalized_max_error_p95": 6.909887942229302,
+            "pattern": "edge",
+            "query_count": 2090053,
+            "repetitions": 20
+          },
+          {
+            "dataset": "bio-WormNet-v3",
+            "epsilon": 1.0,
+            "nodes": 16347,
+            "normalized_max_error_max": 6.957214045754731,
+            "normalized_max_error_mean": 5.731223276496733,
+            "normalized_max_error_p95": 6.770425551442718,
+            "pattern": "edge",
+            "query_count": 2090053,
+            "repetitions": 20
+          },
+          {
+            "dataset": "bio-WormNet-v3",
+            "epsilon": 1.5,
+            "nodes": 16347,
+            "normalized_max_error_max": 6.822245173724908,
+            "normalized_max_error_mean": 5.620038434993712,
+            "normalized_max_error_p95": 6.639080347194228,
+            "pattern": "edge",
+            "query_count": 2090053,
+            "repetitions": 20
+          },
+          {
+            "dataset": "bio-WormNet-v3",
+            "epsilon": 2.0,
+            "nodes": 16347,
+            "normalized_max_error_max": 6.694838473668331,
+            "normalized_max_error_mean": 5.515083169833881,
+            "normalized_max_error_p95": 6.51509428440888,
+            "pattern": "edge",
+            "query_count": 2090053,
+            "repetitions": 20
+          },
+          {
+            "dataset": "bio-WormNet-v3",
+            "epsilon": 2.5,
+            "nodes": 16347,
+            "normalized_max_error_max": 6.5743131680079525,
+            "normalized_max_error_mean": 5.415796669136214,
+            "normalized_max_error_p95": 6.397804863144574,
+            "pattern": "edge",
+            "query_count": 2090053,
+            "repetitions": 20
+          },
+          {
+            "dataset": "bio-WormNet-v3",
+            "epsilon": 3.0,
+            "nodes": 16347,
+            "normalized_max_error_max": 6.460071301986126,
+            "normalized_max_error_mean": 5.321686348914826,
+            "normalized_max_error_p95": 6.286630182637134,
+            "pattern": "edge",
+            "query_count": 2090053,
+            "repetitions": 20
+          },
+          {
+            "dataset": "bio-WormNet-v3",
+            "epsilon": 3.5,
+            "nodes": 16347,
+            "normalized_max_error_max": 6.351585223210047,
+            "normalized_max_error_mean": 5.232317538961839,
+            "normalized_max_error_p95": 6.1810567569970845,
+            "pattern": "edge",
+            "query_count": 2090053,
+            "repetitions": 20
+          },
+          {
+            "dataset": "bio-WormNet-v3",
+            "epsilon": 4.0,
+            "nodes": 16347,
+            "normalized_max_error_max": 6.248387299452262,
+            "normalized_max_error_mean": 5.14730501256305,
+            "normalized_max_error_p95": 6.080629509068456,
+            "pattern": "edge",
+            "query_count": 2090053,
+            "repetitions": 20
+          },
+          {
+            "dataset": "bio-WormNet-v3",
+            "epsilon": 0.5,
+            "nodes": 16347,
+            "normalized_max_error_max": 22.921033383108945,
+            "normalized_max_error_mean": 18.881920145434,
+            "normalized_max_error_p95": 22.305645487099216,
+            "pattern": "2star",
+            "query_count": 2090053,
+            "repetitions": 20
+          },
+          {
+            "dataset": "bio-WormNet-v3",
+            "epsilon": 1.0,
+            "nodes": 16347,
+            "normalized_max_error_max": 22.644990200319484,
+            "normalized_max_error_mean": 18.65452091578308,
+            "normalized_max_error_p95": 22.037013559754712,
+            "pattern": "2star",
+            "query_count": 2090053,
+            "repetitions": 20
+          },
+          {
+            "dataset": "bio-WormNet-v3",
+            "epsilon": 1.5,
+            "nodes": 16347,
+            "normalized_max_error_max": 22.39829942412226,
+            "normalized_max_error_mean": 18.45130165167243,
+            "normalized_max_error_p95": 21.796945980478487,
+            "pattern": "2star",
+            "query_count": 2090053,
+            "repetitions": 20
+          },
+          {
+            "dataset": "bio-WormNet-v3",
+            "epsilon": 2.0,
+            "nodes": 16347,
+            "normalized_max_error_max": 22.177365485466584,
+            "normalized_max_error_mean": 18.269300390324982,
+            "normalized_max_error_p95": 21.581943714683884,
+            "pattern": "2star",
+            "query_count": 2090053,
+            "repetitions": 20
+          },
+          {
+            "dataset": "bio-WormNet-v3",
+            "epsilon": 2.5,
+            "nodes": 16347,
+            "normalized_max_error_max": 21.97895184088253,
+            "normalized_max_error_mean": 18.105850927546335,
+            "normalized_max_error_p95": 21.38885711418373,
+            "pattern": "2star",
+            "query_count": 2090053,
+            "repetitions": 20
+          },
+          {
+            "dataset": "bio-WormNet-v3",
+            "epsilon": 3.0,
+            "nodes": 16347,
+            "normalized_max_error_max": 21.800176104232712,
+            "normalized_max_error_mean": 17.958578807352556,
+            "normalized_max_error_p95": 21.214881179645616,
+            "pattern": "2star",
+            "query_count": 2090053,
+            "repetitions": 20
+          },
+          {
+            "dataset": "bio-WormNet-v3",
+            "epsilon": 3.5,
+            "nodes": 16347,
+            "normalized_max_error_max": 21.638497503398536,
+            "normalized_max_error_mean": 17.825390989022072,
+            "normalized_max_error_p95": 21.05754335404326,
+            "pattern": "2star",
+            "query_count": 2090053,
+            "repetitions": 20
+          },
+          {
+            "dataset": "bio-WormNet-v3",
+            "epsilon": 4.0,
+            "nodes": 16347,
+            "normalized_max_error_max": 21.491696674879435,
+            "normalized_max_error_mean": 17.704459202263106,
+            "normalized_max_error_p95": 20.914683859733866,
+            "pattern": "2star",
+            "query_count": 2090053,
+            "repetitions": 20
+          },
+          {
+            "dataset": "bio-WormNet-v3",
+            "epsilon": 0.5,
+            "nodes": 16347,
+            "normalized_max_error_max": 30.757997334561747,
+            "normalized_max_error_mean": 25.337864999256542,
+            "normalized_max_error_p95": 29.93220126556177,
+            "pattern": "triangle",
+            "query_count": 2090053,
+            "repetitions": 20
+          },
+          {
+            "dataset": "bio-WormNet-v3",
+            "epsilon": 1.0,
+            "nodes": 16347,
+            "normalized_max_error_max": 30.37905924634906,
+            "normalized_max_error_mean": 25.025702864063796,
+            "normalized_max_error_p95": 29.56343697313417,
+            "pattern": "triangle",
+            "query_count": 2090053,
+            "repetitions": 20
+          },
+          {
+            "dataset": "bio-WormNet-v3",
+            "epsilon": 1.5,
+            "nodes": 16347,
+            "normalized_max_error_max": 30.04678200524639,
+            "normalized_max_error_mean": 24.751979065150387,
+            "normalized_max_error_p95": 29.240080769267323,
+            "pattern": "triangle",
+            "query_count": 2090053,
+            "repetitions": 20
+          },
+          {
+            "dataset": "bio-WormNet-v3",
+            "epsilon": 2.0,
+            "nodes": 16347,
+            "normalized_max_error_max": 29.75634346770179,
+            "normalized_max_error_mean": 24.512721210523516,
+            "normalized_max_error_p95": 28.95743997615913,
+            "pattern": "triangle",
+            "query_count": 2090053,
+            "repetitions": 20
+          },
+          {
+            "dataset": "bio-WormNet-v3",
+            "epsilon": 2.5,
+            "nodes": 16347,
+            "normalized_max_error_max": 29.502851215784887,
+            "normalized_max_error_mean": 24.30389901746704,
+            "normalized_max_error_p95": 28.710753528367825,
+            "pattern": "triangle",
+            "query_count": 2090053,
+            "repetitions": 20
+          },
+          {
+            "dataset": "bio-WormNet-v3",
+            "epsilon": 3.0,
+            "nodes": 16347,
+            "normalized_max_error_max": 29.281484821222605,
+            "normalized_max_error_mean": 24.121541507002966,
+            "normalized_max_error_p95": 28.495330417318122,
+            "pattern": "triangle",
+            "query_count": 2090053,
+            "repetitions": 20
+          },
+          {
+            "dataset": "bio-WormNet-v3",
+            "epsilon": 3.5,
+            "nodes": 16347,
+            "normalized_max_error_max": 29.087659815434197,
+            "normalized_max_error_mean": 23.961872079350467,
+            "normalized_max_error_p95": 28.3067092590401,
+            "pattern": "triangle",
+            "query_count": 2090053,
+            "repetitions": 20
+          },
+          {
+            "dataset": "bio-WormNet-v3",
+            "epsilon": 4.0,
+            "nodes": 16347,
+            "normalized_max_error_max": 28.917169591870728,
+            "normalized_max_error_mean": 23.82142541042868,
+            "normalized_max_error_p95": 28.14079638669004,
+            "pattern": "triangle",
+            "query_count": 2090053,
+            "repetitions": 20
+          }
+        ]
+      },
+      {
+        "findings": [
+          "Nguyen et al. Algorithm 5 and its cited Karwa et al. Lemma 4.4 use a high-probability local-sensitivity upper estimate directly as a Laplace scale; neither source supplies a total-domain positivity repair for the bad event.",
+          "Nissim et al. calibrate instance-specific noise to a nonnegative smooth upper bound, which is a different mechanism and does not establish the paper's stated EstimateHS-dependent bound.",
+          "Clipping EstimateHS at zero makes the scale syntactically valid but changes the released estimator and invalidates the paper's cited privacy lemma; a new privacy and utility proof would be required.",
+          "The reviewed primary works address private subgraph counting or private range counting separately. This supports, but cannot exhaustively prove, the global 'first efficient' priority statement."
+        ],
+        "name": "repair analysis and primary-literature priority audit",
+        "primary_sources": [
+          {
+            "path": "repro/sources/claim1/karwa2011_private_graph_structure.pdf",
+            "sha256": "25887604e53d7997f507c4264755513ad69dfae64ee11de69058a6826c8e6e6b",
+            "title": "Karwa et al. 2011, Private Analysis of Graph Structure"
+          },
+          {
+            "path": "repro/sources/claim1/nguyen2023_faster_approximate_subgraph_counts.pdf",
+            "sha256": "2d121d7183e037c862b7eb98e6437d3ad1a8c5895a63e0d496afb672be9cf746",
+            "title": "Nguyen et al. 2023, Faster Approximate Subgraph Counts with Privacy"
+          },
+          {
+            "path": "repro/sources/claim1/nissim2007_smooth_sensitivity.pdf",
+            "sha256": "f9179e6e4eec0128f5d5a4360c7d8aed218b5d1d8997b201db163af8d6ddd677",
+            "title": "Nissim et al. 2007, Smooth Sensitivity and Sampling"
+          }
+        ],
+        "route": 3,
+        "status": "NO_CERTIFIED_REPAIR_OR_EXHAUSTIVE_PRIORITY_PROOF"
+      },
+      {
+        "first_hits": [
+          {
+            "delta": 0.1,
+            "epsilon": 0.5,
+            "first_tested_n_exceeding_budget": 300
+          },
+          {
+            "delta": 0.5,
+            "epsilon": 0.5,
+            "first_tested_n_exceeding_budget": 30
+          },
+          {
+            "delta": 0.9,
+            "epsilon": 0.5,
+            "first_tested_n_exceeding_budget": 30
+          },
+          {
+            "delta": 0.1,
+            "epsilon": 2.0,
+            "first_tested_n_exceeding_budget": 300
+          },
+          {
+            "delta": 0.5,
+            "epsilon": 2.0,
+            "first_tested_n_exceeding_budget": 100
+          },
+          {
+            "delta": 0.9,
+            "epsilon": 2.0,
+            "first_tested_n_exceeding_budget": 30
+          },
+          {
+            "delta": 0.1,
+            "epsilon": 4.0,
+            "first_tested_n_exceeding_budget": null
+          },
+          {
+            "delta": 0.5,
+            "epsilon": 4.0,
+            "first_tested_n_exceeding_budget": 300
+          },
+          {
+            "delta": 0.9,
+            "epsilon": 4.0,
+            "first_tested_n_exceeding_budget": 100
+          }
+        ],
+        "input_family": "empty graphs, H=2-star, d=1, one full-range query; all theorem input assumptions are satisfied",
+        "name": "mandatory assumption-satisfying falsification search",
+        "restated_contract": {
+          "domain": "simple n-vertex graphs with d-dimensional attributes",
+          "privacy": "(epsilon,delta)-edge DP",
+          "quantifiers": "all epsilon>0, all delta in (0,1), fixed H, arbitrary Q",
+          "utility": "maximum absolute error, probability at least 1-1/n",
+          "witness_named_by_proof": "Algorithm 5 using Algorithm 4 EstimateHS"
+        },
+        "result": "The named Algorithm 5 witness is undefined on a positive-probability event, and for multiple predeclared grid points that probability exceeds 1/n.",
+        "route": 4,
+        "status": "WITNESS_FALSIFIED_EXISTENTIAL_THEOREM_NOT_FALSIFIED",
+        "sweep": [
+          {
+            "delta": 0.1,
+            "epsilon": 0.5,
+            "exceeds_failure_budget": false,
+            "n": 3,
+            "negative_scale_probability": 0.008124868601908714,
+            "theorem_failure_budget": 0.3333333333333333
+          },
+          {
+            "delta": 0.1,
+            "epsilon": 0.5,
+            "exceeds_failure_budget": false,
+            "n": 10,
+            "negative_scale_probability": 0.008124868601908714,
+            "theorem_failure_budget": 0.1
+          },
+          {
+            "delta": 0.1,
+            "epsilon": 0.5,
+            "exceeds_failure_budget": false,
+            "n": 30,
+            "negative_scale_probability": 0.008124868601908714,
+            "theorem_failure_budget": 0.03333333333333333
+          },
+          {
+            "delta": 0.1,
+            "epsilon": 0.5,
+            "exceeds_failure_budget": false,
+            "n": 100,
+            "negative_scale_probability": 0.008124868601908714,
+            "theorem_failure_budget": 0.01
+          },
+          {
+            "delta": 0.1,
+            "epsilon": 0.5,
+            "exceeds_failure_budget": true,
+            "n": 300,
+            "negative_scale_probability": 0.008124868601908714,
+            "theorem_failure_budget": 0.0033333333333333335
+          },
+          {
+            "delta": 0.5,
+            "epsilon": 0.5,
+            "exceeds_failure_budget": false,
+            "n": 3,
+            "negative_scale_probability": 0.04062434300954357,
+            "theorem_failure_budget": 0.3333333333333333
+          },
+          {
+            "delta": 0.5,
+            "epsilon": 0.5,
+            "exceeds_failure_budget": false,
+            "n": 10,
+            "negative_scale_probability": 0.04062434300954357,
+            "theorem_failure_budget": 0.1
+          },
+          {
+            "delta": 0.5,
+            "epsilon": 0.5,
+            "exceeds_failure_budget": true,
+            "n": 30,
+            "negative_scale_probability": 0.04062434300954357,
+            "theorem_failure_budget": 0.03333333333333333
+          },
+          {
+            "delta": 0.5,
+            "epsilon": 0.5,
+            "exceeds_failure_budget": true,
+            "n": 100,
+            "negative_scale_probability": 0.04062434300954357,
+            "theorem_failure_budget": 0.01
+          },
+          {
+            "delta": 0.5,
+            "epsilon": 0.5,
+            "exceeds_failure_budget": true,
+            "n": 300,
+            "negative_scale_probability": 0.04062434300954357,
+            "theorem_failure_budget": 0.0033333333333333335
+          },
+          {
+            "delta": 0.9,
+            "epsilon": 0.5,
+            "exceeds_failure_budget": false,
+            "n": 3,
+            "negative_scale_probability": 0.07312381741717842,
+            "theorem_failure_budget": 0.3333333333333333
+          },
+          {
+            "delta": 0.9,
+            "epsilon": 0.5,
+            "exceeds_failure_budget": false,
+            "n": 10,
+            "negative_scale_probability": 0.07312381741717842,
+            "theorem_failure_budget": 0.1
+          },
+          {
+            "delta": 0.9,
+            "epsilon": 0.5,
+            "exceeds_failure_budget": true,
+            "n": 30,
+            "negative_scale_probability": 0.07312381741717842,
+            "theorem_failure_budget": 0.03333333333333333
+          },
+          {
+            "delta": 0.9,
+            "epsilon": 0.5,
+            "exceeds_failure_budget": true,
+            "n": 100,
+            "negative_scale_probability": 0.07312381741717842,
+            "theorem_failure_budget": 0.01
+          },
+          {
+            "delta": 0.9,
+            "epsilon": 0.5,
+            "exceeds_failure_budget": true,
+            "n": 300,
+            "negative_scale_probability": 0.07312381741717842,
+            "theorem_failure_budget": 0.0033333333333333335
+          },
+          {
+            "delta": 0.1,
+            "epsilon": 2.0,
+            "exceeds_failure_budget": false,
+            "n": 3,
+            "negative_scale_probability": 0.004005510341651234,
+            "theorem_failure_budget": 0.3333333333333333
+          },
+          {
+            "delta": 0.1,
+            "epsilon": 2.0,
+            "exceeds_failure_budget": false,
+            "n": 10,
+            "negative_scale_probability": 0.004005510341651234,
+            "theorem_failure_budget": 0.1
+          },
+          {
+            "delta": 0.1,
+            "epsilon": 2.0,
+            "exceeds_failure_budget": false,
+            "n": 30,
+            "negative_scale_probability": 0.004005510341651234,
+            "theorem_failure_budget": 0.03333333333333333
+          },
+          {
+            "delta": 0.1,
+            "epsilon": 2.0,
+            "exceeds_failure_budget": false,
+            "n": 100,
+            "negative_scale_probability": 0.004005510341651234,
+            "theorem_failure_budget": 0.01
+          },
+          {
+            "delta": 0.1,
+            "epsilon": 2.0,
+            "exceeds_failure_budget": true,
+            "n": 300,
+            "negative_scale_probability": 0.004005510341651234,
+            "theorem_failure_budget": 0.0033333333333333335
+          },
+          {
+            "delta": 0.5,
+            "epsilon": 2.0,
+            "exceeds_failure_budget": false,
+            "n": 3,
+            "negative_scale_probability": 0.02002755170825617,
+            "theorem_failure_budget": 0.3333333333333333
+          },
+          {
+            "delta": 0.5,
+            "epsilon": 2.0,
+            "exceeds_failure_budget": false,
+            "n": 10,
+            "negative_scale_probability": 0.02002755170825617,
+            "theorem_failure_budget": 0.1
+          },
+          {
+            "delta": 0.5,
+            "epsilon": 2.0,
+            "exceeds_failure_budget": false,
+            "n": 30,
+            "negative_scale_probability": 0.02002755170825617,
+            "theorem_failure_budget": 0.03333333333333333
+          },
+          {
+            "delta": 0.5,
+            "epsilon": 2.0,
+            "exceeds_failure_budget": true,
+            "n": 100,
+            "negative_scale_probability": 0.02002755170825617,
+            "theorem_failure_budget": 0.01
+          },
+          {
+            "delta": 0.5,
+            "epsilon": 2.0,
+            "exceeds_failure_budget": true,
+            "n": 300,
+            "negative_scale_probability": 0.02002755170825617,
+            "theorem_failure_budget": 0.0033333333333333335
+          },
+          {
+            "delta": 0.9,
+            "epsilon": 2.0,
+            "exceeds_failure_budget": false,
+            "n": 3,
+            "negative_scale_probability": 0.0360495930748611,
+            "theorem_failure_budget": 0.3333333333333333
+          },
+          {
+            "delta": 0.9,
+            "epsilon": 2.0,
+            "exceeds_failure_budget": false,
+            "n": 10,
+            "negative_scale_probability": 0.0360495930748611,
+            "theorem_failure_budget": 0.1
+          },
+          {
+            "delta": 0.9,
+            "epsilon": 2.0,
+            "exceeds_failure_budget": true,
+            "n": 30,
+            "negative_scale_probability": 0.0360495930748611,
+            "theorem_failure_budget": 0.03333333333333333
+          },
+          {
+            "delta": 0.9,
+            "epsilon": 2.0,
+            "exceeds_failure_budget": true,
+            "n": 100,
+            "negative_scale_probability": 0.0360495930748611,
+            "theorem_failure_budget": 0.01
+          },
+          {
+            "delta": 0.9,
+            "epsilon": 2.0,
+            "exceeds_failure_budget": true,
+            "n": 300,
+            "negative_scale_probability": 0.0360495930748611,
+            "theorem_failure_budget": 0.0033333333333333335
+          },
+          {
+            "delta": 0.1,
+            "epsilon": 4.0,
+            "exceeds_failure_budget": false,
+            "n": 3,
+            "negative_scale_probability": 0.0013379298187095807,
+            "theorem_failure_budget": 0.3333333333333333
+          },
+          {
+            "delta": 0.1,
+            "epsilon": 4.0,
+            "exceeds_failure_budget": false,
+            "n": 10,
+            "negative_scale_probability": 0.0013379298187095807,
+            "theorem_failure_budget": 0.1
+          },
+          {
+            "delta": 0.1,
+            "epsilon": 4.0,
+            "exceeds_failure_budget": false,
+            "n": 30,
+            "negative_scale_probability": 0.0013379298187095807,
+            "theorem_failure_budget": 0.03333333333333333
+          },
+          {
+            "delta": 0.1,
+            "epsilon": 4.0,
+            "exceeds_failure_budget": false,
+            "n": 100,
+            "negative_scale_probability": 0.0013379298187095807,
+            "theorem_failure_budget": 0.01
+          },
+          {
+            "delta": 0.1,
+            "epsilon": 4.0,
+            "exceeds_failure_budget": false,
+            "n": 300,
+            "negative_scale_probability": 0.0013379298187095807,
+            "theorem_failure_budget": 0.0033333333333333335
+          },
+          {
+            "delta": 0.5,
+            "epsilon": 4.0,
+            "exceeds_failure_budget": false,
+            "n": 3,
+            "negative_scale_probability": 0.006689649093547903,
+            "theorem_failure_budget": 0.3333333333333333
+          },
+          {
+            "delta": 0.5,
+            "epsilon": 4.0,
+            "exceeds_failure_budget": false,
+            "n": 10,
+            "negative_scale_probability": 0.006689649093547903,
+            "theorem_failure_budget": 0.1
+          },
+          {
+            "delta": 0.5,
+            "epsilon": 4.0,
+            "exceeds_failure_budget": false,
+            "n": 30,
+            "negative_scale_probability": 0.006689649093547903,
+            "theorem_failure_budget": 0.03333333333333333
+          },
+          {
+            "delta": 0.5,
+            "epsilon": 4.0,
+            "exceeds_failure_budget": false,
+            "n": 100,
+            "negative_scale_probability": 0.006689649093547903,
+            "theorem_failure_budget": 0.01
+          },
+          {
+            "delta": 0.5,
+            "epsilon": 4.0,
+            "exceeds_failure_budget": true,
+            "n": 300,
+            "negative_scale_probability": 0.006689649093547903,
+            "theorem_failure_budget": 0.0033333333333333335
+          },
+          {
+            "delta": 0.9,
+            "epsilon": 4.0,
+            "exceeds_failure_budget": false,
+            "n": 3,
+            "negative_scale_probability": 0.012041368368386225,
+            "theorem_failure_budget": 0.3333333333333333
+          },
+          {
+            "delta": 0.9,
+            "epsilon": 4.0,
+            "exceeds_failure_budget": false,
+            "n": 10,
+            "negative_scale_probability": 0.012041368368386225,
+            "theorem_failure_budget": 0.1
+          },
+          {
+            "delta": 0.9,
+            "epsilon": 4.0,
+            "exceeds_failure_budget": false,
+            "n": 30,
+            "negative_scale_probability": 0.012041368368386225,
+            "theorem_failure_budget": 0.03333333333333333
+          },
+          {
+            "delta": 0.9,
+            "epsilon": 4.0,
+            "exceeds_failure_budget": true,
+            "n": 100,
+            "negative_scale_probability": 0.012041368368386225,
+            "theorem_failure_budget": 0.01
+          },
+          {
+            "delta": 0.9,
+            "epsilon": 4.0,
+            "exceeds_failure_budget": true,
+            "n": 300,
+            "negative_scale_probability": 0.012041368368386225,
+            "theorem_failure_budget": 0.0033333333333333335
+          }
+        ],
+        "why_not_falsified": "Theorem 1.3 is existential. This invalidates the paper's offered construction, but does not prove that no other algorithm can satisfy the same asymptotic bound."
+      }
+    ],
+    "runtime_seconds": 4.9578353689284995,
+    "schema": "dprsc-claim1-four-route-audit-v1",
+    "source": {
+      "anchors": [
+        "theorem",
+        "algorithm4_recursion",
+        "algorithm5_estimator",
+        "algorithm5_noise",
+        "lemma_e4",
+        "lemma_e5",
+        "lemma_e6",
+        "lemma_e7",
+        "complexity"
+      ],
+      "quantifier_fragments": [
+        "\\delta\\in(0,1)",
+        "1-\\frac{1}{n}",
+        "\\widetilde{\\mathrm{HS}}_{f_{H}}",
+        "c^{O(d)}",
+        "d=O(\\log n/\\log\\log n)"
+      ],
+      "sha256": "9387c720239542f024ef31654e84ced6e2687818f8f17703945aa114aab02a5b"
+    },
+    "unblocker": "A corrected total-domain mechanism with an independently checked privacy/utility proof for the exact HS_tilde bound, plus a systematic priority review, or a valid counterexample ruling out every algorithm satisfying the theorem."
+  },
+  "payload_sha256": "1bc2110c32449f2683590a3fac1693d1b7d69dbae5b671e124c72083f856be98",
+  "record_prefix": "CLAIM1_THEOREM_AUDIT",
+  "run_id": "8e48d699-77f6-4924-93a8-f1cc62d50777",
+  "schema": "dprsc-orx-log-extract-v1",
+  "source_log_sha256": "ae212be1c64200f09fc0e48952cadd3078c2db98b9cd4ed50720399dbe99a459"
+}

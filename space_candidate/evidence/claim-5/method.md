@@ -1,9 +1,27 @@
 # Claim 5 method
 
-The first-stage verifier checks the exact archived HTML bytes, hash, named anchors, dataset names, and the ordering of the accuracy and runtime protocol markers. It verifies that the \(n^{1.5}\) budget appears before the runtime subsection and that both 3–4-order statements occur inside the runtime subsection.
+The source verifier checks the archived HTML hash, named Section 5 anchors,
+dataset names, and protocol ordering. An independent `HTMLParser` checker
+reconstructs the attribution without sharing the first verifier's raw-markup
+markers. The source negative control asserts the imported but unsupported
+mapping “3–4 orders in accuracy at Theta(n^2)” and exits nonzero.
 
-An independent checker parses the HTML with Python's standard-library `HTMLParser`, normalizes semantic text, scopes the result to Section 5, and repeats the attribution check without using the first verifier's raw-markup markers.
+The accuracy route uses the exact three released graphs and public attributes.
+For each dataset, pattern, and epsilon in `{0.5, 1, ..., 4}`, it evaluates
+`ceil(n^1.5)` distinct-query noise terms across 20 deterministic seeds and
+reports the paper's mean relative error. The independent checker recomputes
+query cardinalities, all 144 pairwise orderings, hashes, and summary
+statistics. Its query-budget control substitutes the old reduced budget and
+must fail.
 
-The negative control asserts the imported but unsupported mapping—“3–4 orders in accuracy at \(\Theta(n^2)\)”—and must exit nonzero. The cumulative fixed command treats an unexpected pass as a failure.
+The runtime route draws intervals by exact rejection sampling from the
+uniform distribution over distinct induced subgraphs. It times the released
+range-tree query and exact baseline filtering/counting in batches of 10 after
+30 samples, stopping at first hit of RSE below 5% or 2,000 samples. It reports
+raw samples, 95% normal intervals, preprocessing, total time at `|Q|=n`, and
+total time over the full distinct-query Theta(n^2) domain. The independent
+checker recomputes every statistic. A deliberately biased interval sampler is
+the negative control and exits nonzero.
 
-This stage audits what must be tested. It does not substitute source parsing for the pending three-dataset empirical reproduction.
+The paper's fixed query counts and stop rule were selected before observing
+the results; no theorem-derived threshold was used as an acceptance cutoff.

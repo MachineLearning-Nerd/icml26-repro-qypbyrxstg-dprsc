@@ -15,8 +15,17 @@ tags:
 
 # Repro - DPRSC (DP Range Subgraph Counting)
 
-The current verification begins at the [five-claim status and visibility matrix](#/current-status). Every scientific verdict is currently **BLOCKED** while proof-level and paper-faithful empirical work proceeds.
+Start at the [current five-claim verification and visibility matrix](#/current-status).
+The current cumulative verdicts are: Claim 3 **VERIFIED**, Claim 4
+**FALSIFIED**, and Claims 1, 2, and 5 **BLOCKED**. “Blocked” is not presented
+as a pass.
 
-All pages from judged revision `6d5d785bb7f0386ef5d46b609fb529dbd1058fcb` are preserved. They are labeled exactly **Historical rejected baseline** in navigation and are not the current verifier.
+The current verifier is the fixed command
+`uv run --frozen python repro/src/run_campaign.py` at release-child revision
+`9abbfe44-94b7-4fc9-9cf7-0a9cbfa7fbc2` (final Git SHA is recorded after the
+release regression). It supersedes the judged revision's verification code.
 
-An open experiment logbook, published with [Trackio](https://github.com/gradio-app/trackio).
+Every file from judged revision
+`6d5d785bb7f0386ef5d46b609fb529dbd1058fcb` remains reachable under
+[Historical rejected baseline](#/index). The protected historical copy is
+immutable and is not the current verifier.

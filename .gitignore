@@ -8,3 +8,6 @@ hf-cache/
 # fresh-clone experiment runs do not depend on a moving network checkout.
 # logbook source is published to the HF Space (DineshAI/QYpByrxSTg)
 .trackio/
+# Local PDF-extraction scratch copied during early release builds; primary
+# source URLs and hashes remain in the committed manifest.
+space_candidate/evidence/claim-2/primary_sources/

@@ -1,0 +1,30 @@
+{
+  "schema": "dprsc-claim1-primary-source-manifest-v1",
+  "retrieved_at_utc": "2026-07-25",
+  "sources": [
+    {
+      "title": "Private Analysis of Graph Structure",
+      "authors": "Vishesh Karwa, Sofya Raskhodnikova, Adam Smith, Grigory Yaroslavtsev",
+      "year": 2011,
+      "url": "https://vldb.org/pvldb/vol4/p1146-karwa.pdf",
+      "path": "repro/sources/claim1/karwa2011_private_graph_structure.pdf",
+      "sha256": "25887604e53d7997f507c4264755513ad69dfae64ee11de69058a6826c8e6e6b"
+    },
+    {
+      "title": "Faster Approximate Subgraph Counts with Privacy",
+      "authors": "Dung Nguyen, Mahantesh Halappanavar, Venkatesh Srinivasan, Anil Vullikanti",
+      "year": 2023,
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2023/file/deddcfbf08f57489b0088b71a00db640-Paper-Conference.pdf",
+      "path": "repro/sources/claim1/nguyen2023_faster_approximate_subgraph_counts.pdf",
+      "sha256": "2d121d7183e037c862b7eb98e6437d3ad1a8c5895a63e0d496afb672be9cf746"
+    },
+    {
+      "title": "Smooth Sensitivity and Sampling in Private Data Analysis",
+      "authors": "Kobbi Nissim, Sofya Raskhodnikova, Adam Smith",
+      "year": 2007,
+      "url": "https://cs-people.bu.edu/ads22/pubs/NRS07/NRS07-full-draft-v1.pdf",
+      "path": "repro/sources/claim1/nissim2007_smooth_sensitivity.pdf",
+      "sha256": "f9179e6e4eec0128f5d5a4360c7d8aed218b5d1d8997b201db163af8d6ddd677"
+    }
+  ]
+}

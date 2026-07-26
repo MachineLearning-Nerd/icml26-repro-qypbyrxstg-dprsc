@@ -2,7 +2,8 @@
 
 **Claim 3 is VERIFIED, Claim 4 is FALSIFIED, and Claims 1, 2, and 5 remain
 BLOCKED.** Exact source contracts now replace the rejected historical ontology.
-No source-only check is presented as scientific verification.
+No source-only, toy, proxy, or finite asymptotic calibration is presented as
+scientific verification.
 
 Fixed command on every experiment node:
 
@@ -16,13 +17,38 @@ Paper source: [archived ar5iv HTML](evidence/claim-5/source/2606.08179.html), SH
 
 | Claim | Canonical page | Code visible | Data inline | Raw link | Checker | Control | Exact claim tested | Reviewer verdict |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 1 | [Claim 1](#/current-claim-1) | Yes | Source facts | Yes | Source scope only | Quantifier omission fails | Contract yes; proof pending | BLOCKED |
+| 1 | [Claim 1](#/current-claim-1) | Yes | Four-route results and exact counterexample point | Yes | Primary + independent Decimal | Three semantic controls exit nonzero | Exact Theorem 1.3 quantifiers; witness flaw does not falsify existential theorem | BLOCKED |
 | 2 | [Claim 2](#/current-claim-2) | Yes | Primary-source hashes and exact recursion ratios | Yes | Reconstruction SMT + exact-rational recursion + independent checker | Omitted rounds, squared-error promotion, and GS substitution fail | Exact contract; written same-exponent partial-discrepancy step is unproved | BLOCKED |
 | 3 | [Claim 3](#/current-claim-3) | Yes | Proof obligations and exact counts inline | Yes | General analytic + exhaustive + independent Decimal | Average/max, tied boundary, and under-noised controls fail | Exact Algorithm 1–3 chain and Theorem 3.3 | VERIFIED |
 | 4 | [Claim 4](#/current-claim-4) | Yes | Counterexample and formal run inline | Yes | Analytic + implementation + independent Decimal | Clipped repair rejects counterexample | Exact named Algorithm 4/5 chain | FALSIFIED |
-| 5 | [Claim 5](#/current-claim-5) | Yes | Source result inline | Yes | Two source checkers pass | Exit 2 confirmed | Source contract yes; experiments pending | BLOCKED |
+| 5 | [Claim 5](#/current-claim-5) | Yes | 144 accuracy comparisons and 9 runtime rows inline | Yes | Source + accuracy + runtime independent checkers | Query-budget and biased-sampler controls exit nonzero | Exact Section 5 accuracy and runtime protocols | BLOCKED |
 
-Claim 2 has completed three distinct verification routes plus the mandatory
-fourth falsification route; no valid counterexample was found. It is a
-rigorously routed BLOCKED result. Publication remains blocked by Claims 1 and
-5 and by the remaining release gates.
+Claims 1 and 2 each completed exactly three materially different verification
+routes plus the mandatory fourth falsification route. Neither fourth route
+falsified the exact theorem: Claim 1 is existential over algorithms, and Claim
+2's recursion countermodel attacks a proof inference rather than constructing
+a box-incidence/DP counterexample. They are rigorously documented BLOCKED
+results.
+
+Claim 5 completed the full released-data protocol. Its accuracy ordering holds
+in all 144 matched comparisons. The runtime trend is strong but the literal
+3–4-order statement is not uniform on this hardware, and insufficient
+hardware detail prevents a valid falsification. It therefore remains BLOCKED
+with MEDIUM confidence.
+
+## Reproducibility surface
+
+- [Fixed command entrypoint](evidence/reproduction/repro/src/run_campaign.py)
+- [Locked project definition](evidence/reproduction/pyproject.toml)
+- [Exact dependency lock](evidence/reproduction/uv.lock)
+- [Released algorithms](evidence/reproduction/upstream/ourAlg.py)
+- [Released range tree](evidence/reproduction/upstream/range_tree.py)
+- [Released baselines](evidence/reproduction/upstream/baseline.py)
+- [Release report and score forecast](#/release-report)
+- [Evaluator-blind red-team record](#/red-team)
+
+The full text-only evidence tree includes all three released datasets, every
+runner and independent checker needed by the fixed command, raw run records,
+seeds, controls, compute estimates, actual CPU allocations, runtimes, and
+limitations. The final release regression SHA and exact published HF revision
+are filled only after those actions occur.

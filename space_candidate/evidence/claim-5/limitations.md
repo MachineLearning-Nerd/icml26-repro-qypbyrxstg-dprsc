@@ -1,6 +1,15 @@
 # Claim 5 limitations and deviations
 
-- No new empirical timing or accuracy run is included at this stage.
-- The paper does not publish a machine-readable table for every point in Figures 5–6; later reproduction must define comparisons from raw reruns, not digitize pixels as primary evidence.
-- The paper's runtime total at \(\Theta(n^2)\) is itself an extrapolation. A faithful rerun must reproduce its sampling stop rule and report the observed RSE.
-- The source audit corrects the imported claim ontology but does not by itself verify or falsify the scientific runtime result.
+- Accuracy is direct full-protocol evidence, but the paper publishes figures
+  rather than machine-readable numeric targets. The faithful test is the
+  stated proposed-versus-baseline ordering, not pixel-level agreement.
+- Runtime at Theta(n^2) is extrapolated from query-time samples, as in the
+  paper. It does not time hundreds of millions of queries exhaustively.
+- The released code and datasets are exact, but hardware and Python versions
+  differ from the paper's unspecified timing environment. This is material:
+  the literal 3–4-order runtime statement is not uniform on this hardware.
+- CA-Netscience is only 2.18x–6.28x faster at the full distinct-query domain;
+  Wiki-Squirrel is 623x–2,430x; WormNet-v3 is 2,742x–10,640x. Therefore the
+  exact composite claim remains BLOCKED, not upgraded on trend alone.
+- A runtime difference on unmatched hardware is not an assumption-satisfying
+  falsification of the paper's reported observations.

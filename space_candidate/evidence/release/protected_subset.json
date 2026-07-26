@@ -1,0 +1,141 @@
+{
+  "all_old_bytes_preserved": true,
+  "judged_revision": "6d5d785bb7f0386ef5d46b609fb529dbd1058fcb",
+  "mappings": [
+    {
+      "judged_path": ".gitattributes",
+      "mode": "original_path_unchanged",
+      "preserved_path": ".gitattributes",
+      "sha256": "11ad7efa24975ee4b0c3c3a38ed18737f0658a5f75a0a96787b576a78a023361"
+    },
+    {
+      "judged_path": ".serve.log",
+      "mode": "original_path_unchanged",
+      "preserved_path": ".serve.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "judged_path": ".sync.log",
+      "mode": "original_path_unchanged",
+      "preserved_path": ".sync.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "judged_path": ".sync_lock",
+      "mode": "original_path_unchanged",
+      "preserved_path": ".sync_lock",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "judged_path": "README.md",
+      "mode": "exact_historical_copy_after_navigation_update",
+      "preserved_path": "historical/judged-6d5d785bb7f0386ef5d46b609fb529dbd1058fcb/README.md",
+      "sha256": "f0d365d1b935c7ac7645f33eb8b5f0ad8102cdc5304c33714683c81866033898"
+    },
+    {
+      "judged_path": "bucket-icon.svg",
+      "mode": "original_path_unchanged",
+      "preserved_path": "bucket-icon.svg",
+      "sha256": "d1c28fc0a4e07f2688d013f576cf76ffc422d278d56a52a82989e0b93b3b3964"
+    },
+    {
+      "judged_path": "index.html",
+      "mode": "original_path_unchanged",
+      "preserved_path": "index.html",
+      "sha256": "301c34db2f0b122b644a4287f64ac0c31e0d5d92e5b6300bc28e708a1ee17420"
+    },
+    {
+      "judged_path": "logbook.css",
+      "mode": "original_path_unchanged",
+      "preserved_path": "logbook.css",
+      "sha256": "64e1de4358c79ec0d5f2697c56f98258c025e992c94ad7b3b7801739222ca41d"
+    },
+    {
+      "judged_path": "logbook.js",
+      "mode": "original_path_unchanged",
+      "preserved_path": "logbook.js",
+      "sha256": "69d73869184f936613668569980f31984be65229e77c4df4ba9604d3de70c02b"
+    },
+    {
+      "judged_path": "logbook.json",
+      "mode": "exact_historical_copy_after_navigation_update",
+      "preserved_path": "historical/judged-6d5d785bb7f0386ef5d46b609fb529dbd1058fcb/logbook.json",
+      "sha256": "fc2e5142e291f0c89b86cfcf5aad88eb38fc34ed08c958dd85167480308b6ab5"
+    },
+    {
+      "judged_path": "pages/claim-1-efficient-algorithm/page.md",
+      "mode": "original_path_unchanged",
+      "preserved_path": "pages/claim-1-efficient-algorithm/page.md",
+      "sha256": "0853e0463f9aefdd2067cf1a77bf6961b2402859101338c94dffa315b9bc07c2"
+    },
+    {
+      "judged_path": "pages/claim-2-lower-bound-theory/page.md",
+      "mode": "original_path_unchanged",
+      "preserved_path": "pages/claim-2-lower-bound-theory/page.md",
+      "sha256": "ecb444ceb6d8d60fe415040fb80d5f4735b69324552e0c3c08dd1a6f422cce54"
+    },
+    {
+      "judged_path": "pages/claim-3-accuracy/page.md",
+      "mode": "original_path_unchanged",
+      "preserved_path": "pages/claim-3-accuracy/page.md",
+      "sha256": "31a5ce97fcd74ddf440f824cdb6f181f8d7d1820d9c5968fd55c58b8d85b72d8"
+    },
+    {
+      "judged_path": "pages/conclusion/page.md",
+      "mode": "original_path_unchanged",
+      "preserved_path": "pages/conclusion/page.md",
+      "sha256": "7cfe12dc77b6df1d926cf807dd624f5e8c830c7616fa913e09c8b37e78e7cd91"
+    },
+    {
+      "judged_path": "pages/independent-verification/page.md",
+      "mode": "original_path_unchanged",
+      "preserved_path": "pages/independent-verification/page.md",
+      "sha256": "0c9c9e83fd8da61017dba00a4dfffb487e2beaea5cc5f9d9f56771b0abcea325"
+    },
+    {
+      "judged_path": "pages/index.md",
+      "mode": "exact_historical_copy_after_navigation_update",
+      "preserved_path": "historical/judged-6d5d785bb7f0386ef5d46b609fb529dbd1058fcb/pages/index.md",
+      "sha256": "716c3964f856e4247c25912afd551fb73d9b345b259f71b607ad2cc539867dec"
+    },
+    {
+      "judged_path": "pages/methods-environment/page.md",
+      "mode": "original_path_unchanged",
+      "preserved_path": "pages/methods-environment/page.md",
+      "sha256": "ac33165ef16187f63e503528b995b165d6421e7bc8fffed444a3132836eb82cd"
+    },
+    {
+      "judged_path": "pages/overview/page.md",
+      "mode": "original_path_unchanged",
+      "preserved_path": "pages/overview/page.md",
+      "sha256": "a01de5ee0cabbe6c377db8a8c6c06f77291112982bdb3fb89a5488e5704a76d1"
+    },
+    {
+      "judged_path": "style.css",
+      "mode": "original_path_unchanged",
+      "preserved_path": "style.css",
+      "sha256": "789bfd541c9f06658ac410d968e9c39fa8c63a48a08643b36071b984c699a9f4"
+    },
+    {
+      "judged_path": "trackio-logo-light.png",
+      "mode": "original_path_unchanged",
+      "preserved_path": "trackio-logo-light.png",
+      "sha256": "a6eb72253c0128ce79b526a86b7943eed37beec186b5f57ff6c1701d0e9ff596"
+    },
+    {
+      "judged_path": "trackio-logo.png",
+      "mode": "original_path_unchanged",
+      "preserved_path": "trackio-logo.png",
+      "sha256": "3e3792061d4d095759da30d7cfe7f14b621901793cd4d677b61b2896f5bf472b"
+    },
+    {
+      "judged_path": "trackio-wordmark-dark.png",
+      "mode": "original_path_unchanged",
+      "preserved_path": "trackio-wordmark-dark.png",
+      "sha256": "71da94795855710d214801eb9b9b7b8898e9a8757abac0e22966a0531bbb2f4f"
+    }
+  ],
+  "old_file_count": 22,
+  "preserved_file_count": 22,
+  "schema": "dprsc-protected-subset-v1"
+}
