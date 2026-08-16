@@ -42,5 +42,7 @@ orx/exact-source-contracts-and-visible-claim-5-verif 08ab3d805eb48a316ba78b89079
 orx/five-exact-claim-contracts-and-recorded-claim-5 121a1d11222e47cd65050f2cdc84aa330f8a5cc7
 ~~~
 
-After normalization, the final branch tips and GitHub readback are recorded
-in EVIDENCE_MANIFEST.json and the publication entry in the collection tracker.
+After normalization, non-main branch tips are recorded in
+EVIDENCE_MANIFEST.json. The final publication tip is recorded in the
+collection tracker because a manifest commit cannot contain its own final
+commit hash; GitHub readback covers all 12 branches.

@@ -51,7 +51,20 @@
     "audit/five-claim-contracts",
     "release/evaluator-visible"
   ],
-  "branch_tips": {},
+  "branch_tips": {
+    "baseline/validated-5-10": "ea53db8758f91c2055b69a9a3c27941addfa4dbf",
+    "audit/claim-1-theorem": "8d813daf631330bae47a638aad43946b75a8c007",
+    "audit/claim-2-lower-bound": "2bb2acad468476117694cfd4bc6eecba0704188d",
+    "audit/claim-3-pure-dp": "ce62f219c969a21d0e82e521b64b76168aa47ea7",
+    "audit/claim-4-negative-scale": "adc36fc8e323bd60a7d22b805f0d015266dd0a92",
+    "audit/claim-5-runtime": "df87bddf1618dd6fe6eb934dc8ccb3f618ad927e",
+    "audit/claim-5-source-attribution": "0a19dbb6f38dfd6f542e26503886134e59227535",
+    "audit/claim-5-accuracy": "c3083d0f123c0e69b70b8245f901beca1cef88d0",
+    "audit/exact-source-contracts": "779d714046bd3424975ea1bd78e0d17e95f05646",
+    "audit/five-claim-contracts": "79783b9c065be86b0ed3a9d5bc6a79c519e06233",
+    "release/evaluator-visible": "819c9f1d1ca60ef5441e65f5bec547b6cd719b58"
+  },
+  "publication_tip": "The main tip is recorded in the collection tracker because a manifest commit cannot contain its own final hash.",
   "history_policy": {
     "author_name": "MachineLearning-Nerd",
     "author_email": "MachineLearning-Nerd@users.noreply.github.com",

@@ -153,12 +153,15 @@ if any(branch == "master" or branch.startswith("orx/") for branch in branches):
     fail("legacy branch remains")
 
 branch_tips = manifest.get("branch_tips")
-if set(branch_tips) != expected_branches:
-    fail("branch_tips in EVIDENCE_MANIFEST.json is incomplete")
+non_main_branches = expected_branches - {"main"}
+if set(branch_tips) != non_main_branches:
+    fail("non-main branch_tips in EVIDENCE_MANIFEST.json is incomplete")
 for branch, expected_tip in branch_tips.items():
     observed_tip = git("rev-parse", f"refs/heads/{branch}")
     if observed_tip != expected_tip:
         fail(f"tip mismatch for {branch}: {observed_tip} != {expected_tip}")
+if git("branch", "--show-current") != "main":
+    fail("final verifier must run from main")
 
 identity_lines = git(
     "log",
