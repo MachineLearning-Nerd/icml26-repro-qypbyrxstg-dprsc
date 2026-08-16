@@ -4,7 +4,7 @@
 
 - Paper: *Differentially Private Range Subgraph Counting*, arXiv:2606.08179.
 - Archived URL: <https://ar5iv.labs.arxiv.org/html/2606.08179>
-- Retrieval: `2026-07-25T06:41:27Z` with User-Agent `OpenResearch-Reproduction/1.0 (+https://github.com/MachineLearning-Nerd/icml26-repro-qypbyrxstg-dprsc)`.
+- Retrieval: `2026-07-25T06:41:27Z` with User-Agent `OpenResearch-Reproduction/1.0 (+https://github.com/MachineLearning-Nerd/icml26-differentially-private-range-subgraph-counting)`.
 - SHA-256: `9387c720239542f024ef31654e84ced6e2687818f8f17703945aa114aab02a5b`.
 - Anchors: Section 5 (`S5`), setting (`S5.p3`), accuracy (`S5.p4` and `S5.p5`), runtime (`S5.p6`), Figures 5–6.
 
