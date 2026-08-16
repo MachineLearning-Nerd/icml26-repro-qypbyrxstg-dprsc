@@ -206,9 +206,9 @@ def _(mo):
     reasons.
 
     Continue with the
-    [illustrated report](https://github.com/MachineLearning-Nerd/icml26-repro-qypbyrxstg-dprsc/blob/master/reports/dprsc-reproduction-2026-07-26/report.md)
+    [illustrated report](https://github.com/MachineLearning-Nerd/icml26-differentially-private-range-subgraph-counting/blob/main/reports/dprsc-reproduction-2026-07-26/report.md)
     or inspect the
-    [repository](https://github.com/MachineLearning-Nerd/icml26-repro-qypbyrxstg-dprsc).
+    [repository](https://github.com/MachineLearning-Nerd/icml26-differentially-private-range-subgraph-counting).
     """)
     return
 

@@ -1,0 +1,145 @@
+{
+  "schema": "icml-paper-claim-ledger-v1",
+  "repository": {
+    "owner": "MachineLearning-Nerd",
+    "original_name": "icml26-repro-qypbyrxstg-dprsc",
+    "canonical_name": "icml26-differentially-private-range-subgraph-counting",
+    "canonical_url": "https://github.com/MachineLearning-Nerd/icml26-differentially-private-range-subgraph-counting",
+    "default_branch": "main"
+  },
+  "paper": {
+    "title": "Differentially Private Range Subgraph Counting",
+    "authors": [
+      "Xian Chen",
+      "Ruobing Bai",
+      "Pan Peng"
+    ],
+    "arxiv": "https://arxiv.org/abs/2606.08179",
+    "arxiv_version_pinned": "v1",
+    "openreview": "https://openreview.net/forum?id=QYpByrxSTg",
+    "official_code": "https://github.com/Airleave/DPRSC",
+    "official_code_commit": "aae89538544bddb1bc89961453f3cd6b6091de19"
+  },
+  "overall_status": "MIXED_SCOPED",
+  "historical_evaluator_record": {
+    "score": "4/10",
+    "space_revision": "adf4e474c3afe562e54e0bfd1534e1323f0c5783",
+    "is_current_score_claim": false
+  },
+  "claims": [
+    {
+      "id": "C1",
+      "title": "Theorem 1.3 approximate-DP existence and utility",
+      "status": "BLOCKED_LOW",
+      "production_paths": [
+        "repro/src/run_claim1_theorem_audit.py",
+        "repro/src/verify_claim1_theorem_audit.py"
+      ],
+      "evidence_paths": [
+        "space_candidate/evidence/claim-1/theorem_audit_run.json",
+        "space_candidate/evidence/claim-1/claim_contract.json",
+        "space_candidate/evidence/claim-1/method.md",
+        "space_candidate/evidence/claim-1/limitations.md"
+      ],
+      "result": "Finite calibration is scoped corroboration only; the named Algorithm 5 witness can use a negative EstimateHS scale, but no valid counterexample to the existential theorem was established."
+    },
+    {
+      "id": "C2",
+      "title": "Theorem 1.4 dimension-dependent lower bound",
+      "status": "BLOCKED_LOW",
+      "production_paths": [
+        "repro/src/verify_claim2_dependency_audit.py",
+        "repro/src/verify_claim2_dependency_independent.py",
+        "repro/src/verify_lower_bound.py",
+        "repro/src/verify_universal_lower_bound.py"
+      ],
+      "evidence_paths": [
+        "space_candidate/evidence/claim-2/dependency_audit_run.json",
+        "outputs/c2_proof_certificate.json",
+        "outputs/c2_universal_smt_certificate.json",
+        "docs/claim2_lower_bound_proof_audit.md"
+      ],
+      "result": "DP reconstruction and finite certificates pass, but the partial-discrepancy recursion does not discharge the written exponent."
+    },
+    {
+      "id": "C3",
+      "title": "Theorem 3.3 and Algorithms 1–3 pure-DP mechanism",
+      "status": "VERIFIED_SCOPED",
+      "confidence": "HIGH",
+      "production_paths": [
+        "repro/src/verify_claim3_pure_dp.py",
+        "repro/src/verify_claim3_pure_dp_independent.py"
+      ],
+      "evidence_paths": [
+        "space_candidate/evidence/claim-3/formal_run.json",
+        "space_candidate/evidence/claim-3/pure_dp_certificate_run.json",
+        "space_candidate/evidence/claim-3/proof_certificate.md"
+      ],
+      "result": "The formal and independent checkers pass with projection, sensitivity, tied-attribute, and concentration checks plus three failing negative controls."
+    },
+    {
+      "id": "C4",
+      "title": "Algorithms 4–5 approximate-DP construction",
+      "status": "FALSIFIED",
+      "confidence": "HIGH",
+      "production_paths": [
+        "repro/src/verify_claim4_counterexample.py",
+        "repro/src/verify_claim4_counterexample_independent.py"
+      ],
+      "evidence_paths": [
+        "space_candidate/evidence/claim-4/counterexample.json",
+        "space_candidate/evidence/claim-4/counterexample_run.json"
+      ],
+      "result": "An empty-graph 2-star input gives a negative Laplace scale with positive probability and the released NumPy implementation raises ValueError."
+    },
+    {
+      "id": "C5",
+      "title": "Section 5 source, accuracy, and runtime evidence",
+      "status": "MIXED_SCOPED",
+      "subclaims": [
+        {
+          "id": "C5a",
+          "title": "Evaluator-anchored source attribution",
+          "status": "FALSIFIED_HIGH",
+          "production_paths": [
+            "repro/src/verify_claim5_source.py",
+            "repro/src/verify_claim5_source_independent.py"
+          ],
+          "evidence_paths": [
+            "space_candidate/evidence/claim-5/source_verifier_run.json",
+            "space_candidate/evidence/claim-5/source_independent_run.json"
+          ],
+          "result": "The pinned source assigns ceil(n^1.5) to default accuracy and places the 3–4-order and Theta(n^2) statements under Runtime."
+        },
+        {
+          "id": "C5b",
+          "title": "Actual hardware-dependent runtime observation",
+          "status": "BLOCKED_MEDIUM",
+          "production_paths": [
+            "repro/src/run_claim5_runtime.py",
+            "repro/src/verify_claim5_runtime.py"
+          ],
+          "evidence_paths": [
+            "space_candidate/evidence/claim-5/cumulative_runtime_run.json",
+            "reports/dprsc-reproduction-2026-07-26/report.md"
+          ],
+          "result": "All timing streams reach relative standard error below 5%, but the reproduction hardware and complete software environment do not match the paper."
+        },
+        {
+          "id": "C5_accuracy",
+          "title": "Paper-default accuracy ordering",
+          "status": "VERIFIED_SCOPED",
+          "production_paths": [
+            "repro/src/run_claim5_accuracy.py",
+            "repro/src/verify_claim5_accuracy.py"
+          ],
+          "evidence_paths": [
+            "space_candidate/evidence/claim-5/cumulative_accuracy_run.json"
+          ],
+          "result": "All 144 proposed-versus-corresponding-baseline orderings hold across three datasets, three patterns, eight epsilon values, and 20 repetitions."
+        }
+      ],
+      "result": "C5 is not a single undifferentiated verdict; source attribution, accuracy ordering, and actual runtime are recorded separately."
+    }
+  ]
+}

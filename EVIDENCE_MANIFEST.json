@@ -1,0 +1,70 @@
+{
+  "schema": "icml-reproduction-evidence-manifest-v1",
+  "repository": {
+    "owner": "MachineLearning-Nerd",
+    "canonical_name": "icml26-differentially-private-range-subgraph-counting",
+    "canonical_url": "https://github.com/MachineLearning-Nerd/icml26-differentially-private-range-subgraph-counting",
+    "default_branch": "main"
+  },
+  "required_files": [
+    "README.md",
+    "STATUS.md",
+    "CLAIM_EVIDENCE.md",
+    "SOURCE_AUDIT.md",
+    "ENVIRONMENT.md",
+    "BRANCH_AUDIT.md",
+    "AUTHOR_THANK_YOU.md",
+    "claims.json",
+    "CITATION.cff",
+    "EVIDENCE_MANIFEST.json",
+    "verify_final.py",
+    "paper_2606.08179v1.pdf",
+    "source/arxiv/2606.08179v1.tar",
+    "repro/sources/2606.08179.html",
+    "upstream/PINNED_SOURCE.md",
+    "reports/dprsc-reproduction-2026-07-26/report.md",
+    "space_candidate/evidence/claim-1/theorem_audit_run.json",
+    "space_candidate/evidence/claim-2/dependency_audit_run.json",
+    "space_candidate/evidence/claim-3/formal_run.json",
+    "space_candidate/evidence/claim-4/counterexample_run.json",
+    "space_candidate/evidence/claim-5/source_verifier_run.json",
+    "space_candidate/evidence/claim-5/source_independent_run.json",
+    "space_candidate/evidence/claim-5/cumulative_accuracy_run.json",
+    "space_candidate/evidence/claim-5/cumulative_runtime_run.json"
+  ],
+  "paper_artifact_sha256": {
+    "paper_2606.08179v1.pdf": "351293e30547a7241f81b73d1dc0075d3e4fe9104b1366fa7e50e07942d54016",
+    "source/arxiv/2606.08179v1.tar": "21698688374b4b6b50f6b1c944ff2092989f791a9636d6e1ad2c298121f54679",
+    "repro/sources/2606.08179.html": "9387c720239542f024ef31654e84ced6e2687818f8f17703945aa114aab02a5b"
+  },
+  "expected_branches": [
+    "main",
+    "baseline/validated-5-10",
+    "audit/claim-1-theorem",
+    "audit/claim-2-lower-bound",
+    "audit/claim-3-pure-dp",
+    "audit/claim-4-negative-scale",
+    "audit/claim-5-runtime",
+    "audit/claim-5-source-attribution",
+    "audit/claim-5-accuracy",
+    "audit/exact-source-contracts",
+    "audit/five-claim-contracts",
+    "release/evaluator-visible"
+  ],
+  "branch_tips": {},
+  "history_policy": {
+    "author_name": "MachineLearning-Nerd",
+    "author_email": "MachineLearning-Nerd@users.noreply.github.com",
+    "committer_name": "MachineLearning-Nerd",
+    "committer_email": "MachineLearning-Nerd@users.noreply.github.com",
+    "forbid_commit_trailers": [
+      "co-authored-by:"
+    ],
+    "forbid_branch_prefixes": [
+      "orx/"
+    ],
+    "forbid_branch_names": [
+      "master"
+    ]
+  }
+}

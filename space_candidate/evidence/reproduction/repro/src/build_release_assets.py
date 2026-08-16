@@ -21,7 +21,7 @@ IMAGES = REPORT / "images"
 SPACE = ROOT / "space_candidate"
 DASHBOARD_FILES = Path(
     "/Users/dineshjinjala/Documents/AllCode/ICMLPapers/OpenSearch/files/"
-    "icml26-repro-qypbyrxstg-dprsc"
+    "icml26-differentially-private-range-subgraph-counting"
 )
 
 
@@ -341,7 +341,7 @@ def sync_dashboard_report() -> str | None:
     destination = (
         DASHBOARD_FILES
         / "reports"
-        / "icml26-repro-qypbyrxstg-dprsc-2026-07-26"
+        / "icml26-differentially-private-range-subgraph-counting-2026-07-26"
     )
     destination.mkdir(parents=True, exist_ok=True)
     shutil.copyfile(REPORT / "report.md", destination / "report.md")

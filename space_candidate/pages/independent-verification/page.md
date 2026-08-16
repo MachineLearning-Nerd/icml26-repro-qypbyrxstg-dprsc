@@ -178,7 +178,7 @@ INFO finish answering queries in base_comp_ADP
 INFO finish answering queries in base_comp
 INFO finish answering queries in base_comp_ADP
   eps=4.0: pure=0.278 approx=0.2653 base_comp=3.3 base_comp_ADP=0.3784
-wrote /home/dineshai/Drives/Code/AllCode/ReproduceICML/papers/icml26-repro-qypbyrxstg-dprsc/outputs/ca-netscience_edge_epsilon_result.csv | C3 (edge) ours<=both baselines at all eps: True
+wrote /home/dineshai/Drives/Code/AllCode/ReproduceICML/papers/icml26-differentially-private-range-subgraph-counting/outputs/ca-netscience_edge_epsilon_result.csv | C3 (edge) ours<=both baselines at all eps: True
 
 ````
 

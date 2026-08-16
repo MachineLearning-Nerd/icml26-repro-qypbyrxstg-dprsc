@@ -1,81 +1,167 @@
-# Differentially Private Range Subgraph Counting — reproduction
+# Differentially Private Range Subgraph Counting
 
-[![Open in molab](https://marimo.io/molab-shield.svg)](https://molab.marimo.io/github/MachineLearning-Nerd/icml26-repro-qypbyrxstg-dprsc/blob/master/notebooks/dprsc_reproduction.py)
+Paper-first reproduction and claim audit for the ICML 2026 paper
+[*Differentially Private Range Subgraph Counting*](https://arxiv.org/abs/2606.08179).
+The challenge record is [QYpByrxSTg](https://openreview.net/forum?id=QYpByrxSTg).
 
-This is a claim-by-claim reproduction of
-[*Differentially Private Range Subgraph Counting*](https://arxiv.org/abs/2606.08179)
-(ICML 2026, OpenReview `QYpByrxSTg`). The current live judge score is
-**4/10** at Space revision
-`adf4e474c3afe562e54e0bfd1534e1323f0c5783`. The present candidate supports a
-conservative **4–6/10 forecast**; only the live judge can change the score.
+This repository was previously named
+icml26-repro-qypbyrxstg-dprsc. The normalized home is
+MachineLearning-Nerd/icml26-differentially-private-range-subgraph-counting.
 
-The rejudge gives full credit to Claim 3 and Claim 4. This child addresses the
-remaining evaluator-visible issue in Claim 5: its exact anchored sentence is a
-false source attribution, while the paper's actual runtime observation remains
-separately BLOCKED.
+## What the paper does
 
-The headline empirical result is strong: using all three released datasets,
-all three patterns, eight epsilon values, 20 repetitions, and the paper's
-default query counts, the proposed method has lower error in **144/144**
-privacy-matched comparisons. The theorem results are more mixed:
+The paper studies private range-subgraph counting. Each vertex has public
+attributes, a query selects vertices inside a multidimensional range, and the
+mechanism counts fixed patterns such as edges, 2-stars, and triangles in the
+induced subgraph. Its main construction projects each pattern occurrence onto
+attribute ranks, releases a noisy range-tree representation once, and answers
+many range queries by post-processing canonical tree nodes. The paper also
+proposes a higher-order local-sensitivity estimator for approximate
+differential privacy and gives a dimension-dependent lower bound.
 
-| Claim | Assessment | Paper result versus observed evidence |
+The released implementation is vendored under upstream/ at
+Airleave/DPRSC@aae89538544bddb1bc89961453f3cd6b6091de19. The reproduction entry
+point is repro/src/run_campaign.py.
+
+## Current scientific status
+
+The evidence is deliberately mixed. A finite experiment is not presented as
+an asymptotic theorem proof, and a defect in a named construction is not
+silently promoted to a refutation of a separate existential theorem.
+
+| Claim | Scope | Verdict | Main evidence |
+| --- | --- | --- | --- |
+| C1 — Theorem 1.3 approximate-DP existence and utility | Exact theorem quantifiers | BLOCKED / LOW | Four audit routes; finite calibration corroborates only a finite scope, while the named Algorithm 5 witness can use a negative scale |
+| C2 — Theorem 1.4 dimension-dependent lower bound | Maximum absolute error and all stated regimes | BLOCKED / LOW | DP reconstruction closes, but the Appendix D partial-discrepancy recursion does not establish the written exponent |
+| C3 — Theorem 3.3 and Algorithms 1–3 | Pure-DP mechanism and utility bound | VERIFIED_SCOPED / HIGH | Analytic certificate, 9,216 projection checks, 9,216 sensitivity checks, 1,296 tied-attribute checks, 3,393 precision checks, and failing negative controls |
+| C4 — Algorithms 4–5 | Approximate-DP construction | FALSIFIED / HIGH | Empty-graph 2-star counterexample produces a negative Laplace scale; released NumPy raises ValueError |
+| C5a — evaluator-anchored source attribution | Exact sentence about accuracy, query budget, and 3–4 orders | FALSIFIED / HIGH | The pinned Section 5 source assigns ceil(n^1.5) to default accuracy and assigns the 3–4-order and Theta(n^2) statements to Runtime |
+| C5b — actual runtime observation | Historical hardware-dependent runtime result | BLOCKED / MEDIUM | Timing protocol reaches RSE below 5%, but hardware and full environment are not matched |
+
+The complete accuracy protocol preserves the paper's proposed-versus-baseline
+ordering in 144/144 privacy-matched comparisons. At epsilon 2, the pure-DP
+ratios range from 11.47x to 884.01x and the approximate-DP ratios from 1.47x
+to 9.49x. Runtime speedups at the extrapolated full query domain range from
+2.18x to 10,640x; that range does not justify a uniform paper-level runtime
+claim on unmatched hardware.
+
+The repository records a historical live judge score of 4/10 at Space revision
+adf4e474c3afe562e54e0bfd1534e1323f0c5783. No new judge score or author
+endorsement is claimed here.
+
+The full reasoning, exact quantifiers, controls, and limitations are in
+[CLAIM_EVIDENCE.md](CLAIM_EVIDENCE.md) and the
+[illustrated technical report](reports/dprsc-reproduction-2026-07-26/report.md).
+
+## How each claim is produced
+
+The fixed campaign is intentionally small and auditable:
+
+~~~text
+find_patterns.py -> ourAlg.py -> range_tree.py::querySplit
+                         \-> baseline.py for composition baselines
+run_campaign.py -> claim runners -> independent checkers -> JSON evidence
+~~~
+
+| Claim | Production path | Durable evidence |
 | --- | --- | --- |
-| Theorem 1.3 efficient approximate-DP existence | **BLOCKED / LOW** | Full-scale finite calibration is stable, but the named Algorithm 5 witness has invalid negative-scale draws and the existential theorem is neither proved nor falsified |
-| Theorem 1.4 lower bound | **BLOCKED / LOW** | Reconstruction closes, but the cited partial-discrepancy transfer does not prove the written exponent |
-| Algorithms 1–3 pure DP | **VERIFIED / HIGH** | Independent universal privacy/utility derivation, exhaustive functional checks, and failing negative controls |
-| Algorithms 4–5 approximate DP | **FALSIFIED / HIGH** | Valid empty-graph 2-star input yields a negative Laplace scale with positive probability; released NumPy raises `ValueError` |
-| Evaluator-anchored Section 5 attribution | **FALSIFIED / HIGH** | The pinned source uses ceil(n^1.5) for default accuracy and places both “3–4 orders” and Theta(n²) under Runtime |
-| Actual Section 5 runtime observation | **BLOCKED / MEDIUM** | Accuracy aligns in 144/144 cases; total-time speedup is 2.18x–10,640x, but unmatched hardware prevents a valid runtime falsification |
+| C1 | repro/src/run_claim1_theorem_audit.py and verify_claim1_theorem_audit.py | space_candidate/evidence/claim-1/theorem_audit_run.json, method, limitations, and source audit |
+| C2 | repro/src/verify_claim2_dependency_audit.py, verify_claim2_dependency_independent.py, and the two lower-bound verifiers | space_candidate/evidence/claim-2/dependency_audit_run.json, outputs/c2_proof_certificate.json, and outputs/c2_universal_smt_certificate.json |
+| C3 | repro/src/verify_claim3_pure_dp.py and verify_claim3_pure_dp_independent.py | space_candidate/evidence/claim-3/formal_run.json and pure_dp_certificate_run.json |
+| C4 | repro/src/verify_claim4_counterexample.py and its independent checker | space_candidate/evidence/claim-4/counterexample_run.json and counterexample.json |
+| C5a | repro/src/verify_claim5_source.py plus the independent source checker | space_candidate/evidence/claim-5/source_verifier_run.json and source_independent_run.json |
+| C5b | repro/src/run_claim5_runtime.py and verify_claim5_runtime.py | space_candidate/evidence/claim-5/cumulative_runtime_run.json, raw timing summaries, and the report |
+| C5 accuracy | repro/src/run_claim5_accuracy.py and verify_claim5_accuracy.py | space_candidate/evidence/claim-5/cumulative_accuracy_run.json and accuracy tables |
 
-Read the [illustrated technical report](reports/dprsc-reproduction-2026-07-26/report.md)
-or open the [self-contained marimo tutorial](notebooks/dprsc_reproduction.py).
-The notebook embeds the central result and does not rerun expensive
-experiments.
+Every claim has a machine-readable contract in the corresponding
+space_candidate/evidence/claim-* directory. claims.json is the concise
+repository-level ledger; it does not replace the raw artifacts.
 
 ## Reproduce
 
-The environment is Python 3.12 with one repository-level `.venv`, managed and
-locked by `uv`. The fixed command on every experiment node is:
+Requirements are Python 3.12 and uv. The lockfile is authoritative.
 
-```bash
+~~~bash
 uv run --frozen python repro/src/run_campaign.py
-```
+~~~
 
-The command regenerates raw records, runs independent checkers, and requires
-every negative control to exit nonzero. Long and uncertain CPU runs used
-Hugging Face `cpu-upgrade`; no GPU was used. The final cumulative scientific
-run estimated 4 cores and 15–30 minutes, observed 64 logical CPUs, and took
-1,036.093 seconds (`17m46s` orchestrator duration).
+The command regenerates the campaign records and runs the independent
+checkers. Short proof and counterexample checks run single-threaded on CPU.
+The larger accuracy and runtime protocols used a CPU-only environment; no GPU
+result is claimed.
 
-## Experiment log
+Dataset snapshots bundled by the official code are:
 
-| Branch / experiment | Purpose or change | Exact run command | Assessment / outcome | Compute |
-| --- | --- | --- | --- | --- |
-| [`orx/validated-5-10-baseline`](https://github.com/MachineLearning-Nerd/icml26-repro-qypbyrxstg-dprsc/tree/orx/validated-5-10-baseline) | Freeze judged state | `uv run --frozen python repro/src/run_campaign.py` | Historical 5/10 baseline | Local, 1 core, 3.099s |
-| [`orx/claim-4-estimatehs-negative-scale-counterexample`](https://github.com/MachineLearning-Nerd/icml26-repro-qypbyrxstg-dprsc/tree/orx/claim-4-estimatehs-negative-scale-counterexample) | Test Algorithm 4/5 total-domain validity | `uv run --frozen python repro/src/run_campaign.py` | Claim 4 FALSIFIED/HIGH | Local, single-threaded, 4.139s |
-| [`orx/claim-3-pure-dp-proof-audit-and-visible-claim-4`](https://github.com/MachineLearning-Nerd/icml26-repro-qypbyrxstg-dprsc/tree/orx/claim-3-pure-dp-proof-audit-and-visible-claim-4) | Reconstruct Algorithms 1–3 proof | `uv run --frozen python repro/src/run_campaign.py` | Claim 3 VERIFIED/HIGH | Local, single-threaded, 4.106s |
-| [`orx/claim-2-imported-lower-bound-lemma-audit`](https://github.com/MachineLearning-Nerd/icml26-repro-qypbyrxstg-dprsc/tree/orx/claim-2-imported-lower-bound-lemma-audit) | Audit imported lower-bound dependencies | `uv run --frozen python repro/src/run_campaign.py` | Claim 2 BLOCKED/LOW after four routes | Local, single-threaded |
-| [`orx/claim-5-full-three-dataset-paper-protocol-reprod`](https://github.com/MachineLearning-Nerd/icml26-repro-qypbyrxstg-dprsc/tree/orx/claim-5-full-three-dataset-paper-protocol-reprod) | Full accuracy protocol | `uv run --frozen python repro/src/run_campaign.py` | 144/144 orderings hold | HF cpu-upgrade |
-| [`orx/claim-5-adaptive-rse-runtime-and-cumulative-accu`](https://github.com/MachineLearning-Nerd/icml26-repro-qypbyrxstg-dprsc/tree/orx/claim-5-adaptive-rse-runtime-and-cumulative-accu) | Exact adaptive runtime protocol | `uv run --frozen python repro/src/run_campaign.py` | Claim 5 BLOCKED/MEDIUM | HF cpu-upgrade, 16m51s |
-| [`orx/claim-1-theorem-audit-and-cumulative-full-scale`](https://github.com/MachineLearning-Nerd/icml26-repro-qypbyrxstg-dprsc/tree/orx/claim-1-theorem-audit-and-cumulative-full-scale) | Four-route Claim 1 audit and cumulative regression | `uv run --frozen python repro/src/run_campaign.py` | Claim 1 BLOCKED/LOW; cumulative PASS | HF cpu-upgrade, 17m46s |
-| [`orx/claim-5-anchored-source-attribution-falsificatio`](https://github.com/MachineLearning-Nerd/icml26-repro-qypbyrxstg-dprsc/tree/orx/claim-5-anchored-source-attribution-falsificatio) | Exact anchored “are reported” source contract | `uv run --frozen python repro/src/run_campaign.py` | Anchored Claim 5 FALSIFIED/HIGH; cumulative PASS | HF cpu-upgrade, 10m53s |
-| `master` | Public landing page, report, and notebook | Not run as an experiment (publication surface) | Presentation only | None |
+- CA-Netscience: 379 vertices, 914 edges
+- Wiki-Squirrel: 5,201 vertices, 198,353 edges
+- WormNet-v3: 16,347 vertices, 762,822 edges
 
-Failed branches are omitted unless they explain the terminal lineage. Raw
-experiment and run IDs are retained in OpenResearch experiment descriptions
-and the candidate evidence pages.
+Accuracy uses ceil(n^1.5) queries, eight epsilon values, and 20 repetitions.
+Runtime samples distinct uniform intervals until relative standard error is
+below 5%, then reports the paper-style extrapolation to the full query domain.
+See [ENVIRONMENT.md](ENVIRONMENT.md) for the exact boundary and limitations.
 
 ## Repository map
 
-- `repro/src/` — fixed campaign, claim runners, independent checkers, controls
-- `.openresearch/artifacts/` — durable contracts, source audits, raw JSON, methods, limitations
-- `upstream/` — released `Airleave/DPRSC` code and datasets pinned at `aae89538`
-- `reports/dprsc-reproduction-2026-07-26/` — illustrated report and source data
-- `notebooks/dprsc_reproduction.py` — bounded tutorial notebook
-- `space_candidate/` — additive evaluator-visible candidate for the existing HF Space
+- repro/src/ — fixed campaign, claim runners, independent checkers, and controls
+- space_candidate/evidence/ — evaluator-visible contracts and run records
+- outputs/ — lower-bound certificates and experiment tables
+- upstream/ — pinned author code and datasets
+- reports/dprsc-reproduction-2026-07-26/ — narrative report and figures
+- notebooks/dprsc_reproduction.py — bounded, non-expensive tutorial
+- paper_2606.08179v1.pdf and source/arxiv/2606.08179v1.tar — pinned paper artifacts
 
-Historical judged Space evidence is preserved unchanged under
-`space_candidate/historical/judged-6d5d785bb7f0386ef5d46b609fb529dbd1058fcb/`
-and labeled exactly **Historical rejected baseline**. It is not the current
-verifier.
+## Branches
+
+The final public branch vocabulary is descriptive. The old orx/* names are
+mapped in [BRANCH_AUDIT.md](BRANCH_AUDIT.md).
+
+| Branch | Purpose |
+| --- | --- |
+| main | Publication surface and integrated documentation |
+| baseline/validated-5-10 | Historical judged baseline |
+| audit/claim-1-theorem | Four-route Theorem 1.3 audit |
+| audit/claim-2-lower-bound | Theorem 1.4 dependency and exponent audit |
+| audit/claim-3-pure-dp | Pure-DP Algorithms 1–3 proof reconstruction |
+| audit/claim-4-negative-scale | Algorithm 4/5 negative-scale counterexample |
+| audit/claim-5-runtime | Adaptive runtime and cumulative timing protocol |
+| audit/claim-5-source-attribution | Exact source-content attribution contract |
+| audit/claim-5-accuracy | Full three-dataset accuracy protocol |
+| audit/exact-source-contracts | Source and claim contract packaging |
+| audit/five-claim-contracts | Integrated five-claim evidence ledger |
+| release/evaluator-visible | Evaluator-facing cumulative release |
+
+## Source and version boundary
+
+The audit pins arXiv v1, its source archive, the rendered HTML used for the
+Claim 5 source contract, and the released author code. The repository does not
+claim that later paper revisions, unpinned author changes, or unavailable
+hardware would produce identical numbers. Hashes and retrieval details are in
+[SOURCE_AUDIT.md](SOURCE_AUDIT.md).
+
+## Citation
+
+If this repository or its audit artifacts are useful, please cite the paper
+and the reproduction record. A ready-to-use CFF file is in
+[CITATION.cff](CITATION.cff).
+
+~~~bibtex
+@misc{chen2026differentially,
+  title         = {Differentially Private Range Subgraph Counting},
+  author        = {Chen, Xian and Bai, Ruobing and Peng, Pan},
+  year          = {2026},
+  eprint        = {2606.08179},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.DS},
+  note          = {ICML 2026}
+}
+~~~
+
+## Thank you
+
+Thank you to Xian Chen, Ruobing Bai, and Pan Peng for making the paper,
+implementation, and data snapshots available. The audit is intended to make
+the evidence easier to inspect and reproduce; it is independent work and
+should not be read as an endorsement by the authors.
+
+See [AUTHOR_THANK_YOU.md](AUTHOR_THANK_YOU.md) for the full note.

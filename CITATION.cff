@@ -1,0 +1,31 @@
+cff-version: 1.2.0
+message: "If this reproduction or audit is useful, please cite the paper and this repository."
+title: "Differentially Private Range Subgraph Counting: reproduction and claim audit"
+type: software
+version: "0.1.0"
+date-released: "2026-08-16"
+authors:
+  - family-names: Jinjala
+    given-names: Dinesh
+    affiliation: MachineLearning-Nerd
+repository-code: "https://github.com/MachineLearning-Nerd/icml26-differentially-private-range-subgraph-counting"
+url: "https://arxiv.org/abs/2606.08179"
+abstract: "A paper-first reproduction, source audit, and claim-to-evidence ledger for Differentially Private Range Subgraph Counting."
+keywords:
+  - differential privacy
+  - range queries
+  - subgraph counting
+  - reproduction
+  - claim audit
+preferred-citation:
+  type: article
+  title: "Differentially Private Range Subgraph Counting"
+  authors:
+    - family-names: Chen
+      given-names: Xian
+    - family-names: Bai
+      given-names: Ruobing
+    - family-names: Peng
+      given-names: Pan
+  year: 2026
+  url: "https://arxiv.org/abs/2606.08179"
